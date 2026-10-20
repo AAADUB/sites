@@ -185,6 +185,17 @@
 .sections-btn .num {
   color: var(--amber);
 }
+/* phones: icon and section number only; the name stays for screen readers */
+@media (max-width: 29.99em) {
+  .sections-btn .cur {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
 
 .sheet {
   position: fixed;
