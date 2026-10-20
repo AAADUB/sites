@@ -15,18 +15,28 @@ export function init(section: HTMLElement) {
   const lang = getLang();
   const labels = tget<Record<string, string>>('sections.efficiency.sankey') ?? {};
   const host = section.querySelector<HTMLElement>('[data-sankey]')!;
-  const W = 640;
   const H = 300;
-  const svg = svgRoot(W, H);
+  const svg = svgRoot(640, H);
   host.appendChild(svg);
+  // narrow screens get a compact geometry (short bands, room for the labels) instead of a shrunken wide one
+  const narrow = () => host.clientWidth > 0 && host.clientWidth < 520;
+  let kindNow: 'petrol' | 'diesel' = 'petrol';
+  let wasNarrow: boolean | null = null;
   const draw = (kind: 'petrol' | 'diesel') => {
+    kindNow = kind;
     svg.replaceChildren();
+    const n = narrow();
+    wasNarrow = n;
+    const W = n ? 360 : 640;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    host.style.aspectRatio = `${W} / ${H}`;
     const sh = SHARES[kind];
     const total = 100;
     const scaleH = 200 / total;
-    const xL = 20;
-    const xSplit = 230;
-    const xR = 470;
+    const xL = n ? 6 : 20;
+    const xSplit = n ? 52 : 230;
+    const xR = n ? 140 : 470;
+    const bend = n ? 40 : 120;
     const top = 50;
     const order: Array<[keyof typeof sh, string]> = [
       ['work', STROKE_COLORS.power],
@@ -46,7 +56,7 @@ export function init(section: HTMLElement) {
       const y0b = ySrc + h;
       const y1a = yDst;
       const y1b = yDst + h;
-      const d = `M${xL + 14} ${y0a} H ${xSplit} C ${xSplit + 120} ${y0a} ${xR - 120} ${y1a} ${xR} ${y1a} V ${y1b} C ${xR - 120} ${y1b} ${xSplit + 120} ${y0b} ${xSplit} ${y0b} H ${xL + 14} Z`;
+      const d = `M${xL + 14} ${y0a} H ${xSplit} C ${xSplit + bend} ${y0a} ${xR - bend} ${y1a} ${xR} ${y1a} V ${y1b} C ${xR - bend} ${y1b} ${xSplit + bend} ${y0b} ${xSplit} ${y0b} H ${xL + 14} Z`;
       const band = s('path', { d, fill: col, 'fill-opacity': k === 'work' ? 0.55 : 0.28, stroke: col, 'stroke-opacity': 0.7, 'stroke-width': 0.8 });
       if (!reducedMotion()) {
         band.style.transformOrigin = `${xL}px 0px`;
@@ -63,6 +73,9 @@ export function init(section: HTMLElement) {
   };
   bindSeg(section, 'sankey', (v) => draw(v as 'petrol' | 'diesel'), 'petrol');
   draw('petrol');
+  new ResizeObserver(() => {
+    if (narrow() !== wasNarrow) draw(kindNow);
+  }).observe(host);
 
   /* hybrid power flow */
   const hHost = section.querySelector<HTMLElement>('[data-hybrid]')!;

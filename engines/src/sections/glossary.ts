@@ -6,7 +6,7 @@ export function init(section: HTMLElement) {
   const items = Array.from(section.querySelectorAll<HTMLElement>('.gl-item'));
   const empty = section.querySelector<HTMLElement>('.glossary-empty')!;
   const count = section.querySelector<HTMLElement>('.glossary-count')!;
-  const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ё/g, 'е');
+  const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ё/g, 'е').replace(/\u00A0/g, ' ');
   const index = items.map((el) => ({ el, text: norm(el.textContent || '') }));
   const run = () => {
     const q = norm(input.value.trim());

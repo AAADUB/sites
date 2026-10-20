@@ -92,6 +92,7 @@
   "closed": "closed",
   "yes": "now",
   "no": "—",
+  "pistonDrop": "Below TDC",
   "fromTop": "below top",
   "strokes": {
    "intake": "Intake",
@@ -113,6 +114,7 @@
   "next": "Next",
   "prev": "Back",
   "reset": "Reset",
+  "assemblyMode": "Assembly",
   "assemble": "Build it",
   "findPart": "Find the part",
   "findPrompt": "Tap the {part}",

@@ -72,7 +72,7 @@ export async function init(section: HTMLElement) {
     const s = strokeAt(th);
     setReadout(ro, 'angle', withUnit(Math.round(th), 'deg', lang));
     setReadout(ro, 'stroke', `<span class="c-${s}">${t(`ui.strokes.${s}`)}</span>`);
-    setReadout(ro, 'piston', `${fmt(pistonDrop(sim.geom, th), lang, 1)} <small>${lang === 'ru' ? 'мм от ВМТ' : 'mm ' + t('ui.fromTop')}</small>`);
+    setReadout(ro, 'piston', `${fmt(pistonDrop(sim.geom, th), lang, 1)} <small>${lang === 'ru' ? 'мм' : 'mm'}</small>`);
     setReadout(ro, 'pressure', withUnit(pressureAt(tb, th), 'bar', lang, 1));
     const iv = valveLift(sim.timing.intake, th) > 0.05;
     const ev = valveLift(sim.timing.exhaust, th) > 0.05;

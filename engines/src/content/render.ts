@@ -114,9 +114,9 @@ function engineControls(c: Ctx, id: string, o: { load?: 'load' | 'fuel'; scrub?:
 
 function figures(c: Ctx, list: Array<{ n: number; u: string; l: string }>) {
   const fmtN = (n: number) => (c.lang === 'ru' ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u202F') : n.toLocaleString('en-US'));
-  return `<dl class="figures reveal">${list
+  return `<div class="figures-wrap"><dl class="figures reveal" data-n="${list.length}">${list
     .map((f) => `<div class="figure"><dt class="sr-only">${plain(f.l)}</dt><dd><span class="fig-num num" data-count="${f.n}">${fmtN(f.n)}</span><span class="fig-unit num">${esc(f.u)}</span><span class="fig-label">${c.m(f.l)}</span></dd></div>`)
-    .join('')}</dl>`;
+    .join('')}</dl></div>`;
 }
 
 function blueprint(c: Ctx) {
@@ -148,7 +148,7 @@ function blueprint(c: Ctx) {
 }
 
 function readouts(_c: Ctx, id: string, items: Array<[string, string]>) {
-  return `<dl class="readouts" data-readouts="${id}" aria-live="off">${items
+  return `<dl class="readouts" data-readouts="${id}" data-n="${items.length}" aria-live="off">${items
     .map(([k, label]) => `<div class="readout" data-r="${k}"><dt>${esc(label)}</dt><dd>–</dd></div>`)
     .join('')}</dl>`;
 }
@@ -159,7 +159,7 @@ function hero(c: Ctx) {
   const h = c.d.hero;
   return `<section id="top" class="hero" aria-labelledby="hero-title">
     <div class="stage hero-stage" data-stage="hero" role="img" aria-label="${esc(h.stageLabel)}">
-      <img class="stage-poster hero-poster" src="${B}stills/hero.webp" srcset="${B}stills/hero-800.webp 800w, ${B}stills/hero.webp 1600w, ${B}stills/hero-2400.webp 2400w" sizes="100vw" alt="" fetchpriority="high" decoding="async" width="1600" height="1000">
+      <picture><source media="(max-aspect-ratio: 4/5)" srcset="${B}stills/hero-m-560.webp 560w, ${B}stills/hero-m.webp 860w" sizes="100vw" width="860" height="1864"><img class="stage-poster hero-poster" src="${B}stills/hero.webp" srcset="${B}stills/hero-800.webp 800w, ${B}stills/hero.webp 1600w, ${B}stills/hero-2400.webp 2400w" sizes="100vw" alt="" fetchpriority="high" decoding="async" width="1600" height="1000"></picture>
       <div class="stage-label-layer" aria-hidden="true"></div>
     </div>
     <div class="hero-copy wrap">
@@ -210,7 +210,7 @@ function anatomy(c: Ctx) {
           ${card('try', c.d.labels.try, s.try, c)}
           <div class="anatomy-tools reveal">
             <div class="control-row">
-              ${seg('amode', u.view, [['build', u.assemble], ['find', u.findPart]], 'build')}
+              ${seg('amode', u.view, [['build', u.assemblyMode], ['find', u.findPart]], 'build')}
             </div>
             <div class="build-panel">
               <div class="control-row">
@@ -249,7 +249,7 @@ function fourStroke(c: Ctx) {
           ${readouts(c, 'fs', [
             ['angle', u.crankAngle],
             ['stroke', u.stroke],
-            ['piston', u.piston],
+            ['piston', u.pistonDrop],
             ['pressure', u.pressure],
             ['valves', u.valves],
             ['spark', u.spark],
@@ -322,7 +322,7 @@ function twoStroke(c: Ctx) {
       ${sectionHead(c, 'two-stroke', s)}
       <div class="sec-body">
         <div class="stage-col sticky">
-          ${stage('twoStroke', s.see, { ui: `<div class="stage-ui tl"><span class="chip port-chip" aria-hidden="true"></span></div>` })}
+          ${stage('twoStroke', s.see, { ui: `<div class="stage-ui tl"><span class="chip stroke-chip port-chip" aria-hidden="true"><span class="dot"></span><span class="stroke-name"></span></span></div>` })}
           ${readouts(c, 'ts', [
             ['angle', u.crankAngle],
             ['phase', u.stroke],
@@ -656,6 +656,7 @@ function games(c: Ctx) {
         </div>
         <div class="card game reveal" data-game="find">
           <h3>${esc(s.find.h)}</h3><p class="note">${c.m(s.find.t)}</p>
+          <a class="find-thumb" href="#anatomy" tabindex="-1" aria-hidden="true"><img src="${B}stills/anatomy-800.webp" alt="" loading="lazy" decoding="async" width="800" height="550"><span class="find-reticle">${icon('target')}</span></a>
           <div class="control-row"><a class="btn btn-sm" href="#anatomy" data-act="find-go">${icon('target')}<span class="btn-label">${esc(s.find.go)}</span></a></div>
         </div>
         <div class="card game reveal" data-game="guess">
@@ -746,7 +747,8 @@ export function renderPage(d: Dict, lang: 'en' | 'ru'): { head: string; body: st
     <link rel="preconnect" href="https://p.typekit.net" crossorigin>
     <link rel="stylesheet" href="${KIT_CSS}" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="${KIT_CSS}"></noscript>
-    <link rel="preload" as="image" href="${B}stills/hero.webp" imagesrcset="${B}stills/hero-800.webp 800w, ${B}stills/hero.webp 1600w, ${B}stills/hero-2400.webp 2400w" imagesizes="100vw" fetchpriority="high">
+    <link rel="preload" as="image" href="${B}stills/hero-m.webp" imagesrcset="${B}stills/hero-m-560.webp 560w, ${B}stills/hero-m.webp 860w" imagesizes="100vw" media="(max-aspect-ratio: 4/5)" fetchpriority="high">
+    <link rel="preload" as="image" href="${B}stills/hero.webp" imagesrcset="${B}stills/hero-800.webp 800w, ${B}stills/hero.webp 1600w, ${B}stills/hero-2400.webp 2400w" imagesizes="100vw" media="(min-aspect-ratio: 4.001/5)" fetchpriority="high">
     <style>html{background:#08090b;color:#e8eaed;color-scheme:dark}body{margin:0;background:#08090b}.preloader{position:fixed;inset:0;z-index:400;display:grid;place-items:center;background:#08090b;animation:pl-out .4s ease .8s forwards}.preloader svg{width:64px;height:64px}.preloader .needle{transform-origin:32px 32px;animation:pl-spin 1s cubic-bezier(.65,0,.35,1) infinite}@keyframes pl-spin{to{transform:rotate(360deg)}}@keyframes pl-out{to{opacity:0;visibility:hidden}}html.loaded .preloader{animation:pl-out .35s ease forwards}@media (prefers-reduced-motion:reduce){.preloader{display:none}}</style>
     <script>(function(){var d=document.documentElement;d.className=d.className.replace('no-js','js');try{var s=JSON.parse(localStorage.getItem('ic-settings-v1')||'{}');var r=s.motion==='reduced'||(s.motion!=='full'&&matchMedia('(prefers-reduced-motion: reduce)').matches);d.setAttribute('data-motion',r?'reduced':'full');if(s.quality&&s.quality!=='auto')d.setAttribute('data-quality',s.quality)}catch(e){}})();</script>`;
 

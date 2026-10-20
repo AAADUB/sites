@@ -3,8 +3,22 @@ import { resolve } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { renderPage } from './src/content/render';
 
+/** Typographic non-breaking spaces: no line may start with a dash, and Russian short words stay with the next word. */
+function typo<T>(v: T, lang: 'en' | 'ru'): T {
+  if (typeof v === 'string') {
+    let s = v.replace(/ — /g, '\u00A0— ');
+    if (lang === 'ru') {
+      s = s.replace(/(?<=^|[\s(«„])(в|во|и|с|со|к|ко|а|о|об|у|я|на|не|ни|за|по|до|от|из|но|или|без|для|при|про)\s/giu, '$1\u00A0');
+    }
+    return s as T;
+  }
+  if (Array.isArray(v)) return v.map((x) => typo(x, lang)) as T;
+  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, typo(x, lang)])) as T;
+  return v;
+}
+
 function content(): Plugin {
-  const load = (lang: 'en' | 'ru') => JSON.parse(readFileSync(resolve(__dirname, `src/i18n/${lang}.json`), 'utf8'));
+  const load = (lang: 'en' | 'ru') => typo(JSON.parse(readFileSync(resolve(__dirname, `src/i18n/${lang}.json`), 'utf8')), lang);
   return {
     name: 'ic-content',
     transformIndexHtml: {

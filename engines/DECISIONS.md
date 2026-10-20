@@ -22,3 +22,8 @@ One line per decision, with the reason.
 - three-bvh-csg passes a deprecated three-mesh-bvh option; a small build transform renames it so the console stays clean.
 - 3D scenes start on the reader's first scroll, pointer move, touch or key (or 6.5 s after load); until then the hero shows a still of the same scene. The WebGL probe also waits for that moment, because creating a GL context can block the main thread for over a second on software renderers.
 - Inactive story beats and stroke cards are dimmed by text colour, not opacity, so dimmed text still meets WCAG AA contrast.
+- Number grids (key figures, live readouts) are laid out by item count, so no row is left half empty at any width; the tools lab gives the P–V diagram two columns and the turbo diagram a full row.
+- Phones get a portrait hero still rendered for their layout, so the loading poster and the live scene line up.
+- Russian text gets non-breaking spaces after short prepositions and conjunctions, and no line in either language starts with a dash; this is applied once at build time to all copy.
+- Pedals in the gearbox demo latch on a quick tap and act as hold-to-press on a long press, because a plain click must visibly do something.
+- Without WebGL every 3D view falls back to a still of the same scene (the comparison shows the two chosen engines), and every tool, chart and game keeps working.

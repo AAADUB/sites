@@ -34,9 +34,11 @@ async function shot(url, w, h, dpr, waitSel) {
     await page.goto(url, { waitUntil: 'load' });
     await page.waitForSelector(waitSel, { timeout: 360000 });
     await page.waitForTimeout(3500);
-    return await page.screenshot({ type: 'png', timeout: 240000 });
+    return await page.screenshot({ type: 'png', timeout: 480000 });
   } finally {
-      }
+    await Promise.race([browser.close(), new Promise((r) => setTimeout(r, 10000))]).catch(() => {});
+    browser.process?.()?.kill('SIGKILL');
+  }
 }
 
 for (const id of STAGES) {
@@ -52,6 +54,15 @@ for (const id of STAGES) {
   console.log('still', id);
 }
 
+// portrait hero for phones, so the poster matches the live layout there
+if (!only.length || only.includes('hero-m')) {
+  const png = await shot(`${base}?capture=hero`, 430, 932, 2, '[data-stage="hero"].is-live');
+  const img = sharp(png);
+  await img.clone().resize(860).webp({ quality: 76, effort: 6 }).toFile(resolve(outDir, 'hero-m.webp'));
+  await img.clone().resize(560).webp({ quality: 74, effort: 6 }).toFile(resolve(outDir, 'hero-m-560.webp'));
+  console.log('still hero-m');
+}
+
 if (!only.length || only.includes('og')) {
   for (const lang of ['en', 'ru']) {
     const url = `${base}${lang === 'ru' ? 'ru/' : ''}?capture=og`;
@@ -60,3 +71,4 @@ if (!only.length || only.includes('og')) {
     console.log('og', lang);
   }
 }
+process.exit(0);

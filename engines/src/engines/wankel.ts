@@ -149,7 +149,13 @@ export class WankelEngine {
     const lobe = new THREE.Mesh(cylZ(0.62, 0.36, 64), sm.mat);
     lobe.position.x = this.g.e * S;
     this.shaft.add(shaft, lobe);
-    const pulley = new THREE.Mesh(lathe([[0, -0.06], [0.34, -0.06], [0.34, 0.06], [0, 0.06]], 64), makeMaterial('darksteel').mat);
+    // front pulley: V-groove rim and a raised hub, satin finish so it reads as a disc, not a mirror ball
+    const pulleyM = makeMaterial('steel', { color: '#8d939b', bump: 0.04, smooth: true });
+    pulleyM.mat.roughness = 0.5;
+    const pulley = new THREE.Mesh(
+      lathe([[0, -0.06], [0.34, -0.06], [0.34, -0.03], [0.3, 0], [0.34, 0.03], [0.34, 0.06], [0.13, 0.06], [0.13, 0.1], [0.05, 0.1], [0.05, 0.12], [0, 0.12]], 64),
+      pulleyM.mat,
+    );
     pulley.rotation.x = Math.PI / 2;
     pulley.position.z = 0.75;
     this.shaft.add(pulley);

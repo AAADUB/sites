@@ -100,7 +100,7 @@ export function init(section: HTMLElement) {
     });
     // knock zone for petrol
     g.appendChild(s('rect', { x: X(14), y: 14, width: X(24) - X(14), height: H - 48, fill: 'rgba(255,138,31,0.08)' }));
-    g.appendChild(s('text', { x: X(19), y: 28, 'text-anchor': 'middle', style: 'fill:#ffb347' }, t('ui.knockZone')));
+    g.appendChild(s('text', { x: X(19), y: H - 44, 'text-anchor': 'middle', style: 'fill:#ffb347' }, t('ui.knockZone')));
     const otto: Array<[number, number]> = [];
     const dsl: Array<[number, number]> = [];
     for (let r = 6; r <= 24.01; r += 0.25) {
@@ -110,7 +110,7 @@ export function init(section: HTMLElement) {
     g.appendChild(s('path', { d: pathD(otto), fill: 'none', stroke: '#e8eaed', 'stroke-width': 1.8 }));
     g.appendChild(s('path', { d: pathD(dsl), fill: 'none', stroke: STROKE_COLORS.compression, 'stroke-width': 1.8, 'stroke-dasharray': '5 4' }));
     g.appendChild(s('text', { x: X(23.5), y: Y(ottoEfficiency(23.5)) - 8, 'text-anchor': 'end', style: 'fill:#e8eaed' }, t('ui.otto')));
-    g.appendChild(s('text', { x: X(23.5), y: Y(dieselEfficiency(23.5, 2)) + 16, 'text-anchor': 'end', style: `fill:${STROKE_COLORS.compression}` }, `${t('ui.dieselCycle')} (ρ = 2)`));
+    g.appendChild(s('text', { x: X(23.5), y: Y(dieselEfficiency(23.5, 2)) + 20, 'text-anchor': 'end', style: `fill:${STROKE_COLORS.compression}` }, `${t('ui.dieselCycle')} (ρ = 2)`));
     const line = s('line', { y1: 14, y2: H - 34, stroke: 'rgba(255,255,255,0.35)', 'stroke-dasharray': '3 3' });
     const dot1 = s('circle', { r: 4.5, fill: '#e8eaed' });
     const dot2 = s('circle', { r: 4.5, fill: STROKE_COLORS.compression });
@@ -273,7 +273,7 @@ function initValveWheel(section: HTMLElement, sim: ReturnType<typeof petrolSim>)
   const exhaustArc = s('path', { fill: 'none', stroke: STROKE_COLORS.exhaust, 'stroke-width': 12, 'stroke-linecap': 'round', style: 'cursor:grab' });
   const overlapArc = s('path', { fill: 'none', stroke: '#fff3d6', 'stroke-width': 3 });
   const spark = s('circle', { r: 5, fill: STROKE_COLORS.power });
-  const pointer = s('line', { x1: C, y1: C, stroke: '#e8eaed', 'stroke-width': 1.5 });
+  const pointer = s('line', { x1: C, y1: C, stroke: '#e8eaed', 'stroke-width': 2, 'stroke-linecap': 'round' });
   const hub = s('circle', { cx: C, cy: C, r: 4, fill: '#e8eaed' });
   const info = s('text', { x: C, y: C + 24, 'text-anchor': 'middle', style: 'font-size:10px' });
   svg.append(intakeArc, exhaustArc, overlapArc, spark, pointer, hub, info);
@@ -348,8 +348,10 @@ function initValveWheel(section: HTMLElement, sim: ReturnType<typeof petrolSim>)
   onTick(() => {
     if (!vis) return;
     const th = wrap720(sim.theta);
+    // the crank hand runs over the rings only, so it never crosses the labels in the middle
+    const [x0, y0] = pt(th, 66);
     const [x, y] = pt(th, 128);
-    setAttrs(pointer, { x2: x, y2: y });
+    setAttrs(pointer, { x1: x0, y1: y0, x2: x, y2: y });
     const [sx, sy] = pt(sim.table.ignition, rE - 16);
     setAttrs(spark, { cx: sx, cy: sy });
   }, 55);

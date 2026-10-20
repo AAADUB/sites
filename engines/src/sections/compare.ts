@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { registerStage, captureFreeze } from './shared';
+import { webglSupported } from '../core/support';
 import { createBase, type BaseScene } from '../engines/common';
 import { SingleCylinderEngine } from '../engines/singleCylinder';
 import { TwoStrokeEngine } from '../engines/twoStroke';
@@ -92,6 +93,22 @@ export async function init(section: HTMLElement) {
 
   const stageEl = section.querySelector<HTMLElement>('[data-stage="compare"]');
   stageEl?.classList.add('no-rotate');
+
+  // without WebGL, show the two chosen engines as stills side by side
+  const STILL: Record<Kind, string> = { petrol: 'fourStroke', diesel: 'diesel', two: 'twoStroke', wankel: 'wankel' };
+  let fallback: HTMLElement | null = null;
+  const fillFallback = () => {
+    if (!fallback) return;
+    const base = import.meta.env.BASE_URL;
+    fallback.innerHTML = [a, b].map((k) => `<img src="${base}stills/${STILL[k]}-800.webp" alt="" loading="lazy" decoding="async" width="800" height="550">`).join('');
+  };
+  if (stageEl && !webglSupported()) {
+    stageEl.querySelector('.stage-poster')?.remove();
+    fallback = document.createElement('div');
+    fallback.className = 'cmp-fallback';
+    stageEl.prepend(fallback);
+    fillFallback();
+  }
   registerStage(stageEl, async (stage) => {
     let left = await buildSide(stage, a, () => clock.rpm);
     let right = await buildSide(stage, b, () => clock.rpm);
@@ -170,6 +187,7 @@ export async function init(section: HTMLElement) {
     a = selA.value as Kind;
     b = selB.value as Kind;
     fillTable();
+    fillFallback();
     rebuild?.();
   };
   selA.addEventListener('change', onChange);

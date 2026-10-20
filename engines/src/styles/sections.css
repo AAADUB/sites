@@ -43,6 +43,12 @@
     object-position: 50% 30%;
   }
 }
+@media (max-aspect-ratio: 4/5) {
+  /* phones get a portrait still rendered for this layout */
+  .hero-stage .stage-poster {
+    object-position: 50% 50%;
+  }
+}
 .hero-copy {
   position: relative;
   z-index: 2;
@@ -221,7 +227,6 @@ html[data-motion='reduced'] .beat {
     min-height: 220px;
   }
   .sticky-mobile .readouts {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-top: 0.5rem;
   }
   .sticky-mobile .readout {
@@ -286,6 +291,16 @@ html[data-motion='reduced'] .stroke-cards {
   .kbd-note {
     display: block;
   }
+}
+.pv-mini,
+.pv-big {
+  position: relative;
+}
+.pv-mini > canvas,
+.pv-big > canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .pv-mini {
   width: 100%;
@@ -428,7 +443,8 @@ html[data-motion='reduced'] .stroke-cards {
 }
 .sys-tabs button {
   min-height: 44px;
-  padding: 0.5rem 0.95rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.9375rem;
   border-radius: 999px;
   border: 1px solid var(--hairline-2);
   background: transparent;
@@ -463,6 +479,46 @@ html[data-motion='reduced'] .stroke-cards {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   margin-bottom: var(--space-6);
 }
+.find-thumb {
+  position: relative;
+  display: block;
+  margin: var(--space-4) 0;
+  border-radius: var(--radius-2);
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: var(--bg-1);
+  aspect-ratio: 16 / 10;
+}
+.find-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.85;
+  transition: opacity var(--dur-2), transform var(--dur-3) var(--ease-out);
+}
+.find-thumb:hover img {
+  opacity: 1;
+  transform: scale(1.03);
+}
+.find-reticle {
+  position: absolute;
+  left: 58%;
+  top: 46%;
+  width: 3rem;
+  height: 3rem;
+  margin: -1.5rem 0 0 -1.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  box-shadow: 0 0 0 6px rgba(255, 138, 31, 0.12);
+}
+.find-reticle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 .boost-diagram,
 .boost-chart,
 .lag-chart,
@@ -495,6 +551,7 @@ html[data-motion='reduced'] .stroke-cards {
 }
 .pv-big {
   aspect-ratio: 16 / 10;
+  overflow: hidden;
   border-radius: var(--radius-1);
   background: rgba(8, 9, 11, 0.5);
   border: 1px solid var(--hairline);
@@ -551,6 +608,11 @@ html[data-motion='reduced'] .stroke-cards {
   font-family: var(--f-mono);
   font-size: 11px;
   fill: var(--text-2);
+  /* a dark halo keeps labels readable where they cross lines and curves */
+  paint-order: stroke;
+  stroke: #111317;
+  stroke-width: 3px;
+  stroke-linejoin: round;
 }
 .chart-svg .axis {
   stroke: var(--hairline-2);
@@ -1055,9 +1117,12 @@ html[data-motion='reduced'] .chart-svg .spark-blink {
 }
 
 /* key figures with large numerals */
+.figures-wrap {
+  container-type: inline-size;
+}
 .figures {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   margin: var(--space-5) 0 0;
   border-radius: var(--radius-2);
@@ -1065,7 +1130,26 @@ html[data-motion='reduced'] .chart-svg .spark-blink {
   border: 1px solid var(--hairline);
   background: var(--hairline);
 }
+.figures[data-n='3'] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@container (min-width: 40rem) {
+  .figures[data-n='4'] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@container (max-width: 22rem) {
+  .figures[data-n='3'] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@container (max-width: 17rem) {
+  .figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 .figure {
+  container-type: inline-size;
   background: rgba(14, 16, 20, 0.92);
   padding: 1rem 1.1rem 1.1rem;
 }
@@ -1073,7 +1157,7 @@ html[data-motion='reduced'] .chart-svg .spark-blink {
   margin: 0;
 }
 .fig-num {
-  font-size: var(--step-4);
+  font-size: min(var(--step-4), 21cqi);
   line-height: 1;
   color: var(--white-hot);
   letter-spacing: -0.03em;
@@ -1099,4 +1183,93 @@ html[data-motion='reduced'] .chart-svg .spark-blink {
   height: auto;
   margin: 0 auto 0.5rem;
   display: block;
+}
+
+/* desktop: the story stage fills the screen height while the beats scroll past */
+@container sec (min-width: 60rem) {
+  .story-stage .stage {
+    aspect-ratio: auto;
+    height: calc(100svh - var(--header-h) - 3rem);
+    max-height: 60rem;
+    min-height: 26rem;
+  }
+}
+
+/* boost: the flow diagram gets a full row so its labels stay readable; the two charts share the next row */
+@container sec (min-width: 48rem) {
+  .boost-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .boost-diagram-card {
+    grid-column: 1 / -1;
+  }
+  .boost-diagram {
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+}
+
+/* tools lab: the P–V diagram gets two columns, the other four tools fill the rest without gaps */
+@container sec (min-width: 48rem) {
+  .lab-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lab-grid > .tool-pv {
+    grid-column: span 2;
+  }
+}
+@container sec (min-width: 72rem) {
+  .lab-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* compare without WebGL: the two chosen engines as stills */
+.cmp-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 0;
+}
+.cmp-fallback img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* soft edges where the timeline cards slide out of view */
+.timeline {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent 100%);
+}
+
+/* compare table on phones: three narrow columns that wrap instead of scrolling sideways */
+@container sec (max-width: 34rem) {
+  .cmp-table {
+    min-width: 0;
+    table-layout: fixed;
+    font-size: 0.875rem;
+  }
+  .cmp-table th,
+  .cmp-table td {
+    padding: 0.6rem 0.55rem;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+  .cmp-table tbody th {
+    width: 32%;
+  }
+}
+
+/* boost flow diagram on phones: keep labels readable, scroll sideways if needed */
+@container sec (max-width: 34rem) {
+  .boost-diagram {
+    overflow-x: auto;
+    aspect-ratio: auto;
+  }
+  .boost-diagram svg {
+    min-width: 30rem;
+    height: auto;
+  }
 }

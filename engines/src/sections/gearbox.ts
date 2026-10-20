@@ -102,31 +102,43 @@ export function init(section: HTMLElement) {
   buttons.forEach((b) => b.addEventListener('click', () => setGear(b.dataset.gear === 'N' ? 0 : +b.dataset.gear!)));
   const accelBtn = demo.querySelector<HTMLButtonElement>('[data-act="accel"]')!;
   const brakeBtn = demo.querySelector<HTMLButtonElement>('[data-act="brake"]')!;
+  const pedals: Array<{ btn: HTMLButtonElement; set: (on: boolean) => void }> = [];
+  const press = (btn: HTMLButtonElement, on: boolean) => {
+    // the two pedals are exclusive: pressing one releases the other
+    for (const p of pedals) {
+      const want = p.btn === btn ? on : on ? false : p.btn.getAttribute('aria-pressed') === 'true';
+      p.btn.setAttribute('aria-pressed', String(want));
+      p.set(want);
+    }
+  };
   const hold = (btn: HTMLButtonElement, set: (on: boolean) => void) => {
-    // press and hold (pointer), or toggle with keyboard/click
+    // a quick tap latches the pedal on (tap again to release); pressing and holding works like a real pedal
+    pedals.push({ btn, set });
+    let downAt = 0;
+    let wasOn = false;
     let pointer = false;
     btn.addEventListener('pointerdown', (e) => {
       pointer = true;
+      downAt = performance.now();
+      wasOn = btn.getAttribute('aria-pressed') === 'true';
       btn.setPointerCapture(e.pointerId);
-      set(true);
-      btn.setAttribute('aria-pressed', 'true');
+      press(btn, true);
     });
     const up = () => {
       if (!pointer) return;
-      set(false);
-      btn.setAttribute('aria-pressed', 'false');
+      const tap = performance.now() - downAt < 300;
+      if (!tap || wasOn) press(btn, false);
     };
     btn.addEventListener('pointerup', up);
     btn.addEventListener('pointercancel', up);
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
       if (pointer) {
         pointer = false;
         return;
       }
-      const on = btn.getAttribute('aria-pressed') !== 'true';
-      btn.setAttribute('aria-pressed', String(on));
-      set(on);
-      e.preventDefault();
+      // keyboard: toggle
+      press(btn, btn.getAttribute('aria-pressed') !== 'true');
     });
   };
   hold(accelBtn, (on) => (accel = on));

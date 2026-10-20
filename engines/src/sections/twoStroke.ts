@@ -100,9 +100,11 @@ export async function init(section: HTMLElement) {
     const exL = lang === 'ru' ? 'вып' : 'ex';
     const trL = lang === 'ru' ? 'прод' : 'tr';
     setReadout(ro, 'ports', `<span class="${ex ? 'state-on' : ''}">${exL} ${ex ? '●' : '○'}</span> <span class="${tr ? 'state-on' : ''}">${trL} ${tr ? '●' : '○'}</span>`);
-    if (chip) {
-      chip.textContent = label;
-      chip.style.color = phase === 'intake' ? STROKE_COLORS.intake : STROKE_COLORS[phase];
+    if (chip && chip.dataset.s !== phase) {
+      chip.dataset.s = phase;
+      const name = chip.querySelector('.stroke-name');
+      if (name) name.textContent = label;
+      chip.style.color = STROKE_COLORS[phase];
     }
   });
 }

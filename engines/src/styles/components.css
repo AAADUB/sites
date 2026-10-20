@@ -102,7 +102,7 @@
   flex-wrap: wrap;
   padding: 3px;
   gap: 3px;
-  border-radius: 999px;
+  border-radius: 22px;
   border: 1px solid var(--hairline-2);
   background: rgba(21, 24, 29, 0.7);
 }
@@ -611,7 +611,9 @@ kbd {
   height: 56px;
   opacity: 0.7;
 }
-.stage.is-live .stage-loading {
+.stage.is-live .stage-loading,
+.stage.is-built .stage-loading,
+.stage.is-error .stage-loading {
   opacity: 0;
 }
 
@@ -736,6 +738,33 @@ kbd {
   font-size: var(--step-1);
   color: var(--text);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* readout grids sized to their item count so no row is left half empty */
+.readouts[data-n='6'],
+.readouts[data-n='3'] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.readouts[data-n='5'] {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.readouts[data-n='5'] > :nth-child(-n + 3) {
+  grid-column: span 2;
+}
+.readouts[data-n='5'] > :nth-child(n + 4) {
+  grid-column: span 3;
+}
+.readouts[data-n='4'] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.stage-col {
+  container: stagecol / inline-size;
+}
+@container stagecol (max-width: 34rem) {
+  .readouts[data-n='4'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .readout dd small {
   font-size: 0.7em;
@@ -942,4 +971,32 @@ html[data-motion='reduced'] .draw circle,
 html[data-motion='reduced'] .draw polyline,
 html[data-motion='reduced'] .draw rect {
   stroke-dashoffset: 0;
+}
+
+/* narrow stage columns (phones): tighter readouts and stroke buttons so values are not cut off */
+@container stagecol (max-width: 26rem) {
+  .readout {
+    padding: 0.45rem 0.5rem;
+  }
+  .readout dt {
+    font-size: 0.6875rem;
+    letter-spacing: 0.03em;
+  }
+  .readout dd {
+    font-size: 0.9375rem;
+  }
+  .steps {
+    gap: 0.3rem;
+  }
+  .steps button {
+    padding: 0.4rem 0.45rem;
+  }
+  .steps button .sname {
+    font-size: 0.8125rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
 }

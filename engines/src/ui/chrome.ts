@@ -162,3 +162,46 @@ export function initChrome() {
   applyMotionAttr();
   void reducedMotion;
 }
+
+/**
+ * Sticky stage columns must fit the screen, or the controls under the stage stay out of reach while
+ * the text scrolls. Cap each sticky stage so stage + readouts + controls fit; if even a small stage
+ * cannot fit, the column simply scrolls with the page.
+ */
+export function initStickyFit() {
+  const cols = Array.from(document.querySelectorAll<HTMLElement>('.stage-col.sticky'));
+  if (!cols.length) return;
+  const MIN = 260;
+  let raf = 0;
+  const fit = () => {
+    raf = 0;
+    const headerH = document.querySelector<HTMLElement>('.site-header')?.offsetHeight ?? 60;
+    const avail = innerHeight - headerH - 40;
+    for (const col of cols) {
+      const stage = col.querySelector<HTMLElement>('.stage');
+      col.classList.remove('unstick');
+      if (!stage || getComputedStyle(col).position !== 'sticky') {
+        if (stage) stage.style.maxHeight = '';
+        continue;
+      }
+      stage.style.maxHeight = '';
+      const below = col.offsetHeight - stage.offsetHeight;
+      const room = avail - below;
+      if (room >= MIN) {
+        col.classList.remove('unstick');
+        if (stage.offsetHeight > room) stage.style.maxHeight = `${Math.floor(room)}px`;
+      } else {
+        col.classList.add('unstick');
+      }
+    }
+  };
+  const schedule = () => {
+    if (!raf) raf = requestAnimationFrame(fit);
+  };
+  addEventListener('resize', schedule, { passive: true });
+  const ro = new ResizeObserver(schedule);
+  cols.forEach((c) => {
+    for (const child of Array.from(c.children)) if (!child.classList.contains('stage')) ro.observe(child);
+  });
+  schedule();
+}

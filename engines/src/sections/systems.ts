@@ -35,7 +35,7 @@ function fuelDiagram() {
     flow('M155 118 H 305', COLORS.cyan, 2, '6 8'),
     s('rect', { x: 222, y: 80, width: 16, height: 24, rx: 3, fill: '#2a2d33', stroke: 'rgba(255,255,255,0.5)' }),
     s('path', { d: 'M230 104 L 214 132 L 246 132 Z', fill: 'rgba(255,179,71,0.25)', class: 'pulse' }),
-    label(53, 98, L('tank')),
+    label(48, 98, L('tank'), 'start'),
     label(58, 154, L('pump'), 'start'),
     label(135, 64, L('rail')),
     label(262, 92, L('injector'), 'start'),
@@ -67,7 +67,7 @@ function ignitionDiagram() {
     label(48, 95, L('lowV'), 'middle', COLORS.text),
     label(160, 128, L('coil')),
     label(218, 52, L('highV'), 'middle', COLORS.cyan),
-    label(292, 70, L('plug'), 'start'),
+    label(254, 104, L('plug'), 'end'),
     label(282, 140, L('spark'), 'start', '#bfe4ff'),
   );
   return g;
@@ -93,7 +93,7 @@ function oilDiagram() {
       flow(`M${x} 108 V 138`, 'rgba(199,125,79,0.9)', 1.5, '2 6'),
     );
   }
-  g.append(label(70, 156, L('oilPump')), label(122, 40, L('filter')), label(225, 54, L('bearings')), label(270, 132, L('oilPan'), 'end'), label(195, 122, L('oilFilm'), 'start', COLORS.amberSoft));
+  g.append(label(70, 156, L('oilPump')), label(122, 40, L('filter')), label(225, 54, L('bearings')), label(270, 132, L('oilPan'), 'end'), label(158, 100, L('oilFilm'), 'end', COLORS.amberSoft));
   return g;
 }
 

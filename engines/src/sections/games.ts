@@ -101,7 +101,7 @@ function orderGame(root: HTMLElement) {
 
 /* ---------------- find the part (plays on the anatomy model) ---------------- */
 function findGame(root: HTMLElement) {
-  root.querySelector('[data-act="find-go"]')!.addEventListener('click', async (e) => {
+  const findGo = async (e: Event) => {
     e.preventDefault();
     e.stopPropagation();
     const anatomy = document.getElementById('anatomy')!;
@@ -113,7 +113,8 @@ function findGame(root: HTMLElement) {
       else if (n < 40) window.setTimeout(() => tryStart(n + 1), 150);
     };
     tryStart();
-  });
+  };
+  root.querySelectorAll('[data-act="find-go"], .find-thumb').forEach((el) => el.addEventListener('click', findGo));
 }
 
 /* ---------------- guess the engine by its rhythm ---------------- */

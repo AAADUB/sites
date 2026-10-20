@@ -4,7 +4,7 @@ import './styles/layout.css';
 import './styles/components.css';
 import './styles/sections.css';
 import { initI18n } from './ui/i18n';
-import { initChrome } from './ui/chrome';
+import { initChrome, initStickyFit } from './ui/chrome';
 import { initScroll } from './ui/scroll';
 import { initReveals, initGlossaryLinks, initCursor, initMagnetic, initFonts, initCounters } from './ui/fx';
 import { probeWebGL } from './core/support';
@@ -45,6 +45,7 @@ initFonts(markLoaded);
 window.setTimeout(markLoaded, 800);
 
 initChrome();
+initStickyFit();
 initScroll();
 initReveals();
 initCounters();
