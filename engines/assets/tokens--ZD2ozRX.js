@@ -1,0 +1,1 @@
+var e={bg0:`#08090b`,bg1:`#0e1014`,surface:`#15181d`,text:`#e8eaed`,text2:`#9aa0a8`,hairline:`rgba(255,255,255,0.08)`,amber:`#ff8a1f`,amberSoft:`#ffb347`,whiteHot:`#fff3d6`,cyan:`#3fd0ff`,violet:`#9d8cff`,exhaust:`#a39a92`,steel:`#8a9099`},t={intake:e.cyan,compression:e.violet,power:e.amber,exhaust:e.exhaust};export{t as n,e as t};
