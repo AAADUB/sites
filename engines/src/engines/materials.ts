@@ -176,7 +176,8 @@ export function makeMaterial(kind: MatKind, opts: { hatch?: boolean; color?: str
     mat.bumpScale = opts.bump ?? (kind === 'iron' ? 0.45 : 0.2);
   }
   if (opts.side !== undefined) mat.side = opts.side;
-  mat.envMapIntensity = kind === 'iron' ? 0.7 : 1.0;
+  // mirror-like parts reflect the bright panels of the studio environment; keep those reflections below the bloom threshold
+  mat.envMapIntensity = kind === 'iron' ? 0.7 : kind === 'polished' || kind === 'chrome' ? 0.7 : 1.0;
   const u = patchMaterial(mat, { hatch: opts.hatch });
   return { mat, u };
 }
