@@ -73,6 +73,9 @@ export class MultiCylinderRig {
       return m;
     };
     const pistonMat = makeMaterial('aluminium', { color: '#c9ccd0' });
+    // seen from above the crowns mirror the studio lights; a satin finish keeps them from flaring
+    pistonMat.mat.roughness = 0.55;
+    pistonMat.mat.envMapIntensity = 0.6;
     const rodMat = makeMaterial('steel');
     const crankMat = makeMaterial('polished');
     const headMat = makeMaterial('aluminium', { color: '#7d848d' });
