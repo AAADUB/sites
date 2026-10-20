@@ -191,3 +191,9 @@ html[data-motion='reduced'] *::after {
 [hidden] {
   display: none !important;
 }
+
+/* the text face ships 400/500/600: bold maps to 600 so no weight is synthesised */
+b,
+strong {
+  font-weight: 600;
+}

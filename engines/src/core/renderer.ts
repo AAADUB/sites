@@ -151,7 +151,7 @@ class Manager {
     r.outputColorSpace = THREE.SRGBColorSpace;
     r.toneMapping = THREE.NoToneMapping;
     r.shadowMap.enabled = true;
-    r.shadowMap.type = THREE.PCFSoftShadowMap;
+    r.shadowMap.type = THREE.PCFShadowMap;
     r.localClippingEnabled = true;
     r.setClearColor(0x000000, 0);
     r.domElement.setAttribute('aria-hidden', 'true');
