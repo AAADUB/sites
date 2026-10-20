@@ -99,7 +99,7 @@ export async function init(section: HTMLElement) {
     const tr = last.trOpen > 0.01;
     const exL = lang === 'ru' ? 'вып' : 'ex';
     const trL = lang === 'ru' ? 'прод' : 'tr';
-    setReadout(ro, 'ports', `<span class="${ex ? 'state-on' : ''}">${exL} ${ex ? '●' : '○'}</span> <span class="${tr ? 'state-on' : ''}">${trL} ${tr ? '●' : '○'}</span>`);
+    setReadout(ro, 'ports', `<span class="${ex ? 'state-on' : ''}">${exL}\u2009${ex ? '●' : '○'}</span> <span class="${tr ? 'state-on' : ''}">${trL}\u2009${tr ? '●' : '○'}</span>`);
     if (chip && chip.dataset.s !== phase) {
       chip.dataset.s = phase;
       const name = chip.querySelector('.stroke-name');

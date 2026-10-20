@@ -46,9 +46,9 @@ export function init(section: HTMLElement) {
     ];
     // source bar
     svg.appendChild(s('rect', { x: xL, y: top, width: 14, height: total * scaleH, fill: '#ffb347' }));
-    svg.appendChild(s('text', { x: xL, y: top - 12, style: 'font-size:13px;fill:#e8eaed' }, `${labels.fuel ?? 'Fuel'} · 100 %`));
+    svg.appendChild(s('text', { x: xL, y: n ? 14 : top - 12, style: 'font-size:13px;fill:#e8eaed' }, `${labels.fuel ?? 'Fuel'} · 100 %`));
     let ySrc = top;
-    let yDst = 22;
+    let yDst = n ? 34 : 22;
     const gap = 18;
     for (const [k, col] of order) {
       const h = sh[k] * scaleH;

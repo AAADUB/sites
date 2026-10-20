@@ -981,9 +981,11 @@ html[data-motion='reduced'] .draw rect {
   .readout dt {
     font-size: 0.6875rem;
     letter-spacing: 0.03em;
+    white-space: normal;
+    line-height: 1.25;
   }
   .readout dd {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
   }
   .steps {
     gap: 0.3rem;

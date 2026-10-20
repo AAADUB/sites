@@ -79,7 +79,7 @@ export async function init(section: HTMLElement) {
     setReadout(
       ro,
       'valves',
-      `<span class="${iv ? 'state-on' : ''}">${lang === 'ru' ? 'вп' : 'in'} ${iv ? '●' : '○'}</span> <span class="${ev ? 'state-on' : ''}">${lang === 'ru' ? 'вып' : 'ex'} ${ev ? '●' : '○'}</span>`,
+      `<span class="${iv ? 'state-on' : ''}">${lang === 'ru' ? 'вп' : 'in'}\u2009${iv ? '●' : '○'}</span> <span class="${ev ? 'state-on' : ''}">${lang === 'ru' ? 'вып' : 'ex'}\u2009${ev ? '●' : '○'}</span>`,
     );
     const since = wrap720(th - tb.ignition);
     setReadout(ro, 'spark', since < 8 ? `<span class="state-on">${t('ui.yes')}</span>` : `${withUnit(Math.round(360 - tb.ignition), 'deg', lang)} <small>${lang === 'ru' ? 'до ВМТ' : 'BTDC'}</small>`);
