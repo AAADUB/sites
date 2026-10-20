@@ -212,9 +212,9 @@ class Manager {
     if (spec.bloom) {
       this.bloom = new BloomEffect({
         // only true HDR light (flame, spark, glowing exhaust) should bloom, not bright metal
-        intensity: 0.85,
-        luminanceThreshold: 1.1,
-        luminanceSmoothing: 0.15,
+        intensity: 1.0,
+        luminanceThreshold: 2.4,
+        luminanceSmoothing: 0.4,
         mipmapBlur: true,
         radius: 0.62,
         levels: tier() === 'high' ? 7 : 5,
