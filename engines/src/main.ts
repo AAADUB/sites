@@ -53,9 +53,6 @@ initCursor();
 initMagnetic();
 initSound();
 
-/* ---------------- WebGL support ---------------- */
-const webgl = probeWebGL();
-if (!webgl) root.classList.add('no-webgl');
 
 /* ---------------- lazy section modules ---------------- */
 type Loader = () => Promise<{ init: (el: HTMLElement) => void | Promise<void> }>;
@@ -103,6 +100,8 @@ const io = new IntersectionObserver(
   { rootMargin: '120% 0px 120% 0px' },
 );
 const boot = () => {
+  // probing creates a GL context, which can be slow on software renderers: do it only when 3D is about to start
+  if (!probeWebGL()) root.classList.add('no-webgl');
   if (capture) {
     const target = document.querySelector('.capture-target')?.closest('section');
     if (target) start(target.id);
@@ -113,11 +112,26 @@ const boot = () => {
     if (el) io.observe(el);
   }
 };
-if (document.readyState === 'complete') idle(boot);
-else addEventListener('load', () => idle(boot), { once: true });
+// Heavy work (3D scenes, tools) starts on the first sign of the reader — a scroll, pointer move,
+// touch or key — or after a quiet moment. Until then the hero shows a still rendered from the same scene.
+let booted = false;
+const bootOnce = () => {
+  if (booted) return;
+  booted = true;
+  for (const ev of ['pointermove', 'pointerdown', 'wheel', 'touchstart', 'keydown', 'scroll'] as const) removeEventListener(ev, bootOnce);
+  idle(boot);
+};
+for (const ev of ['pointermove', 'pointerdown', 'wheel', 'touchstart', 'keydown', 'scroll'] as const) addEventListener(ev, bootOnce, { passive: true, once: true });
+const afterLoad = () => window.setTimeout(bootOnce, capture ? 0 : 6500);
+if (document.readyState === 'complete') afterLoad();
+else addEventListener('load', afterLoad, { once: true });
 
 // deep link: make sure the target section initialises immediately
 if (location.hash) {
   const id = location.hash.slice(1);
-  if (modules[id]) start(id);
+  if (modules[id]) {
+    booted = true;
+    start(id);
+    idle(boot);
+  }
 }

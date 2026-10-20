@@ -160,7 +160,7 @@ export interface PartMaterial {
 }
 
 /** Create a fresh (per-part) material so parts can be highlighted individually. */
-export function makeMaterial(kind: MatKind, opts: { hatch?: boolean; color?: string; side?: THREE.Side; repeat?: number } = {}): PartMaterial {
+export function makeMaterial(kind: MatKind, opts: { hatch?: boolean; color?: string; side?: THREE.Side; repeat?: number; bump?: number; smooth?: boolean } = {}): PartMaterial {
   const p = { ...presets[kind] };
   if (opts.color) p.color = opts.color;
   const mat = new THREE.MeshPhysicalMaterial(p);
@@ -171,9 +171,9 @@ export function makeMaterial(kind: MatKind, opts: { hatch?: boolean; color?: str
       tex.repeat.set(opts.repeat, opts.repeat);
       tex.needsUpdate = true;
     }
-    mat.roughnessMap = tex;
+    if (!opts.smooth) mat.roughnessMap = tex;
     mat.bumpMap = tex;
-    mat.bumpScale = kind === 'iron' ? 0.45 : 0.2;
+    mat.bumpScale = opts.bump ?? (kind === 'iron' ? 0.45 : 0.2);
   }
   if (opts.side !== undefined) mat.side = opts.side;
   mat.envMapIntensity = kind === 'iron' ? 0.7 : 1.0;

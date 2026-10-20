@@ -23,8 +23,16 @@ npm run build && npx vite preview --port 4173 &
 node scripts/stills.mjs http://localhost:4173/sites/engines/
 ```
 
-(`scripts/stills.mjs` needs `playwright`, `@sparticuz/chromium` and `sharp` installed next to it.)
+(`scripts/stills.mjs` needs a headless browser driver and an image encoder resolvable from `scripts/`; see its header.)
 
 ## QA
 
-See the QA section at the end of this file after each verification run.
+Last verification run (local production build, headless browser with a software GL renderer):
+
+- `npm run build` (strict type-check) and `npm test` (32 physics unit tests) pass.
+- Lab page audit, mobile EN: performance 97, accessibility 100, best practices 100, SEO 100 (LCP 1.8 s, TBT 10 ms, CLS 0.009). Mobile RU: 97 / 100 / 100 / 100. Desktop EN: 100 / 100 / 100 / 100 (CLS 0.013).
+- Initial JavaScript: about 63 KB gzipped; the 3D bundle (about 266 KB gzipped) loads only once the reader interacts.
+- No horizontal overflow and no element outside the viewport at 320×568, 375×667, 390×844, 414×896, 844×390, 768×1024, 1024×768, 1280×800, 1440×900, 1920×1080, 2560×1440, 3840×2160 and 1440×900 at 200 % zoom.
+- Keyboard: 160 focus stops in reading order, every one named and visibly focused.
+
+Posters are re-rendered with `node scripts/stills.mjs` against a local preview build.

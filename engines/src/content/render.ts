@@ -59,9 +59,10 @@ function deeper(c: Ctx, paras: string[]) {
     </details>`;
 }
 
+let c3dLabel = '3D view';
 function stage(id: string, label: string, opts: { poster?: string; extraClass?: string; ui?: string } = {}) {
   const poster = opts.poster ?? id;
-  return `<div class="stage ${opts.extraClass ?? ''}" data-stage="${id}" role="img" aria-label="${esc(label)}" data-cursor="cross">
+  return `<div class="stage ${opts.extraClass ?? ''}" data-stage="${id}" role="group" aria-roledescription="${c3dLabel}" aria-label="${esc(label)}" data-cursor="cross">
       <img class="stage-poster" src="${B}stills/${poster}.webp" srcset="${B}stills/${poster}-800.webp 800w, ${B}stills/${poster}.webp 1600w" sizes="(min-width: 960px) 60vw, 100vw" alt="" loading="lazy" decoding="async" width="1600" height="1100">
       <div class="stage-loading" aria-hidden="true"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="22" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1"/><path class="spin" d="M28 6a22 22 0 0 1 22 22" fill="none" stroke="#ff8a1f" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       <div class="stage-label-layer" aria-hidden="true"></div>
@@ -711,6 +712,7 @@ export function renderPage(d: Dict, lang: 'en' | 'ru'): { head: string; body: st
     m: (s: string) => md(s, mctx),
     num: (id: string) => String(SECTION_ORDER.indexOf(id as (typeof SECTION_ORDER)[number]) + 1).padStart(2, '0'),
   };
+  c3dLabel = lang === 'ru' ? '3D-модель' : '3D view';
   const url = lang === 'en' ? SITE_URL : SITE_URL + 'ru/';
   const ogImg = `${SITE_URL}og-${lang}.png`;
   const head = `

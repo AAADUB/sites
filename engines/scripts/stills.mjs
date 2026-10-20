@@ -32,7 +32,7 @@ async function shot(url, w, h, dpr, waitSel) {
     // the web-font kit is only served to the live domains; posters use the fallback faces
     await page.route(/typekit\.net/, (r) => r.abort());
     await page.goto(url, { waitUntil: 'load' });
-    await page.waitForSelector(waitSel, { timeout: 180000 });
+    await page.waitForSelector(waitSel, { timeout: 360000 });
     await page.waitForTimeout(3500);
     return await page.screenshot({ type: 'png', timeout: 240000 });
   } finally {

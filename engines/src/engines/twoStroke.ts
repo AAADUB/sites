@@ -238,14 +238,17 @@ export class TwoStrokeEngine {
     exM.mat.emissive = new THREE.Color('#ff3d0a');
     exM.mat.emissiveIntensity = 0;
     this.exMats.push(exM);
+    // header leaves the exhaust stub, then swells into the chamber
     const pipeCurve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(R + 0.55, (yEx + yBot) / 2 - 0.2, 0),
+      new THREE.Vector3(R + 0.3, (yEx + yBot) / 2, 0),
+      new THREE.Vector3(R + 0.48, (yEx + yBot) / 2 - 0.06, 0),
+      new THREE.Vector3(R + 0.62, (yEx + yBot) / 2 - 0.24, 0),
       new THREE.Vector3(R + 0.85, (yEx + yBot) / 2 - 0.6, 0),
       new THREE.Vector3(R + 0.95, 0.2, 0),
       new THREE.Vector3(R + 0.95, -0.7, 0),
     ]);
     const pipe = new THREE.Mesh(
-      closedTube(pipeCurve, (t) => 0.1 + 0.16 * Math.sin(Math.min(1, t * 1.2) * Math.PI) * (t < 0.85 ? 1 : 0.6), 64, 28),
+      closedTube(pipeCurve, (t) => 0.1 + 0.16 * Math.sin(Math.min(1, Math.max(0, t - 0.12) * 1.35) * Math.PI) * (t < 0.88 ? 1 : 0.6), 72, 28),
       exM.mat,
     );
     const ex = new THREE.Group();

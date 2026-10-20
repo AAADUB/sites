@@ -36,7 +36,7 @@ export function eventPhase(ev: ValveEvent, theta: number): number {
 }
 
 /**
- * Cam-derived lift law. The cam lobe is generated from this same function
+ * Cam-derived lift law. The cam lobe is derived from this same function
  * (radius = base circle + lift), so lobe shape and valve motion always agree.
  * A blend of sin² and a sextic polynomial gives zero velocity and acceleration
  * at the seat (gentle ramps) and a broad nose.

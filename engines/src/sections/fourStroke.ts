@@ -124,5 +124,13 @@ export async function init(section: HTMLElement) {
         sim.setTheta(self.progress * 719.9);
       },
     });
+    // once the reader has left the section, the scroll walkthrough takes over again next time
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top bottom',
+      end: 'bottom top',
+      onLeave: () => (manual = false),
+      onLeaveBack: () => (manual = false),
+    });
   }
 }

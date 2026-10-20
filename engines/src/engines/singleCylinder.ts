@@ -185,7 +185,7 @@ export class SingleCylinderEngine {
     const yB0 = 0.95;
     const blockH = yH - yB0;
     const blockBuild = () => {
-      let b = brush(box(1.24, blockH, 1.04, 0.05), [0, yB0 + blockH / 2, 0]);
+      let b = brush(box(1.24, blockH, 1.14, 0.05), [0, yB0 + blockH / 2, 0]);
       const bore = brush(cyl(R, blockH + 0.4, 64), [0, yB0 + blockH / 2, 0]);
       const jacketOuter = brush(cyl(R + 0.105, blockH - 0.28, 64), [0, yB0 + blockH / 2 + 0.06, 0]);
       const jacketInner = brush(cyl(R + 0.06, blockH, 64), [0, yB0 + blockH / 2, 0]);
@@ -216,7 +216,7 @@ export class SingleCylinderEngine {
     const headTop = yH + 0.83;
     const headBuild = () => {
       const h = headTop - yH;
-      let b = brush(box(1.24, h, 1.04, 0.05), [0, yH + h / 2, 0]);
+      let b = brush(box(1.24, h, 1.14, 0.05), [0, yH + h / 2, 0]);
       const cuts: Brush[] = [];
       // valve throats & seat recesses
       cuts.push(brush(cyl(0.145, 0.14, 48), [xI, yH + 0.06, 0]));

@@ -159,12 +159,23 @@
   justify-content: center;
   padding: 1.5rem 0 1.5rem 1.4rem;
   border-left: 1px solid var(--hairline-2);
-  opacity: 0.38;
-  transition: opacity var(--dur-3) var(--ease-out), border-color var(--dur-3);
+  color: var(--text-3);
+  transition: color var(--dur-3) var(--ease-out), border-color var(--dur-3);
 }
 .beat.is-current {
-  opacity: 1;
+  color: var(--text);
   border-left-color: var(--amber);
+}
+.beat:not(.is-current) h3 {
+  color: #b4b9c0;
+}
+.beat:not(.is-current) p,
+.beat:not(.is-current) .beat-num {
+  color: var(--text-3);
+}
+.beat p,
+.beat .beat-num {
+  transition: color var(--dur-3) var(--ease-out);
 }
 .beat h3 {
   font-size: var(--step-3);
@@ -191,7 +202,6 @@ html[data-motion='reduced'] .beat-steps {
 }
 html[data-motion='reduced'] .beat {
   min-height: 0;
-  opacity: 1;
 }
 
 /* mobile: keep the 3D stage on screen while the text scrolls */
@@ -240,13 +250,16 @@ html[data-motion='reduced'] .stroke-cards {
   padding-block: 0;
 }
 .stroke-card {
-  transition: border-color var(--dur-2), background var(--dur-2), opacity var(--dur-2);
-  opacity: 0.55;
+  transition: border-color var(--dur-2), background var(--dur-2), color var(--dur-2);
+  color: var(--text-3);
+}
+.stroke-card:not(.is-current) :is(p, h3, li, .num) {
+  color: var(--text-3);
 }
 .stroke-card.is-current {
-  opacity: 1;
+  color: var(--text);
   border-color: rgba(255, 255, 255, 0.22);
-  background: linear-gradient(180deg, rgba(35, 40, 48, 0.85), rgba(21, 24, 29, 0.7));
+  background: linear-gradient(180deg, #1f242b, #15181d);
 }
 .stroke-card h3 {
   font-size: var(--step-2);
@@ -582,7 +595,7 @@ html[data-motion='reduced'] .stroke-cards {
   scroll-snap-align: start;
   padding: 1.25rem 1.35rem;
   border-radius: var(--radius-2);
-  background: linear-gradient(180deg, rgba(27, 31, 37, 0.75), rgba(21, 24, 29, 0.6));
+  background: linear-gradient(180deg, #171a1f, #121418);
   border: 1px solid var(--hairline);
 }
 .tl-item::before {
@@ -931,6 +944,12 @@ html.capture-stage .capture-target {
   aspect-ratio: auto !important;
   border: 0 !important;
   border-radius: 0 !important;
+}
+html.capture-stage main > :has(.capture-target) {
+  visibility: hidden;
+}
+html.capture-stage .capture-target {
+  visibility: visible;
 }
 html.capture-stage .hero::after {
   display: none;

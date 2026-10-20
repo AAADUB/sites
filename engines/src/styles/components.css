@@ -293,7 +293,7 @@ input[type='range']:focus-visible::-moz-range-thumb {
   position: relative;
   padding: 1.25rem 1.35rem;
   border-radius: var(--radius-2);
-  background: linear-gradient(180deg, rgba(27, 31, 37, 0.75), rgba(21, 24, 29, 0.6));
+  background: linear-gradient(180deg, #171a1f, #121418);
   border: 1px solid var(--hairline);
 }
 .card h3 {
@@ -318,7 +318,7 @@ input[type='range']:focus-visible::-moz-range-thumb {
 }
 .card.try {
   border-color: rgba(63, 208, 255, 0.25);
-  background: linear-gradient(180deg, rgba(63, 208, 255, 0.07), rgba(21, 24, 29, 0.6));
+  background: linear-gradient(180deg, #13202a, #121418);
 }
 .card.try .card-kicker svg {
   color: var(--cyan);
@@ -335,7 +335,7 @@ details.deeper {
   margin-top: var(--space-5);
   border-radius: var(--radius-2);
   border: 1px solid var(--hairline-2);
-  background: rgba(14, 16, 20, 0.6);
+  background: #0e1014;
 }
 details.deeper > summary {
   list-style: none;
