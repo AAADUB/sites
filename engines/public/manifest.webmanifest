@@ -1,0 +1,16 @@
+{
+  "name": "Inside Combustion",
+  "short_name": "Combustion",
+  "description": "An interactive guide to how internal combustion engines work.",
+  "lang": "en",
+  "start_url": "/sites/engines/",
+  "scope": "/sites/engines/",
+  "display": "standalone",
+  "background_color": "#08090b",
+  "theme_color": "#08090b",
+  "icons": [
+    { "src": "/sites/engines/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/sites/engines/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/sites/engines/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

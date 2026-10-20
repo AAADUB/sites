@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aaadub.github.io/sites/engines/sitemap.xml

@@ -1,0 +1,111 @@
+/* Metric-matched fallbacks so the swap to the web fonts causes no layout shift. */
+@font-face {
+  font-family: 'IC Display Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Helvetica'), local('Roboto'), local('Liberation Sans');
+  size-adjust: 104%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'IC Text Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Helvetica'), local('Roboto'), local('Liberation Sans');
+  size-adjust: 101%;
+  ascent-override: 96%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'IC Mono Fallback';
+  src: local('Courier New'), local('Menlo'), local('Consolas'), local('Liberation Mono'), local('DejaVu Sans Mono');
+  size-adjust: 100%;
+  ascent-override: 98%;
+  descent-override: 27%;
+  line-gap-override: 0%;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* surfaces */
+  --bg-0: #08090b;
+  --bg-1: #0e1014;
+  --surface: #15181d;
+  --surface-2: #1b1f25;
+  --surface-3: #232830;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-2: rgba(255, 255, 255, 0.14);
+  --hairline-3: rgba(255, 255, 255, 0.24);
+
+  /* text */
+  --text: #e8eaed;
+  --text-2: #9aa0a8;
+  --text-3: #8a9098;
+
+  /* combustion & gas */
+  --amber: #ff8a1f;
+  --amber-soft: #ffb347;
+  --white-hot: #fff3d6;
+  --cyan: #3fd0ff;
+  --cyan-dim: #2a8fb0;
+  --violet: #9d8cff;
+  --exhaust: #a39a92;
+
+  /* stroke code */
+  --c-intake: var(--cyan);
+  --c-compression: var(--violet);
+  --c-power: var(--amber);
+  --c-exhaust: var(--exhaust);
+
+  /* typography */
+  --f-display: 'IC Display Fallback', system-ui, sans-serif;
+  --f-text: 'IC Text Fallback', system-ui, sans-serif;
+  --f-mono: 'IC Mono Fallback', ui-monospace, monospace;
+
+  /* fluid type scale (min 360px → max 1600px) */
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+  --step-1: clamp(1.15rem, 1.07rem + 0.35vw, 1.4rem);
+  --step-2: clamp(1.35rem, 1.2rem + 0.65vw, 1.85rem);
+  --step-3: clamp(1.65rem, 1.35rem + 1.3vw, 2.6rem);
+  --step-4: clamp(2.05rem, 1.5rem + 2.4vw, 3.9rem);
+  --step-5: clamp(2.5rem, 1.6rem + 4vw, 5.6rem);
+  --step-6: clamp(3rem, 1.6rem + 6.2vw, 8rem);
+
+  /* spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  --space-9: clamp(5rem, 3rem + 7vw, 10rem);
+
+  --gutter: clamp(1rem, 0.6rem + 1.8vw, 2.5rem);
+  --measure: 68ch;
+  --radius-1: 6px;
+  --radius-2: 12px;
+  --radius-3: 20px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* expo out */
+  --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --dur-1: 160ms;
+  --dur-2: 320ms;
+  --dur-3: 700ms;
+
+  --header-h: 3.75rem;
+  --rail-w: 0px;
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
+
+/* Web fonts take over once loaded (fallbacks are metric matched). */
+.fonts-ready {
+  --f-display: 'stolzl', 'IC Display Fallback', system-ui, sans-serif;
+  --f-text: 'aktiv-grotesk', 'IC Text Fallback', system-ui, sans-serif;
+  --f-mono: 'source-code-pro', 'IC Mono Fallback', ui-monospace, monospace;
+}

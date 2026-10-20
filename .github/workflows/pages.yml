@@ -1,0 +1,66 @@
+name: Build and publish sites
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Every top-level folder is one site. Folders with a package.json are built
+      # (their dist/ is published); plain folders with an index.html are copied as is.
+      # All sites go into one output so publishing one never removes another.
+      - name: Build all sites
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          for dir in */; do
+            d="${dir%/}"
+            case "$d" in _site|node_modules|.*) continue ;; esac
+            if [ -f "$d/package.json" ]; then
+              echo "::group::build $d"
+              (cd "$d" && npm ci --no-audit --no-fund && npm run build)
+              mkdir -p "_site/$d"
+              cp -r "$d/dist/." "_site/$d/"
+              echo "::endgroup::"
+            elif [ -f "$d/index.html" ]; then
+              mkdir -p "_site/$d"
+              cp -r "$d/." "_site/$d/"
+            fi
+          done
+          touch _site/.nojekyll
+          # Site-wide 404: send unknown paths to the root of the site (and language) they belong to.
+          cat > _site/404.html <<'HTML'
+          <!doctype html><html lang="en"><head><meta charset="utf-8"><title>Not found</title><meta name="robots" content="noindex">
+          <meta name="viewport" content="width=device-width, initial-scale=1"><style>html{background:#08090b;color:#e8eaed;font-family:system-ui,sans-serif}body{display:grid;place-items:center;min-height:100vh;margin:0}a{color:#ffb347}</style>
+          <script>(function(){var p=location.pathname.split('/').filter(Boolean);if(p.length<3)return;var site='/'+p[0]+'/'+p[1]+'/';var lang=p[2]==='ru'?'ru/':'';location.replace(site+lang+location.hash);})();</script>
+          </head><body><p><a href="/sites/">Continue</a></p></body></html>
+          HTML
+
+      - name: Publish to the gh-pages branch
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          cd _site
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "deploy: ${GITHUB_SHA::7}"
+          git push -qf "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
