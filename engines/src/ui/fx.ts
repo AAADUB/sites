@@ -213,3 +213,31 @@ export function initFonts(onDone: () => void) {
   // never wait forever
   window.setTimeout(onDone, 2500);
 }
+
+/* ---------------- animated counters ---------------- */
+export function initCounters() {
+  const els = Array.from(document.querySelectorAll<HTMLElement>('[data-count]'));
+  const ru = document.documentElement.lang === 'ru';
+  const format = (n: number) => {
+    const s = String(Math.round(n));
+    return s.length > 3 ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ru ? ' ' : ',') : s;
+  };
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const el = e.target as HTMLElement;
+        io.unobserve(el);
+        const target = +el.dataset.count!;
+        if (reducedMotion()) continue;
+        const o = { v: 0 };
+        gsap.to(o, { v: target, duration: 1.6, ease: 'expo.out', onUpdate: () => (el.textContent = format(o.v)) });
+      }
+    },
+    { threshold: 0.6 },
+  );
+  els.forEach((el) => {
+    if (!reducedMotion() && el.getBoundingClientRect().top > innerHeight) el.textContent = '0';
+    io.observe(el);
+  });
+}

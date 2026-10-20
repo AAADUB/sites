@@ -187,3 +187,7 @@ html[data-motion='reduced'] *::after {
   animation-iteration-count: 1 !important;
   transition-duration: 0.001ms !important;
 }
+
+[hidden] {
+  display: none !important;
+}

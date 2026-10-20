@@ -165,10 +165,15 @@ export function makeMaterial(kind: MatKind, opts: { hatch?: boolean; color?: str
   if (opts.color) p.color = opts.color;
   const mat = new THREE.MeshPhysicalMaterial(p);
   if (kind !== 'glass' && kind !== 'ceramic' && kind !== 'polymer' && kind !== 'rubber') {
-    const tex = microNoise();
+    let tex: THREE.Texture = microNoise();
+    if (opts.repeat && opts.repeat !== 1) {
+      tex = tex.clone();
+      tex.repeat.set(opts.repeat, opts.repeat);
+      tex.needsUpdate = true;
+    }
     mat.roughnessMap = tex;
     mat.bumpMap = tex;
-    mat.bumpScale = kind === 'iron' ? 0.9 : 0.25;
+    mat.bumpScale = kind === 'iron' ? 0.45 : 0.2;
   }
   if (opts.side !== undefined) mat.side = opts.side;
   mat.envMapIntensity = kind === 'iron' ? 0.7 : 1.0;

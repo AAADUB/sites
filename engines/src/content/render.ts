@@ -111,6 +111,41 @@ function engineControls(c: Ctx, id: string, o: { load?: 'load' | 'fuel'; scrub?:
   </div>`;
 }
 
+function figures(c: Ctx, list: Array<{ n: number; u: string; l: string }>) {
+  const fmtN = (n: number) => (c.lang === 'ru' ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u202F') : n.toLocaleString('en-US'));
+  return `<dl class="figures reveal">${list
+    .map((f) => `<div class="figure"><dt class="sr-only">${plain(f.l)}</dt><dd><span class="fig-num num" data-count="${f.n}">${fmtN(f.n)}</span><span class="fig-unit num">${esc(f.u)}</span><span class="fig-label">${c.m(f.l)}</span></dd></div>`)
+    .join('')}</dl>`;
+}
+
+function blueprint(c: Ctx) {
+  const b = c.d.ui.blueprint;
+  // cylinder 86 × 86 mm drawn at 1.4 px/mm, piston at TDC (solid) and BDC (dashed)
+  return `<figure class="blueprint card reveal draw">
+    <svg viewBox="0 0 320 250" role="img" aria-label="${esc(b.caption)}">
+      <g fill="none" stroke="rgba(232,234,237,0.55)" stroke-width="1">
+        <path d="M100 30 V 230 M220 30 V 230" />
+        <path d="M96 30 H 224" stroke="rgba(232,234,237,0.3)"/>
+        <rect x="103" y="40" width="114" height="44" rx="3" stroke="#e8eaed"/>
+        <rect x="103" y="160" width="114" height="44" rx="3" stroke-dasharray="4 4" stroke="rgba(232,234,237,0.45)"/>
+      </g>
+      <g stroke="#ff8a1f" stroke-width="1" fill="none">
+        <path d="M250 40 V 160" /><path d="M244 40 H 256 M244 160 H 256" />
+        <path d="M100 18 H 220" /><path d="M100 12 V 24 M220 12 V 24" />
+      </g>
+      <g font-family="var(--f-mono)" font-size="11" fill="#9aa0a8">
+        <text x="160" y="10" text-anchor="middle" fill="#ffb347">${esc(b.bore)} 86 ${esc(b.mm)}</text>
+        <text x="262" y="104" fill="#ffb347">${esc(b.stroke)}</text>
+        <text x="262" y="118" fill="#ffb347">86 ${esc(b.mm)}</text>
+        <text x="62" y="44" text-anchor="middle">${esc(b.tdc)}</text>
+        <text x="62" y="164" text-anchor="middle">${esc(b.bdc)}</text>
+      </g>
+      <path d="M72 40 H 100 M72 160 H 100" stroke="rgba(232,234,237,0.3)" stroke-dasharray="2 3"/>
+    </svg>
+    <figcaption class="note">${esc(b.caption)}</figcaption>
+  </figure>`;
+}
+
 function readouts(_c: Ctx, id: string, items: Array<[string, string]>) {
   return `<dl class="readouts" data-readouts="${id}" aria-live="off">${items
     .map(([k, label]) => `<div class="readout" data-r="${k}"><dt>${esc(label)}</dt><dd>–</dd></div>`)
@@ -221,6 +256,8 @@ function fourStroke(c: Ctx) {
         </div>
         <div class="text-col">
           ${card('see', c.d.labels.see, s.see, c)}
+          ${figures(c, s.figures)}
+          ${blueprint(c)}
           <ol class="stroke-cards">${s.strokes
             .map(
               (st: Dict) =>
@@ -265,6 +302,7 @@ function diesel(c: Ctx) {
         </div>
         <div class="text-col">
           ${card('try', c.d.labels.try, s.try, c)}
+          ${figures(c, s.figures)}
           <div class="cards">${s.cards.map((k: Dict) => `<div class="card reveal"><h3>${c.m(k.h)}</h3><p>${c.m(k.t)}</p></div>`).join('')}</div>
           <div class="card reveal"><h3>${esc(s.dirtyTitle)}</h3><p>${c.m(s.dirty)}</p></div>
           ${card('why', c.d.labels.why, s.why, c)}
@@ -316,7 +354,7 @@ function wankel(c: Ctx) {
           ${readouts(c, 'wk', [
             ['rotor', u.rotorTurns],
             ['shaft', u.shaftTurns],
-            ['ratio', '3 : 1'],
+            ['ratio', c.lang === 'ru' ? 'Вал : ротор' : 'Shaft : rotor'],
           ])}
           <div class="engine-controls" data-controls="wk">
             <div class="control-row">

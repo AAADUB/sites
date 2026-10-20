@@ -18,7 +18,9 @@ export function md(src: string, ctx: MarkupCtx): string {
   s = s.replace(/\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]/g, (_m, key: string, text?: string) => {
     const g = ctx.glossary[key];
     if (!g) throw new Error(`Unknown glossary key: ${key}`);
-    return `<a class="term" href="#g-${key}" data-term="${key}">${text ?? g.term}</a>`;
+    // a bare [[key]] shows the term in running text: lower-case it unless it is an acronym
+    const auto = g.term.length > 1 && g.term[1] === g.term[1].toLowerCase() ? g.term[0].toLowerCase() + g.term.slice(1) : g.term;
+    return `<a class="term" href="#g-${key}" data-term="${key}">${text ?? auto}</a>`;
   });
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   s = s.replace(/\{typ\}/g, `<span class="tag-typical">${ctx.tags.typical}</span>`);

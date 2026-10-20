@@ -1,1560 +1,1651 @@
 {
- "lang": "en",
+ "lang": "ru",
  "meta": {
-  "title": "Inside Combustion — how engines really work",
-  "description": "An interactive, 3D guide to internal combustion engines: four-stroke, diesel, two-stroke and Wankel, with live physics, tools and games. Clear enough for a 10-year-old, deep enough for an engineer.",
-  "siteName": "Inside Combustion",
-  "ogAlt": "A cutaway of a single-cylinder engine with glowing combustion in the cylinder",
-  "locale": "en_US"
+  "title": "Внутри двигателя — как на самом деле работает мотор",
+  "description": "Интерактивный 3D-путеводитель по двигателям внутреннего сгорания: четырёхтактный, дизель, двухтактный и роторный Ванкеля, с живой физикой, инструментами и играми. Понятно школьнику, интересно инженеру.",
+  "siteName": "Внутри двигателя",
+  "ogAlt": "Разрез одноцилиндрового двигателя со светящимся пламенем в цилиндре",
+  "locale": "ru_RU"
  },
  "tags": {
-  "typical": "typical",
-  "example": "common example"
+  "typical": "типично",
+  "example": "частый пример"
  },
  "header": {
-  "skip": "Skip to content",
-  "home": "Inside Combustion — back to the top",
-  "sections": "Sections",
-  "sectionsTitle": "All sections",
-  "sound": "Engine sound",
-  "settings": "Settings",
-  "close": "Close",
-  "lang": "Language"
+  "skip": "Перейти к содержанию",
+  "home": "Внутри двигателя — в начало",
+  "sections": "Разделы",
+  "sectionsTitle": "Все разделы",
+  "sound": "Звук двигателя",
+  "settings": "Настройки",
+  "close": "Закрыть",
+  "lang": "Язык"
  },
  "settings": {
-  "title": "Settings",
-  "quality": "3D quality",
-  "qAuto": "Auto",
-  "qHigh": "High",
-  "qMedium": "Medium",
-  "qLow": "Low",
-  "motion": "Motion",
-  "mSystem": "System",
-  "mReduced": "Reduced",
-  "mFull": "Full",
-  "power": "Power units",
-  "kw": "kW",
-  "hp": "hp",
-  "sound": "Engine sound",
-  "soundNote": "Sound is made live in your browser and is off by default."
+  "title": "Настройки",
+  "quality": "Качество 3D",
+  "qAuto": "Авто",
+  "qHigh": "Высокое",
+  "qMedium": "Среднее",
+  "qLow": "Низкое",
+  "motion": "Анимация",
+  "mSystem": "Как в системе",
+  "mReduced": "Меньше",
+  "mFull": "Полная",
+  "power": "Единицы мощности",
+  "kw": "кВт",
+  "hp": "л. с.",
+  "sound": "Звук двигателя",
+  "soundNote": "Звук создаётся прямо в браузере и по умолчанию выключен."
  },
  "nav": {
-  "top": "Start",
-  "big-idea": "The big idea",
-  "anatomy": "Engine anatomy",
-  "four-stroke": "Four-stroke petrol",
-  "diesel": "Diesel",
-  "two-stroke": "Two-stroke",
-  "wankel": "Wankel rotary",
-  "layouts": "Cylinder layouts",
-  "systems": "Engine systems",
-  "boost": "Turbo & supercharger",
-  "gearbox": "Engine to wheels",
-  "efficiency": "Efficiency & hybrids",
-  "history": "History",
-  "future": "The future",
-  "lab": "Tools lab",
-  "compare": "Compare engines",
-  "games": "Mini-games",
-  "glossary": "Glossary",
-  "quiz": "Quiz"
+  "top": "Начало",
+  "big-idea": "Главная идея",
+  "anatomy": "Устройство двигателя",
+  "four-stroke": "Четырёхтактный бензиновый",
+  "diesel": "Дизель",
+  "two-stroke": "Двухтактный",
+  "wankel": "Роторный Ванкеля",
+  "layouts": "Компоновки цилиндров",
+  "systems": "Системы двигателя",
+  "boost": "Турбо и компрессор",
+  "gearbox": "От мотора к колёсам",
+  "efficiency": "КПД и гибриды",
+  "history": "История",
+  "future": "Будущее",
+  "lab": "Лаборатория",
+  "compare": "Сравнение",
+  "games": "Мини-игры",
+  "glossary": "Словарь",
+  "quiz": "Викторина"
  },
  "ui": {
-  "explore": "Explore",
-  "done": "Done",
-  "dragToRotate": "Drag to rotate",
-  "doubleClickReset": "Double-click to reset the view",
-  "tapToExplore": "Tap “Explore” to rotate",
-  "play": "Play",
-  "pause": "Pause",
-  "speed": "Speed",
-  "slowMotion": "Slow motion",
-  "rpm": "Engine speed",
-  "load": "Throttle",
-  "fuel": "Fuel",
-  "crankAngle": "Crank angle",
-  "view": "View",
-  "vSolid": "Solid",
-  "vCutaway": "Cutaway",
-  "vXray": "X-ray",
-  "vExploded": "Exploded",
-  "labels": "Labels",
-  "stroke": "Stroke",
-  "piston": "Piston",
-  "pressure": "Pressure",
-  "temperature": "Gas temp.",
-  "valves": "Valves",
-  "intakeValve": "Intake",
-  "exhaustValve": "Exhaust",
-  "spark": "Spark",
-  "injection": "Injection",
-  "open": "open",
-  "closed": "closed",
-  "yes": "now",
+  "explore": "Вращать",
+  "done": "Готово",
+  "dragToRotate": "Тяните, чтобы вращать",
+  "doubleClickReset": "Двойной щелчок — исходный вид",
+  "tapToExplore": "Нажмите «Вращать», чтобы крутить модель",
+  "play": "Пуск",
+  "pause": "Пауза",
+  "speed": "Скорость",
+  "slowMotion": "Замедление",
+  "rpm": "Обороты",
+  "load": "Газ",
+  "fuel": "Подача топлива",
+  "crankAngle": "Угол коленвала",
+  "view": "Вид",
+  "vSolid": "Целый",
+  "vCutaway": "Разрез",
+  "vXray": "Рентген",
+  "vExploded": "Разборка",
+  "labels": "Подписи",
+  "stroke": "Такт",
+  "piston": "Поршень",
+  "pressure": "Давление",
+  "temperature": "Темп. газа",
+  "valves": "Клапаны",
+  "intakeValve": "Впуск",
+  "exhaustValve": "Выпуск",
+  "spark": "Искра",
+  "injection": "Впрыск",
+  "open": "открыт",
+  "closed": "закрыт",
+  "yes": "сейчас",
   "no": "—",
-  "fromTop": "below top",
+  "fromTop": "от ВМТ",
   "strokes": {
-   "intake": "Intake",
-   "compression": "Compression",
-   "power": "Power",
-   "exhaust": "Exhaust"
+   "intake": "Впуск",
+   "compression": "Сжатие",
+   "power": "Рабочий ход",
+   "exhaust": "Выпуск"
   },
   "strokeVerbs": {
-   "intake": "Suck",
-   "compression": "Squeeze",
-   "power": "Bang",
-   "exhaust": "Blow"
+   "intake": "Вдох",
+   "compression": "Сжатие",
+   "power": "Вспышка",
+   "exhaust": "Выдох"
   },
-  "webglOff": "3D is not available on this device, so you are seeing a still picture. Everything else works.",
-  "loading": "Loading the 3D model",
-  "realSpeedNote": "At real speed the parts move too fast to see. Try 0.25× or 0.05×.",
-  "step": "Step",
-  "of": "of",
-  "next": "Next",
-  "prev": "Back",
-  "reset": "Reset",
-  "assemble": "Build it",
-  "findPart": "Find the part",
-  "findPrompt": "Tap the {part}",
-  "found": "Found it!",
-  "tryAgain": "Not quite — that is the {part}.",
-  "score": "Score",
-  "start": "Start",
-  "again": "Play again",
-  "copied": "Copied",
-  "copy": "Copy result",
-  "typical": "typical",
-  "commonExample": "common example",
-  "bar": "bar",
-  "ignitionNote": "Ignition",
+  "webglOff": "На этом устройстве 3D недоступно, поэтому показана картинка. Всё остальное работает.",
+  "loading": "Загружается 3D-модель",
+  "realSpeedNote": "В реальном времени детали двигаются слишком быстро для глаза. Попробуйте 0,25× или 0,05×.",
+  "step": "Шаг",
+  "of": "из",
+  "next": "Дальше",
+  "prev": "Назад",
+  "reset": "Сбросить",
+  "assemble": "Собрать",
+  "findPart": "Найди деталь",
+  "findPrompt": "Нажмите на деталь: {part}",
+  "found": "Нашли!",
+  "tryAgain": "Не совсем — это {part}.",
+  "score": "Счёт",
+  "start": "Начать",
+  "again": "Ещё раз",
+  "copied": "Скопировано",
+  "copy": "Скопировать результат",
+  "typical": "типично",
+  "commonExample": "частый пример",
+  "bar": "бар",
+  "ignitionNote": "Зажигание",
   "cycleDegrees": "°",
-  "rev": "rev",
-  "gear": "Gear",
+  "rev": "об.",
+  "gear": "Передача",
   "neutral": "N",
-  "roadSpeed": "Road speed",
-  "clutch": "Clutch",
-  "boost": "Boost",
-  "power": "Power",
-  "torque": "Torque",
-  "efficiency": "Efficiency",
-  "vibration": "Vibration",
-  "primary": "1st-order force",
-  "secondary": "2nd-order force",
-  "balanced": "balanced",
-  "small": "small",
-  "large": "noticeable",
-  "firingOrder": "Firing order",
-  "cylinder": "Cylinder",
-  "chambers": "Chambers",
-  "shaftTurns": "Shaft turns",
-  "rotorTurns": "Rotor turns",
-  "linear": "Linear",
-  "logLog": "Log–log",
-  "overlays": "Ideal cycles",
-  "otto": "Otto",
-  "dieselCycle": "Diesel",
-  "atkinson": "Atkinson",
-  "engineA": "Engine A",
-  "engineB": "Engine B",
-  "listenAgain": "Listen again",
-  "watch": "Watch the motion",
-  "correct": "Correct",
-  "wrong": "Not this time",
-  "check": "Check order",
-  "shuffle": "Shuffle",
-  "easy": "Easy",
-  "expert": "Expert",
-  "question": "Question",
-  "explanation": "Why",
-  "readMore": "Read the section",
-  "results": "Your result",
-  "share": "Copy your result",
-  "searchGlossary": "Search the glossary",
-  "noResults": "No terms match",
-  "closeDefinition": "Close",
-  "openGlossary": "Open in glossary",
-  "moveUp": "Move up",
-  "moveDown": "Move down",
-  "presets": "Presets",
-  "bore": "Bore",
-  "strokeLen": "Stroke",
-  "cylinders": "Cylinders",
-  "displacement": "Displacement",
-  "compressionRatio": "Compression ratio",
-  "type": "Type",
-  "aspiration": "Aspiration",
-  "na": "Natural",
-  "turbo": "Turbo",
-  "petrol": "Petrol",
-  "dieselFuel": "Diesel",
-  "knockZone": "Petrol knock zone",
-  "camPhase": "Cam phasing",
-  "intakeCam": "Intake cam",
-  "exhaustCam": "Exhaust cam",
-  "overlap": "Overlap",
-  "dragWheel": "Drag the coloured arcs to shift the cams",
-  "time": "Time",
-  "throttleOpen": "Throttle opens",
-  "turboLag": "Turbo lag",
-  "naEngine": "No boost",
-  "superCh": "Supercharger",
-  "turboCh": "Turbocharger",
-  "mode": "Mode",
-  "accelerate": "Accelerate",
-  "cruise": "Cruise",
-  "brake": "Brake",
-  "stopped": "Standing still",
-  "hybridEngine": "Engine",
-  "hybridMotor": "Electric motor",
-  "hybridBattery": "Battery",
-  "hybridWheels": "Wheels",
-  "ofMax": "of max",
-  "soundOn": "Sound on",
-  "soundOff": "Sound off"
+  "roadSpeed": "Скорость машины",
+  "clutch": "Сцепление",
+  "boost": "Давление наддува",
+  "power": "Мощность",
+  "torque": "Крутящий момент",
+  "efficiency": "КПД",
+  "vibration": "Вибрация",
+  "primary": "Силы 1-го порядка",
+  "secondary": "Силы 2-го порядка",
+  "balanced": "уравновешены",
+  "small": "небольшие",
+  "large": "заметные",
+  "firingOrder": "Порядок работы",
+  "cylinder": "Цилиндр",
+  "chambers": "Камеры",
+  "shaftTurns": "Обороты вала",
+  "rotorTurns": "Обороты ротора",
+  "linear": "Линейная",
+  "logLog": "Логарифмическая",
+  "overlays": "Идеальные циклы",
+  "otto": "Отто",
+  "dieselCycle": "Дизель",
+  "atkinson": "Аткинсон",
+  "engineA": "Двигатель А",
+  "engineB": "Двигатель Б",
+  "listenAgain": "Послушать ещё",
+  "watch": "Смотрите на ритм",
+  "correct": "Верно",
+  "wrong": "Не в этот раз",
+  "check": "Проверить",
+  "shuffle": "Перемешать",
+  "easy": "Легко",
+  "expert": "Эксперт",
+  "question": "Вопрос",
+  "explanation": "Почему",
+  "readMore": "Читать раздел",
+  "results": "Ваш результат",
+  "share": "Скопировать результат",
+  "searchGlossary": "Поиск по словарю",
+  "noResults": "Ничего не найдено",
+  "closeDefinition": "Закрыть",
+  "openGlossary": "Открыть в словаре",
+  "moveUp": "Выше",
+  "moveDown": "Ниже",
+  "presets": "Примеры",
+  "bore": "Диаметр цилиндра",
+  "strokeLen": "Ход поршня",
+  "cylinders": "Цилиндров",
+  "displacement": "Рабочий объём",
+  "compressionRatio": "Степень сжатия",
+  "type": "Тип",
+  "aspiration": "Наддув",
+  "na": "Атмосферный",
+  "turbo": "Турбо",
+  "petrol": "Бензин",
+  "dieselFuel": "Дизель",
+  "knockZone": "Зона детонации бензина",
+  "camPhase": "Фазы распредвалов",
+  "intakeCam": "Впускной распредвал",
+  "exhaustCam": "Выпускной распредвал",
+  "overlap": "Перекрытие",
+  "dragWheel": "Тяните цветные дуги, чтобы сдвинуть распредвалы",
+  "time": "Время",
+  "throttleOpen": "Газ в пол",
+  "turboLag": "Турбояма",
+  "naEngine": "Без наддува",
+  "superCh": "Приводной компрессор",
+  "turboCh": "Турбокомпрессор",
+  "mode": "Режим",
+  "accelerate": "Разгон",
+  "cruise": "Равномерно",
+  "brake": "Торможение",
+  "stopped": "Стоянка",
+  "hybridEngine": "Двигатель",
+  "hybridMotor": "Электромотор",
+  "hybridBattery": "Батарея",
+  "hybridWheels": "Колёса",
+  "ofMax": "от максимума",
+  "soundOn": "Звук включён",
+  "soundOff": "Звук выключен",
+  "diag": {
+   "tank": "Бак",
+   "pump": "Насос",
+   "rail": "Топливопровод",
+   "injector": "Форсунка",
+   "intakeAir": "Воздух",
+   "spray": "Мелкий туман",
+   "battery": "Аккумулятор",
+   "coil": "Катушка зажигания",
+   "plug": "Свеча",
+   "lowV": "12 В",
+   "highV": "более 20 000 В",
+   "spark": "Искра",
+   "oilPan": "Поддон",
+   "oilPump": "Масляный насос",
+   "filter": "Фильтр",
+   "bearings": "Подшипники",
+   "oilFilm": "Масляная плёнка",
+   "radiator": "Радиатор",
+   "thermostat": "Термостат",
+   "waterPump": "Помпа",
+   "jacket": "Рубашка охлаждения",
+   "fan": "Вентилятор",
+   "hot": "Горячая",
+   "cool": "Остывшая",
+   "manifold": "Выпуск",
+   "catalyst": "Каталитический нейтрализатор",
+   "muffler": "Глушитель",
+   "tailpipe": "Выхлопная труба",
+   "dirtyGas": "CO, CH, NOx",
+   "cleanGas": "CO₂, H₂O, N₂",
+   "turbine": "Турбина",
+   "compressor": "Компрессор",
+   "intercooler": "Интеркулер",
+   "wastegate": "Перепускной клапан",
+   "belt": "Привод ремнём",
+   "engine": "Двигатель",
+   "air": "Свежий воздух",
+   "exhaustGas": "Выхлопные газы",
+   "shaft": "Общий вал",
+   "rpm": "Обороты",
+   "speed": "Скорость"
+  },
+  "blueprint": {
+   "title": "Диаметр и ход",
+   "bore": "Диаметр",
+   "stroke": "Ход",
+   "tdc": "ВМТ",
+   "bdc": "НМТ",
+   "mm": "мм",
+   "caption": "Между верхней и нижней мёртвыми точками поршень проходит один ход. У этой модели диаметр 86 мм, ход 86 мм, объём 500 см³."
+  }
  },
  "parts": {
   "block": {
-   "name": "Cylinder block",
-   "role": "The heavy metal body that holds the cylinder, where the piston slides up and down."
+   "name": "Блок цилиндров",
+   "role": "Тяжёлый металлический корпус с цилиндром, в котором ходит поршень."
   },
   "head": {
-   "name": "Cylinder head",
-   "role": "The lid on top of the cylinder. It holds the valves, ports and spark plug."
+   "name": "Головка блока",
+   "role": "«Крышка» над цилиндром. В ней стоят клапаны, каналы и свеча."
   },
   "crankcase": {
-   "name": "Crankcase",
-   "role": "The case around the crankshaft. It keeps the oil in and holds the bearings."
+   "name": "Картер",
+   "role": "Корпус вокруг коленчатого вала. Держит масло и подшипники."
   },
   "oilpan": {
-   "name": "Oil pan",
-   "role": "A tray under the engine that holds the oil."
+   "name": "Масляный поддон",
+   "role": "Ванночка под двигателем, в которой хранится масло."
   },
   "camcover": {
-   "name": "Cam cover",
-   "role": "A lid that keeps oil around the camshafts and dirt out."
+   "name": "Клапанная крышка",
+   "role": "Закрывает распредвалы: масло остаётся внутри, грязь — снаружи."
   },
   "crankshaft": {
-   "name": "Crankshaft",
-   "role": "Turns the up-and-down push of the piston into spinning, like the pedals on a bike."
+   "name": "Коленчатый вал",
+   "role": "Превращает толчки поршня вверх-вниз во вращение — как педали велосипеда."
   },
   "rod": {
-   "name": "Connecting rod",
-   "role": "Links the piston to the crankshaft and carries the push between them."
+   "name": "Шатун",
+   "role": "Соединяет поршень с коленчатым валом и передаёт усилие."
   },
   "piston": {
-   "name": "Piston",
-   "role": "A sliding metal plug. Burning gas pushes it down; it squeezes gas on the way up."
+   "name": "Поршень",
+   "role": "Скользящая металлическая «пробка». Газ толкает её вниз, а по пути вверх она сжимает смесь."
   },
   "intakeValve": {
-   "name": "Intake valve",
-   "role": "A door that opens to let fresh air and fuel into the cylinder."
+   "name": "Впускной клапан",
+   "role": "Дверца, которая открывается и впускает воздух с топливом."
   },
   "exhaustValve": {
-   "name": "Exhaust valve",
-   "role": "A door that opens to let burned gas out of the cylinder."
+   "name": "Выпускной клапан",
+   "role": "Дверца, которая открывается и выпускает отработавшие газы."
   },
   "intakeCam": {
-   "name": "Intake camshaft",
-   "role": "A spinning shaft with a bump that pushes the intake valve open at the right moment."
+   "name": "Впускной распредвал",
+   "role": "Вращающийся вал с выступом, который вовремя нажимает на впускной клапан."
   },
   "exhaustCam": {
-   "name": "Exhaust camshaft",
-   "role": "A spinning shaft with a bump that pushes the exhaust valve open at the right moment."
+   "name": "Выпускной распредвал",
+   "role": "Вращающийся вал с выступом, который вовремя нажимает на выпускной клапан."
   },
   "sparkPlug": {
-   "name": "Spark plug",
-   "role": "Makes a tiny electric spark that lights the fuel and air."
+   "name": "Свеча зажигания",
+   "role": "Даёт маленькую электрическую искру, которая поджигает смесь."
   },
   "coil": {
-   "name": "Ignition coil",
-   "role": "Turns the car’s low battery voltage into the very high voltage the spark needs."
+   "name": "Катушка зажигания",
+   "role": "Превращает низкое напряжение аккумулятора в очень высокое, нужное для искры."
   },
   "injector": {
-   "name": "Diesel injector",
-   "role": "Sprays diesel fuel at very high pressure straight into the hot air."
+   "name": "Дизельная форсунка",
+   "role": "Под огромным давлением впрыскивает топливо прямо в горячий воздух."
   },
   "glowPlug": {
-   "name": "Glow plug",
-   "role": "A small heater that helps a cold diesel engine start."
+   "name": "Свеча накаливания",
+   "role": "Небольшой нагреватель, который помогает запустить холодный дизель."
   },
   "intake": {
-   "name": "Intake manifold",
-   "role": "Pipes that guide fresh air to the cylinder."
+   "name": "Впускной коллектор",
+   "role": "Трубы, по которым свежий воздух идёт к цилиндру."
   },
   "exhaust": {
-   "name": "Exhaust manifold",
-   "role": "A pipe that carries hot burned gas away. It glows when the engine works hard."
+   "name": "Выпускной коллектор",
+   "role": "Труба для горячих газов. Светится, когда двигатель работает с нагрузкой."
   },
   "timingBelt": {
-   "name": "Timing belt",
-   "role": "Links the crankshaft to the camshafts so the valves move in step with the piston."
+   "name": "Ремень ГРМ",
+   "role": "Связывает коленвал с распредвалами, чтобы клапаны двигались в такт с поршнем."
   },
   "throttle": {
-   "name": "Throttle",
-   "role": "A flap that controls how much air gets in — that is what the accelerator pedal moves."
+   "name": "Дроссельная заслонка",
+   "role": "Заслонка, которая решает, сколько воздуха войдёт. Её открывает педаль газа."
   },
   "catalyst": {
-   "name": "Catalytic converter",
-   "role": "Cleans the exhaust by turning harmful gases into less harmful ones."
+   "name": "Каталитический нейтрализатор",
+   "role": "Очищает выхлоп: превращает вредные газы в менее вредные."
   },
   "portInjector": {
-   "name": "Fuel injector",
-   "role": "Sprays a fine mist of petrol into the incoming air."
+   "name": "Топливная форсунка",
+   "role": "Распыляет бензин мелким туманом во входящий воздух."
   },
   "rotor": {
-   "name": "Rotor",
-   "role": "A rounded triangle that spins inside the housing and does the job of the pistons."
+   "name": "Ротор",
+   "role": "Скруглённый треугольник, который вращается в корпусе вместо поршней."
   },
   "housing": {
-   "name": "Rotor housing",
-   "role": "The oval-ish chamber the rotor spins in."
+   "name": "Корпус ротора",
+   "role": "Камера почти овальной формы, в которой вращается ротор."
   },
   "eshaft": {
-   "name": "Eccentric shaft",
-   "role": "The output shaft. It turns three times for every turn of the rotor."
+   "name": "Эксцентриковый вал",
+   "role": "Выходной вал. Делает три оборота за один оборот ротора."
   },
   "transfer": {
-   "name": "Transfer port",
-   "role": "A channel that moves fresh mixture from the crankcase up into the cylinder."
+   "name": "Продувочный канал",
+   "role": "Перепускает свежую смесь из картера в цилиндр."
   },
   "exPort": {
-   "name": "Exhaust port",
-   "role": "A hole in the cylinder wall. When the piston uncovers it, burned gas rushes out."
+   "name": "Выпускное окно",
+   "role": "Отверстие в стенке цилиндра. Когда поршень его открывает, газы вырываются наружу."
   },
   "inPort": {
-   "name": "Intake port",
-   "role": "Lets fresh mixture into the crankcase while the piston rises."
+   "name": "Впуск в картер",
+   "role": "Пропускает свежую смесь в картер, пока поршень идёт вверх."
   }
  },
  "hero": {
-  "kicker": "An interactive guide to engines",
-  "title": "Inside Combustion",
-  "sub": "Thousands of tiny explosions a minute, tamed into smooth spinning power. Take the engine apart, slow time down and see exactly how it works.",
-  "cta": "Start the tour",
-  "scroll": "Scroll to begin",
-  "stageLabel": "A single-cylinder petrol engine turning slowly. A warm glow appears in the cylinder each time the fuel burns."
+  "kicker": "Интерактивный путеводитель по двигателям",
+  "title": "Внутри двигателя",
+  "sub": "Тысячи маленьких вспышек в минуту превращаются в ровное вращение. Разберите двигатель, замедлите время и посмотрите, как всё устроено.",
+  "cta": "Начать тур",
+  "scroll": "Листайте вниз",
+  "stageLabel": "Одноцилиндровый бензиновый двигатель медленно вращается. При каждом рабочем ходе в цилиндре вспыхивает тёплое свечение."
  },
  "sections": {
   "big-idea": {
-   "title": "The big idea",
-   "takeaway": "An engine turns fuel into motion by burning it in a closed space, again and again.",
-   "lede": "Every car engine on this page follows the same simple recipe. Learn it once and the rest will make sense.",
-   "see": "A single-cylinder engine seen from the side. The camera follows the gas: in through the intake, squeezed by the piston, lit by the spark, pushing the piston down and spinning the crankshaft.",
+   "title": "Главная идея",
+   "takeaway": "Двигатель превращает топливо в движение: сжигает его в закрытом объёме — снова и снова.",
+   "lede": "Все автомобильные двигатели на этой странице работают по одному простому рецепту. Поймёте его — дальше всё будет ясно.",
+   "see": "Одноцилиндровый двигатель сбоку. Камера следует за газом: он входит через впуск, сжимается поршнем, загорается от искры, толкает поршень вниз и раскручивает коленчатый вал.",
    "beats": [
     {
      "k": "01",
-     "h": "Fuel + air",
-     "t": "Fuel needs oxygen to burn, just like a campfire. The engine pulls in air and mixes it with a little fuel."
+     "h": "Топливо + воздух",
+     "t": "Чтобы гореть, топливу нужен кислород — как костру. Двигатель втягивает воздух и смешивает его с капелькой топлива."
     },
     {
      "k": "02",
-     "h": "Squeeze",
-     "t": "A [[piston]] squeezes the mixture into a tiny space. Squeezed gas gets hot and burns much better."
+     "h": "Сжатие",
+     "t": "[[piston|Поршень]] сжимает смесь в крошечный объём. Сжатый газ нагревается и горит гораздо лучше."
     },
     {
      "k": "03",
-     "h": "Spark and push",
-     "t": "A spark lights the mixture. The hot gas expands fast and pushes the piston down hard."
+     "h": "Искра и толчок",
+     "t": "Искра поджигает смесь. Горячий газ быстро расширяется и с силой толкает поршень вниз."
     },
     {
      "k": "04",
-     "h": "Spin",
-     "t": "The [[crankshaft]] turns that push into spinning, like your legs turning bicycle pedals. The spin drives the wheels."
+     "h": "Вращение",
+     "t": "[[crankshaft|Коленчатый вал]] превращает этот толчок во вращение — так ноги крутят педали велосипеда. Вращение передаётся колёсам."
     }
    ],
-   "why": "Burning fuel releases a lot of energy from a small amount of liquid. That is why engines can move heavy cars for hundreds of kilometres on one tank.",
-   "safety": "Fuel and engines are dangerous: they get very hot, the parts move with great force and fuel catches fire easily. Please explore them here, not at home.",
+   "why": "При сгорании маленький объём жидкого топлива отдаёт очень много энергии. Поэтому на одном баке тяжёлая машина проезжает сотни километров.",
+   "safety": "Топливо и двигатели опасны: они сильно нагреваются, детали движутся с огромной силой, а топливо легко вспыхивает. Пожалуйста, изучайте их здесь, а не дома.",
    "deeper": [
-    "An [[internal-combustion|internal combustion engine]] is a heat engine: it turns heat into mechanical work. The fuel burns inside the engine, so the hot gas itself does the pushing.",
-    "No heat engine can turn all of its heat into work. Physics sets a ceiling, and real engines lose more heat to cooling, exhaust and friction. You will see where it all goes in the efficiency section."
+    "[[internal-combustion|Двигатель внутреннего сгорания]] — это тепловая машина: он превращает теплоту в механическую работу. Топливо горит внутри самого двигателя, поэтому толкает детали непосредственно горячий газ.",
+    "Ни одна тепловая машина не превращает в работу всё тепло: физика ставит предел. Реальный двигатель ещё и теряет тепло с охлаждением, выхлопом и трением. Куда уходит энергия, показано в разделе о КПД."
    ]
   },
   "anatomy": {
-   "title": "Engine anatomy",
-   "takeaway": "About a dozen key parts work together, and each one has a single clear job.",
-   "lede": "Watch a single-cylinder engine build itself, part by part. Hover or tap any part to see what it does.",
-   "see": "The engine assembles in order: block, crankshaft, piston and connecting rod, cylinder head, camshafts, valves, spark plug, then the intake and exhaust.",
-   "try": "Press “Build it”, then step through the parts. Switch to “Find the part” and test yourself.",
-   "why": "Knowing the parts lets you follow how the gas moves and where the push goes, step by step.",
+   "title": "Устройство двигателя",
+   "takeaway": "Около десятка главных деталей работают вместе, и у каждой — одна понятная задача.",
+   "lede": "Посмотрите, как одноцилиндровый двигатель собирается деталь за деталью. Наведите курсор или нажмите на деталь, чтобы узнать, что она делает.",
+   "see": "Двигатель собирается по порядку: блок, коленвал, поршень и шатун, головка блока, распредвалы, клапаны, свеча, затем впуск и выпуск.",
+   "try": "Нажмите «Собрать», затем пройдите детали по шагам. Переключитесь на «Найди деталь» и проверьте себя.",
+   "why": "Зная детали, легко проследить, как движется газ и куда передаётся усилие.",
    "steps": [
     {
      "key": "block",
-     "t": "The **cylinder block** is the engine’s strong body. Inside it is the round **cylinder**."
+     "t": "**Блок цилиндров** — прочный корпус двигателя. Внутри него круглый **цилиндр**."
     },
     {
      "key": "crankshaft",
-     "t": "The **crankshaft** sits at the bottom. It has an offset part, called a crank, just like a bike pedal."
+     "t": "Внизу стоит **коленчатый вал** (коленвал). У него есть смещённое «колено» — как педаль велосипеда."
     },
     {
      "key": "piston",
-     "t": "The **piston** slides in the cylinder. Rings around it seal the gap so gas cannot leak past."
+     "t": "В цилиндре скользит **поршень**. Кольца на нём закрывают зазор, чтобы газ не просачивался."
     },
     {
      "key": "rod",
-     "t": "The **connecting rod** links piston and crankshaft. It swings a little as the crank turns."
+     "t": "**Шатун** соединяет поршень с коленвалом. При вращении он слегка покачивается."
     },
     {
      "key": "head",
-     "t": "The **cylinder head** closes the top. Channels in it, called ports, lead gas in and out."
+     "t": "Сверху цилиндр закрывает **головка блока**. Каналы в ней подводят и отводят газ."
     },
     {
      "key": "intakeCam",
-     "t": "Two **camshafts** spin on top. A timing belt turns them at exactly half the crankshaft’s speed."
+     "t": "Наверху вращаются два **распределительных вала** (распредвала). Ремень ГРМ крутит их ровно вдвое медленнее коленвала."
     },
     {
      "key": "intakeValve",
-     "t": "The **valves** are little doors. A bump on each camshaft pushes its valve open, and a spring closes it."
+     "t": "**Клапаны** — это маленькие дверцы. Выступ распредвала открывает клапан, а пружина его закрывает."
     },
     {
      "key": "sparkPlug",
-     "t": "The **spark plug** sits in the middle of the head, right above the burning space."
+     "t": "**Свеча зажигания** стоит в центре головки, прямо над камерой сгорания."
     },
     {
      "key": "intake",
-     "t": "Finally the **intake** brings air in and the **exhaust** carries burned gas away."
+     "t": "Наконец, **впуск** подводит воздух, а **выпуск** уводит отработавшие газы."
     }
    ],
    "deeper": [
-    "The cylinder head of this model has two overhead camshafts, one for the intake valve and one for the exhaust valve. Many real engines have four valves per cylinder: two intake and two exhaust, for better breathing.",
-    "The block in the cutaway view shows a hollow ring around the cylinder. That is the **water jacket**: coolant flows through it and carries heat away to the radiator.",
-    "The crankshaft has heavy **counterweights** opposite the crankpin. They balance the spinning mass so the engine shakes less."
+    "У этой модели два верхних распредвала: один для впускного клапана, другой для выпускного. У многих настоящих двигателей по четыре клапана на цилиндр — два впускных и два выпускных, чтобы двигатель лучше «дышал».",
+    "В режиме разреза видно полое кольцо вокруг цилиндра. Это **рубашка охлаждения**: по ней течёт охлаждающая жидкость и уносит тепло к радиатору.",
+    "Напротив шатунной шейки у коленвала тяжёлые **противовесы**. Они уравновешивают вращающиеся массы, и двигатель меньше трясётся."
    ]
   },
   "four-stroke": {
-   "title": "Four-stroke petrol engine",
-   "takeaway": "Four strokes — suck, squeeze, bang, blow — and the crankshaft turns twice.",
-   "lede": "This is the engine in most petrol cars, invented by Nikolaus Otto’s company in 1876. Scroll to move the piston through the cycle yourself.",
-   "see": "A cutaway single-cylinder petrol engine. Cyan particles are fresh air and fuel, they warm up as they are squeezed, glow white-hot when the spark lights them, and turn grey as they leave through the exhaust.",
-   "try": "Drag the speed slider to redline and watch the flame. Then switch to Cutaway or X-ray and slow it down to 0.05×.",
-   "why": "Doing the four jobs in separate strokes keeps fresh charge and burned gas apart. That makes the engine clean and efficient for its size.",
+   "title": "Четырёхтактный бензиновый двигатель",
+   "takeaway": "Четыре такта — вдох, сжатие, вспышка, выдох — и коленвал делает два оборота.",
+   "lede": "Такой двигатель стоит в большинстве бензиновых машин. Его в 1876 году построила фирма Николауса Отто. Листайте вниз — и поршень пройдёт весь цикл вместе с вами.",
+   "see": "Одноцилиндровый бензиновый двигатель в разрезе. Голубые частицы — свежий воздух с топливом. При сжатии они нагреваются, от искры вспыхивают добела, а затем сереют и уходят в выпуск.",
+   "try": "Передвиньте ползунок оборотов до максимума и посмотрите на пламя. Затем включите «Разрез» или «Рентген» и замедлите до 0,05×.",
+   "why": "Каждая работа делается в своём такте, поэтому свежая смесь и отработавшие газы почти не смешиваются. Двигатель получается чистым и экономичным для своего размера.",
    "strokes": [
     {
      "key": "intake",
-     "h": "1. Intake",
-     "t": "The piston slides down and the intake [[valve]] is open. Air and a fine mist of fuel rush in — like air filling a syringe when you pull the plunger."
+     "h": "1. Впуск",
+     "t": "Поршень идёт вниз, впускной [[valve|клапан]] открыт. Воздух с мелким туманом топлива устремляется внутрь — как воздух в шприц, когда тянешь поршень."
     },
     {
      "key": "compression",
-     "h": "2. Compression",
-     "t": "Both valves close. The piston moves up and squeezes the mixture into a space about ten times smaller. Squeezed gas gets hot, like a bicycle pump that warms up when you pump fast."
+     "h": "2. Сжатие",
+     "t": "Оба клапана закрыты. Поршень поднимается и сжимает смесь примерно в десять раз. Сжатый газ нагревается — так греется велосипедный насос, если качать быстро."
     },
     {
      "key": "power",
-     "h": "3. Power",
-     "t": "Just before the top, the [[spark-plug|spark plug]] fires. The mixture burns in a split second. The hot gas presses on the piston and shoves it down. Only this stroke makes power."
+     "h": "3. Рабочий ход",
+     "t": "Чуть раньше верхней точки срабатывает [[spark-plug|свеча зажигания]]. Смесь сгорает за доли секунды, горячий газ давит на поршень и толкает его вниз. Только этот такт даёт силу."
     },
     {
      "key": "exhaust",
-     "h": "4. Exhaust",
-     "t": "The exhaust valve opens. The piston rises and pushes the burned gas out. Then the intake valve opens and it all starts again."
+     "h": "4. Выпуск",
+     "t": "Открывается выпускной клапан. Поршень поднимается и выталкивает отработавшие газы. Потом открывается впуск, и всё начинается заново."
     }
    ],
-   "controlsTitle": "Free controls",
-   "pvTitle": "The engine’s heartbeat chart",
-   "pvCaption": "This chart shows the pressure inside the cylinder (up) against the space the gas has (sideways). The dot follows the 3D engine. The shaded loop is the work done in one cycle.",
+   "controlsTitle": "Свободное управление",
+   "pvTitle": "Кардиограмма двигателя",
+   "pvCaption": "График показывает давление в цилиндре (вверх) и объём газа (вбок). Точка движется вместе с 3D-двигателем. Закрашенная петля — работа за один цикл.",
    "deeper": [
-    "**Crank angle.** One full cycle takes 720° of crank rotation: intake 0–180°, compression 180–360°, power 360–540°, exhaust 540–720°. The model computes the piston position from the crank geometry: x(θ) = r·cos θ + √(l² − r²·sin² θ), with r = half the [[stroke]] and l = the rod length.",
-    "**Valve timing {typ}.** Valves do not open exactly at the dead centres. The intake opens about 10° before [[tdc|top dead centre]] and closes about 45° after bottom dead centre, so the moving air keeps filling the cylinder. The exhaust opens about 45° before bottom dead centre. Near the top, both are briefly open: this is [[valve-overlap|overlap]].",
-    "**Spark timing.** The flame needs time to spread, so the spark comes 10–30° before the top. The faster the engine turns, the earlier the spark.",
-    "**Pressure model.** Compression and expansion follow p·Vⁿ = constant with n ≈ 1.3. Burning is modelled with a Wiebe function, x_b(θ) = 1 − exp(−a·((θ − θ₀)/Δθ)^(m+1)), with a ≈ 5 and m ≈ 2. Peak pressure here is about 50–65 bar at full throttle.",
-    "**Compression ratio {typ}.** Petrol engines use about 9–14:1. Higher would be more efficient, but the mixture would start to [[knock]]."
+    "**Угол поворота коленвала.** Полный цикл занимает 720°: впуск 0–180°, сжатие 180–360°, рабочий ход 360–540°, выпуск 540–720°. Положение поршня модель считает по геометрии кривошипа: x(θ) = r·cos θ + √(l² − r²·sin² θ), где r — половина [[stroke|хода поршня]], а l — длина шатуна.",
+    "**Фазы газораспределения {typ}.** Клапаны открываются не точно в мёртвых точках. Впускной открывается примерно за 10° до [[tdc|верхней мёртвой точки (ВМТ)]] и закрывается примерно через 45° после нижней мёртвой точки (НМТ): движущийся воздух продолжает заполнять цилиндр. Выпускной открывается примерно за 45° до НМТ. Возле ВМТ оба клапана ненадолго открыты — это [[valve-overlap|перекрытие клапанов]].",
+    "**Опережение зажигания.** Пламени нужно время, чтобы распространиться, поэтому искра проскакивает за 10–30° до ВМТ. Чем выше обороты, тем раньше искра.",
+    "**Модель давления.** Сжатие и расширение идут по закону p·Vⁿ = const, где n ≈ 1,3. Сгорание описано функцией Вибе: x_b(θ) = 1 − exp(−a·((θ − θ₀)/Δθ)^(m+1)), a ≈ 5, m ≈ 2. Пиковое давление здесь — около 50–65 бар при полном газе.",
+    "**Степень сжатия {typ}.** У бензиновых двигателей примерно 9–14:1. Выше было бы экономичнее, но смесь начала бы [[knock|детонировать]]."
+   ],
+   "figures": [
+    {
+     "n": 720,
+     "u": "°",
+     "l": "поворота коленвала за цикл"
+    },
+    {
+     "n": 2,
+     "u": "",
+     "l": "оборота коленвала за цикл"
+    },
+    {
+     "n": 10,
+     "u": ":1",
+     "l": "степень сжатия {typ}"
+    },
+    {
+     "n": 60,
+     "u": " бар",
+     "l": "пиковое давление на полном газу в этой модели"
+    }
    ]
   },
   "diesel": {
-   "title": "Diesel engine",
-   "takeaway": "A diesel has no spark plug: it squeezes air so hard that the air itself lights the fuel.",
-   "lede": "Rudolf Diesel patented the idea in 1892 and ran his first working engine in 1897. Today diesels move most trucks, trains and ships.",
-   "see": "A cutaway diesel engine. Only air comes in. Near the top, the injector sprays five thin plumes of fuel into the very hot air, and the flame starts at their tips.",
-   "try": "Slide “Fuel” up and down. A diesel has no throttle flap: it makes more power simply by injecting more fuel.",
-   "why": "Higher squeeze means more of the fuel’s energy becomes motion. Diesels are the most efficient engines on the road.",
+   "title": "Дизельный двигатель",
+   "takeaway": "У дизеля нет свечи зажигания: он так сильно сжимает воздух, что тот сам поджигает топливо.",
+   "lede": "Рудольф Дизель запатентовал эту идею в 1892 году, а первый рабочий двигатель запустил в 1897-м. Сегодня дизели двигают большинство грузовиков, поездов и судов.",
+   "see": "Дизельный двигатель в разрезе. Внутрь входит только воздух. Возле верхней точки форсунка впрыскивает в раскалённый воздух пять тонких струй топлива, и пламя загорается на их концах.",
+   "try": "Подвигайте ползунок «Подача топлива». У дизеля нет дроссельной заслонки: он даёт больше мощности, просто впрыскивая больше топлива.",
+   "why": "Чем сильнее сжатие, тем большая часть энергии топлива превращается в движение. Дизели — самые экономичные двигатели на дорогах.",
    "cards": [
     {
-     "h": "Squeeze much harder",
-     "t": "A diesel squeezes air about 15 to 20 times {typ}. The air gets hot enough — several hundred degrees Celsius — to light diesel fuel by itself."
+     "h": "Сжимает гораздо сильнее",
+     "t": "Дизель сжимает воздух примерно в 15–20 раз {typ}. Воздух нагревается до нескольких сотен градусов Цельсия — этого хватает, чтобы дизельное топливо загорелось само."
     },
     {
-     "h": "Fuel goes in last",
-     "t": "An [[fuel-injector|injector]] sprays fuel at very high pressure, just before the top. The fuel lights within a few thousandths of a second."
+     "h": "Топливо — в последний момент",
+     "t": "[[fuel-injector|Форсунка]] впрыскивает топливо под огромным давлением прямо перед верхней точкой. Оно загорается за несколько тысячных долей секунды."
     },
     {
-     "h": "Glow plug for cold starts",
-     "t": "On a cold morning the air may not get hot enough. A [[glow-plug|glow plug]] warms the chamber to help the engine start."
+     "h": "Свеча накаливания для холодного пуска",
+     "t": "Холодным утром воздух может нагреться недостаточно. [[glow-plug|Свеча накаливания]] прогревает камеру и помогает запуску."
     },
     {
-     "h": "Strong but heavy",
-     "t": "High pressure needs a thick, strong engine. Diesels are heavier and noisier, but they pull hard at low speed — they make a lot of [[torque]]."
+     "h": "Сильный, но тяжёлый",
+     "t": "Высокое давление требует толстого и прочного двигателя. Дизели тяжелее и шумнее, зато хорошо тянут на низких оборотах — у них большой [[torque|крутящий момент]]."
     }
    ],
-   "dirtyTitle": "Why diesels used to be dirty",
-   "dirty": "Burning fuel droplets can leave tiny soot particles, and very hot burning makes nitrogen oxides ([[nox|NOx]]). Modern diesels catch soot in a [[particulate-filter|particulate filter]] and remove NOx with [[scr|SCR]]: a liquid called AdBlue is sprayed into the exhaust and turns NOx into nitrogen and water.",
+   "dirtyTitle": "Почему дизели раньше были грязными",
+   "dirty": "Горящие капли топлива могут оставлять мельчайшую сажу, а очень жаркое горение рождает оксиды азота ([[nox|NOx]]). Современные дизели ловят сажу [[particulate-filter|сажевым фильтром]], а NOx убирают системой [[scr|SCR]]: в выхлоп впрыскивают жидкость AdBlue, и она превращает NOx в азот и воду.",
    "deeper": [
-    "**Compression ratio {typ}:** about 14–22:1 for diesels against 9–14:1 for petrol engines. Petrol cannot go that high because it would self-ignite too early and knock. Diesel is meant to self-ignite.",
-    "**Combustion.** After injection starts there is a short ignition delay. The fuel that mixed during the delay burns all at once (the sharp first peak), then the rest burns as fast as it can mix with air. The model uses a double Wiebe function for this.",
-    "**Load control.** A petrol engine controls power by throttling the air. A diesel lets the air in freely and changes the amount of fuel. That avoids pumping losses at part load, one reason for its high efficiency.",
-    "**Efficiency {typ}:** a modern car diesel reaches about 40–45 % at its best point, against roughly 35–41 % for a modern petrol engine."
+    "**Степень сжатия {typ}:** около 14–22:1 у дизелей против 9–14:1 у бензиновых двигателей. Бензиновый так сжимать нельзя: смесь самовоспламенится слишком рано и начнётся детонация. Дизельное топливо, наоборот, должно воспламеняться само.",
+    "**Сгорание.** После начала впрыска есть короткая задержка воспламенения. Топливо, перемешавшееся за это время, сгорает разом — это острый первый пик, — а остальное горит по мере смешивания с воздухом. В модели это описано двойной функцией Вибе.",
+    "**Регулирование мощности.** Бензиновый двигатель дросселирует воздух, а дизель впускает его свободно и меняет количество топлива. Так нет насосных потерь на частичной нагрузке — одна из причин его высокого КПД.",
+    "**КПД {typ}:** современный легковой дизель достигает 40–45 % в лучшей точке, современный бензиновый — примерно 35–41 %."
+   ],
+   "figures": [
+    {
+     "n": 17,
+     "u": ":1",
+     "l": "степень сжатия {typ}"
+    },
+    {
+     "n": 45,
+     "u": " %",
+     "l": "лучший КПД легкового дизеля {typ}"
+    },
+    {
+     "n": 2000,
+     "u": " бар",
+     "l": "давление впрыска Common Rail {typ}"
+    }
    ]
   },
   "two-stroke": {
-   "title": "Two-stroke engine",
-   "takeaway": "A two-stroke does the whole job in one up and one down — a power stroke every turn.",
-   "lede": "No valves, no camshafts: the piston itself opens and closes holes in the cylinder wall.",
-   "see": "A cutaway two-stroke engine. As the piston rises, fresh mixture is drawn into the crankcase below it. As it falls, it uncovers the exhaust port first, then the transfer ports that push fresh mixture up into the cylinder.",
-   "try": "Slow it to 0.05× and watch the exhaust port open just before the transfer ports.",
-   "why": "Twice as many power strokes from the same size makes small two-strokes light and punchy — great for chainsaws, mopeds and outboard motors.",
+   "title": "Двухтактный двигатель",
+   "takeaway": "Двухтактник делает всю работу за один ход вверх и один вниз — рабочий ход на каждом обороте.",
+   "lede": "Ни клапанов, ни распредвалов: окна в стенке цилиндра открывает и закрывает сам поршень.",
+   "see": "Двухтактный двигатель в разрезе. Пока поршень поднимается, в картер под ним всасывается свежая смесь. Когда он опускается, то сначала открывает выпускное окно, а затем продувочные — и свежая смесь идёт вверх, в цилиндр.",
+   "try": "Замедлите до 0,05× и посмотрите: выпускное окно открывается чуть раньше продувочных.",
+   "why": "Вдвое больше рабочих ходов при том же размере — поэтому маленькие двухтактники лёгкие и бойкие. Они отлично подходят бензопилам, мопедам и лодочным моторам.",
    "cards": [
     {
-     "h": "Up: squeeze and suck",
-     "t": "Above the piston, the mixture is squeezed. Below it, the rising piston pulls fresh mixture into the [[crankcase]]."
+     "h": "Вверх: сжатие и всасывание",
+     "t": "Над поршнем смесь сжимается. Под ним поднимающийся поршень втягивает свежую смесь в [[crankcase|картер]]."
     },
     {
-     "h": "Down: bang and swap",
-     "t": "The spark pushes the piston down. It first uncovers the [[ports|exhaust port]], so burned gas escapes. Then the transfer ports open and fresh mixture flows in."
+     "h": "Вниз: вспышка и обмен",
+     "t": "После искры поршень идёт вниз. Сначала он открывает [[ports|выпускное окно]] — отработавшие газы уходят. Затем открываются продувочные окна, и внутрь поступает свежая смесь."
     },
     {
-     "h": "Simple and light",
-     "t": "Few moving parts and a power stroke every turn. That is why two-strokes suit tools you carry."
+     "h": "Простой и лёгкий",
+     "t": "Мало движущихся деталей и рабочий ход на каждом обороте. Поэтому двухтактники так хороши для инструментов, которые носят в руках."
     },
     {
-     "h": "Loud and less clean",
-     "t": "Some fresh fuel escapes straight out of the exhaust. Oil is mixed into the fuel to lubricate the engine, and it burns too, so the exhaust is smoky."
+     "h": "Громкий и менее чистый",
+     "t": "Часть свежего топлива сразу уходит в выпуск. Для смазки масло подмешивают в бензин, и оно тоже сгорает — поэтому выхлоп дымный."
     }
    ],
-   "marineTitle": "Giants work differently",
-   "marine": "The biggest engines in the world are also two-strokes: the slow diesels that drive container ships. They are very different inside. Air is blown in through ports at the bottom and leaves through a valve at the top ([[uniflow|uniflow scavenging]]). Long [[crosshead|crossheads]] keep side forces off the pistons. Their efficiency is above 50 % {typ}.",
+   "marineTitle": "Великаны устроены иначе",
+   "marine": "Самые большие двигатели в мире — тоже двухтактные: это тихоходные дизели контейнеровозов. Но внутри они совсем другие. Воздух входит через окна внизу цилиндра, а выходит через клапан сверху ([[uniflow|прямоточная продувка]]). Длинные [[crosshead|крейцкопфы]] снимают боковую нагрузку с поршней. Их КПД — больше 50 % {typ}.",
    "deeper": [
-    "**Port timing {typ}** in this model: exhaust opens about 105° after top dead centre, transfer ports about 120°. Both close again on the way up, symmetrically around bottom dead centre.",
-    "**Why exhaust first?** The cylinder pressure must drop below crankcase pressure before the transfer ports open. Otherwise burned gas would rush backwards into the crankcase.",
-    "**Scavenging** means pushing burned gas out with fresh charge. In small engines the crankcase acts as a pump. Some fresh charge short-circuits straight to the exhaust: the main reason for high fuel use and hydrocarbon emissions."
+    "**Фазы окон {typ}** в этой модели: выпуск открывается примерно через 105° после ВМТ, продувка — примерно через 120°. На пути вверх окна закрываются в том же порядке, симметрично относительно НМТ.",
+    "**Почему сначала выпуск?** Давление в цилиндре должно упасть ниже давления в картере до того, как откроются продувочные окна. Иначе горячие газы хлынули бы обратно в картер.",
+    "**Продувка** — это вытеснение отработавших газов свежим зарядом. В маленьких двигателях насосом служит картер. Часть свежего заряда пролетает прямо в выпуск — главная причина высокого расхода и выбросов несгоревших углеводородов."
    ]
   },
   "wankel": {
-   "title": "Wankel rotary engine",
-   "takeaway": "A rounded triangle spins inside an oval and does all four strokes without any back-and-forth parts.",
-   "lede": "Felix Wankel’s engine first ran in 1957. Its most famous home is the Mazda RX-7 and RX-8 sports cars.",
-   "see": "The rotor orbits inside the housing. Its three faces form three separate chambers. Each one is coloured by its stroke: cyan intake, violet compression, amber power, grey exhaust.",
-   "try": "Watch the counters: the output shaft turns three times for each turn of the rotor.",
-   "why": "Smooth spinning and very few parts make a rotary engine small and light for its power.",
+   "title": "Роторный двигатель Ванкеля",
+   "takeaway": "Скруглённый треугольник вращается внутри «овала» и выполняет все четыре такта без возвратно-поступательных деталей.",
+   "lede": "Двигатель Феликса Ванкеля впервые заработал в 1957 году. Самые известные машины с ним — спорткары Mazda RX-7 и RX-8.",
+   "see": "Ротор обкатывается внутри корпуса. Его три грани образуют три отдельные камеры, и каждая окрашена по своему такту: голубой — впуск, фиолетовый — сжатие, янтарный — рабочий ход, серый — выпуск.",
+   "try": "Следите за счётчиками: выходной вал делает три оборота на каждый оборот ротора.",
+   "why": "Ровное вращение и очень мало деталей делают роторный двигатель маленьким и лёгким для своей мощности.",
    "cards": [
     {
-     "h": "Three chambers at once",
-     "t": "While one face sucks in, another squeezes and the third burns. You get one power pulse for every turn of the output shaft."
+     "h": "Три камеры одновременно",
+     "t": "Пока одна грань всасывает, вторая сжимает, а в третьей идёт сгорание. На каждый оборот выходного вала приходится одна вспышка."
     },
     {
-     "h": "Spinning, not shaking",
-     "t": "There are no pistons stopping and starting. The rotor just goes round, so the engine runs very smoothly and revs high."
+     "h": "Вращается, а не трясётся",
+     "t": "Здесь нет поршней, которые останавливаются и разгоняются. Ротор просто крутится, поэтому двигатель работает очень плавно и легко раскручивается."
     },
     {
-     "h": "The weak points",
-     "t": "The tips of the rotor need seals that wear. The long, thin chamber burns fuel less completely, so rotaries use more fuel and oil."
+     "h": "Слабые места",
+     "t": "Вершинам ротора нужны уплотнения, а они изнашиваются. В длинной узкой камере топливо сгорает не полностью, поэтому роторные моторы расходуют больше бензина и масла."
     }
    ],
    "deeper": [
-    "**Geometry.** The housing is an [[epitrochoid]]: x = e·cos 3α + R·cos α, y = e·sin 3α + R·sin α, where e is the eccentricity and R the rotor radius. The rotor’s flanks are the inner envelope of that curve, so its three tips always touch the housing.",
-    "**3:1.** The rotor centre orbits on an eccentric of the output shaft. Gears inside fix the ratio: the shaft turns three times per rotor turn, and each face fires once per rotor turn.",
-    "**Displacement** of a rotary is usually given per face, which makes comparisons with piston engines tricky."
+    "**Геометрия.** Корпус — это [[epitrochoid|эпитрохоида]]: x = e·cos 3α + R·cos α, y = e·sin 3α + R·sin α, где e — эксцентриситет, R — радиус ротора. Грани ротора — внутренняя огибающая этой кривой, поэтому три его вершины всегда касаются корпуса.",
+    "**3:1.** Центр ротора движется по эксцентрику выходного вала, а шестерни внутри задают передаточное число: вал делает три оборота на один оборот ротора, и каждая грань срабатывает раз за оборот ротора.",
+    "**Рабочий объём** роторного двигателя обычно указывают для одной грани, поэтому сравнивать его с поршневыми двигателями непросто."
    ]
   },
   "layouts": {
-   "title": "Cylinder layouts",
-   "takeaway": "Bigger engines use several cylinders, and how you line them up changes how smooth they feel.",
-   "lede": "Car engines often have 4, 6 or 8 cylinders. Their pistons take turns firing, so the push on the crankshaft is smoother.",
-   "see": "Pistons arranged on one crankshaft. Each cylinder flashes amber when it fires, in the firing order. The meter shows how much the engine wants to shake.",
-   "try": "Switch between the layouts and compare the shake meter. Inline-6 and cross-plane V8 stay calm.",
-   "why": "Smoothness, size and cost pull in different directions. Car makers choose the layout that fits the car.",
+   "title": "Компоновки цилиндров",
+   "takeaway": "У больших двигателей несколько цилиндров, и от того, как их расставить, зависит плавность работы.",
+   "lede": "Автомобильные двигатели часто имеют 4, 6 или 8 цилиндров. Поршни срабатывают по очереди, поэтому коленвал получает толчки равномернее.",
+   "see": "Поршни на общем коленвале. Каждый цилиндр вспыхивает янтарным, когда в нём происходит рабочий ход, — в порядке работы цилиндров. Шкала показывает, насколько двигатель стремится трястись.",
+   "try": "Переключайте компоновки и сравнивайте шкалу вибрации. Рядная шестёрка и V8 с крестообразным валом остаются спокойными.",
+   "why": "Плавность, размер и цена тянут в разные стороны. Производители выбирают компоновку под конкретную машину.",
    "layouts": {
     "i4": {
-     "name": "Inline-4",
-     "t": "Four cylinders in a row. Compact and cheap — the most common car engine. It has a vibration at twice the engine speed."
+     "name": "Рядная четвёрка",
+     "t": "Четыре цилиндра в ряд. Компактно и недорого — самый распространённый автомобильный двигатель. Даёт вибрацию с частотой вдвое выше оборотов."
     },
     "i6": {
-     "name": "Inline-6",
-     "t": "Six in a row. Its forces cancel out naturally, so it runs silky smooth, but it is long."
+     "name": "Рядная шестёрка",
+     "t": "Шесть в ряд. Силы гасят друг друга сами собой, поэтому двигатель работает шёлково-плавно, но он длинный."
     },
     "v8cross": {
-     "name": "Cross-plane V8",
-     "t": "Two banks of four at 90°. Very smooth, with the classic burbling sound."
+     "name": "V8, крестообразный вал",
+     "t": "Два ряда по четыре цилиндра под углом 90°. Очень плавный, с узнаваемым «бархатным» звуком."
     },
     "v8flat": {
-     "name": "Flat-plane V8",
-     "t": "A lighter crankshaft that revs quickly, used in racing engines. It shakes sideways a little."
+     "name": "V8, плоский вал",
+     "t": "Лёгкий коленвал, который быстро раскручивается, — для гоночных двигателей. Немного трясёт в стороны."
     },
     "boxer4": {
-     "name": "Boxer-4",
-     "t": "Two pairs of opposed pistons that punch out and back like boxers. Low and wide."
+     "name": "Оппозитная четвёрка",
+     "t": "Две пары поршней напротив друг друга двигаются навстречу, как боксёры. Низкий и широкий мотор."
     }
    },
-   "orderNote": "Firing orders shown are common examples; cylinder numbering differs between makers.",
+   "orderNote": "Показаны частые примеры порядка работы; нумерация цилиндров у разных производителей отличается.",
    "deeper": [
-    "**Firing orders {ex}:** inline-4 1-3-4-2; inline-6 1-5-3-6-2-4; cross-plane V8 1-8-4-3-6-5-7-2; flat-plane V8 1-5-3-7-4-8-2-6; flat-4 boxer 1-3-2-4. A four-stroke with n cylinders fires every 720°/n of crank rotation.",
-    "**Balance.** A piston speeds up and slows down twice per turn. The main shaking force (1st order) can be cancelled by layout or counterweights. A smaller 2nd-order force comes from the rod’s angle and repeats twice per turn. Inline-4: 2nd-order forces add up. Inline-6: all cancel. Cross-plane V8: no 2nd-order forces. Flat-plane V8: a sideways 2nd-order force. Boxer-4: forces cancel, leaving a small rocking couple.",
-    "The meter in the model sums these forces in the front view using cos φ and λ·cos 2φ per cylinder, with λ = r/l ≈ 0.29."
+    "**Порядок работы цилиндров {ex}:** рядная четвёрка 1-3-4-2; рядная шестёрка 1-5-3-6-2-4; V8 с крестообразным валом 1-8-4-3-6-5-7-2; V8 с плоским валом 1-5-3-7-4-8-2-6; оппозитная четвёрка 1-3-2-4. У четырёхтактного двигателя с n цилиндрами вспышки идут через каждые 720°/n поворота коленвала.",
+    "**Уравновешенность.** За оборот поршень дважды разгоняется и тормозит. Главную силу инерции (1-го порядка) можно погасить компоновкой или противовесами. Меньшая сила 2-го порядка возникает из-за наклона шатуна и повторяется дважды за оборот. У рядной четвёрки силы 2-го порядка складываются, у рядной шестёрки всё гасится, у V8 с крестообразным валом сил 2-го порядка нет, у V8 с плоским валом есть боковая сила 2-го порядка, у оппозитной четвёрки силы гасятся, но остаётся небольшой качающий момент.",
+    "Шкала в модели суммирует эти силы во фронтальной плоскости: cos φ и λ·cos 2φ для каждого цилиндра, где λ = r/l ≈ 0,29."
    ]
   },
   "systems": {
-   "title": "Engine systems",
-   "takeaway": "The engine needs helpers: fuel, a spark, oil, cooling and clean-up.",
-   "lede": "Pick a system to see how it works. The parts it uses light up on the engine.",
-   "see": "The petrol engine with the parts of the selected system highlighted in amber.",
-   "try": "Tap each system, then rotate the engine to find the glowing parts.",
-   "why": "If any helper fails, the engine stops — or worse, it damages itself.",
+   "title": "Системы двигателя",
+   "takeaway": "Двигателю нужны помощники: топливо, искра, масло, охлаждение и очистка выхлопа.",
+   "lede": "Выберите систему, чтобы увидеть, как она работает. Её детали подсветятся на двигателе.",
+   "see": "Бензиновый двигатель, на котором янтарным подсвечены детали выбранной системы.",
+   "try": "Нажимайте на системы по очереди, а потом поверните двигатель и найдите светящиеся детали.",
+   "why": "Если откажет любой помощник, двигатель заглохнет — или, хуже того, повредит сам себя.",
    "tabs": {
     "fuel": {
-     "name": "Fuel",
-     "h": "Fuel delivery",
-     "t": "A pump in the tank sends petrol forward under pressure. The [[fuel-injector|fuel injector]] opens for a few thousandths of a second and sprays a fine mist into the air. A computer decides exactly how long."
+     "name": "Топливо",
+     "h": "Подача топлива",
+     "t": "Насос в баке подаёт бензин под давлением. [[fuel-injector|Топливная форсунка]] открывается на несколько тысячных долей секунды и распыляет топливо мелким туманом. Сколько именно — решает компьютер."
     },
     "ignition": {
-     "name": "Ignition",
-     "h": "Ignition",
-     "t": "The battery gives 12 volts. The [[ignition-coil|ignition coil]] boosts that to tens of thousands of volts, enough to jump the gap in the [[spark-plug|spark plug]] and light the mixture."
+     "name": "Зажигание",
+     "h": "Зажигание",
+     "t": "Аккумулятор даёт 12 вольт. [[ignition-coil|Катушка зажигания]] повышает напряжение до десятков тысяч вольт — этого хватает, чтобы искра проскочила в зазоре [[spark-plug|свечи]] и подожгла смесь."
     },
     "oil": {
-     "name": "Lubrication",
-     "h": "Lubrication",
-     "t": "An oil pump pulls oil from the oil pan and pushes it to every bearing. A thin film of oil keeps metal from touching metal, a bit like a water slide."
+     "name": "Смазка",
+     "h": "Смазка",
+     "t": "Масляный насос забирает масло из поддона и гонит его ко всем подшипникам. Тонкая масляная плёнка не даёт металлу касаться металла — немного похоже на водяную горку."
     },
     "cooling": {
-     "name": "Cooling",
-     "h": "Cooling",
-     "t": "A water pump moves coolant through the water jacket around the cylinder. The hot coolant goes to the [[radiator]] to cool. A [[thermostat]] keeps the engine at the right temperature."
+     "name": "Охлаждение",
+     "h": "Охлаждение",
+     "t": "Помпа гонит охлаждающую жидкость по рубашке вокруг цилиндра. Горячая жидкость идёт в [[radiator|радиатор]] и остывает. [[thermostat|Термостат]] держит нужную температуру двигателя."
     },
     "exhaust": {
-     "name": "Exhaust",
-     "h": "Exhaust clean-up",
-     "t": "Hot exhaust passes through the [[catalytic-converter|catalytic converter]]. Inside, precious metals help turn harmful gases into carbon dioxide, water and nitrogen."
+     "name": "Выпуск",
+     "h": "Очистка выхлопа",
+     "t": "Горячий выхлоп проходит через [[catalytic-converter|каталитический нейтрализатор]]. Драгоценные металлы внутри помогают превратить вредные газы в углекислый газ, воду и азот."
     }
    },
    "deeper": [
-    "**Fuel pressure {typ}:** port injection works at about 3–5 bar; direct petrol injection at 100–350 bar; diesel common-rail at 1,600–2,500 bar.",
-    "**Oil film.** In a running bearing, oil is dragged into the narrowing gap and builds up pressure that lifts the shaft off the metal. This is called hydrodynamic lubrication.",
-    "**Coolant** runs at about 90 °C {typ}. The thermostat stays shut when the engine is cold, so it warms up quickly, then opens to send coolant to the radiator.",
-    "**Three-way catalyst.** It converts carbon monoxide, unburned fuel and nitrogen oxides at once, but only if the air–fuel ratio is kept very close to chemically correct. An oxygen sensor in the exhaust lets the engine computer hold it there."
+    "**Давление топлива {typ}:** при впрыске во впускной канал — около 3–5 бар; при непосредственном впрыске бензина — 100–350 бар; в дизельном Common Rail — 1 600–2 500 бар.",
+    "**Масляная плёнка.** Во вращающемся подшипнике масло затягивается в сужающийся зазор и создаёт давление, которое приподнимает вал над металлом. Это называется гидродинамической смазкой.",
+    "**Охлаждающая жидкость** работает примерно при 90 °C {typ}. Пока двигатель холодный, термостат закрыт и мотор быстро прогревается; потом он открывается и пускает жидкость в радиатор.",
+    "**Трёхкомпонентный нейтрализатор** одновременно превращает угарный газ, несгоревшее топливо и оксиды азота, но только если соотношение воздуха и топлива держится очень близко к химически точному. Датчик кислорода в выпуске помогает компьютеру двигателя держать это соотношение."
    ]
   },
   "boost": {
-   "title": "Turbochargers and superchargers",
-   "takeaway": "Squeeze more air in and you can burn more fuel — that means more power from the same engine.",
-   "lede": "A turbocharger uses the exhaust to spin a fan. A supercharger is driven by the engine itself.",
-   "see": "Air flows in cyan, exhaust in grey. The turbo’s turbine is spun by exhaust; on the same shaft, its compressor pushes air into the engine.",
-   "try": "Move the boost slider and watch the torque curve rise. Then press “Accelerate” to see turbo lag.",
-   "why": "Boost lets a small engine do the work of a big one, so cars can be lighter and use less fuel when cruising.",
+   "title": "Турбокомпрессор и приводной нагнетатель",
+   "takeaway": "Затолкайте внутрь больше воздуха — и можно сжечь больше топлива, то есть получить больше мощности от того же двигателя.",
+   "lede": "Турбокомпрессор раскручивает крыльчатку выхлопными газами. Приводной нагнетатель крутит сам двигатель.",
+   "see": "Воздух показан голубым, выхлоп — серым. Выхлоп раскручивает турбину; на том же валу компрессор нагнетает воздух в двигатель.",
+   "try": "Подвигайте ползунок давления наддува и посмотрите, как растёт кривая момента. Затем нажмите «Разгон», чтобы увидеть турбояму.",
+   "why": "[[boost|Наддув]] позволяет маленькому двигателю работать как большой — машина становится легче и меньше расходует на крейсерской скорости.",
    "cards": [
     {
-     "h": "Turbocharger",
-     "t": "Exhaust gas spins a turbine wheel. A compressor wheel on the same shaft pushes extra air into the engine. It uses energy that would otherwise be wasted."
+     "h": "Турбокомпрессор",
+     "t": "Выхлопные газы раскручивают колесо турбины. Компрессорное колесо на том же валу нагнетает в двигатель дополнительный воздух. Так используется энергия, которая иначе ушла бы в трубу."
     },
     {
-     "h": "Supercharger",
-     "t": "A belt from the crankshaft drives the compressor. Boost is instant, but it takes some of the engine’s own power."
+     "h": "Приводной нагнетатель",
+     "t": "Компрессор крутит ремень от коленвала. Наддув появляется сразу, но часть мощности двигатель тратит на его привод."
     },
     {
-     "h": "Intercooler",
-     "t": "Squeezing air heats it, and hot air is thin. An [[intercooler]] cools the air so more of it fits in the cylinder."
+     "h": "Интеркулер",
+     "t": "Сжатый воздух нагревается, а горячий воздух менее плотный. [[intercooler|Интеркулер]] охлаждает его, чтобы в цилиндр поместилось больше."
     },
     {
-     "h": "Wastegate",
-     "t": "Too much boost would hurt the engine. A [[wastegate]] lets some exhaust bypass the turbine to hold the boost steady."
+     "h": "Перепускной клапан",
+     "t": "Слишком сильный наддув повредит двигатель. [[wastegate|Перепускной клапан]] пускает часть выхлопа мимо турбины и держит давление ровным."
     }
    ],
-   "lagTitle": "Turbo lag",
-   "lag": "Press the pedal and the turbo first has to speed up. For a moment the engine feels like it has no boost. That delay is [[turbo-lag|turbo lag]].",
+   "lagTitle": "Турбояма",
+   "lag": "Нажали педаль — а турбине сначала нужно раскрутиться. На мгновение кажется, что наддува нет. Эта задержка и есть [[turbo-lag|турбояма]].",
    "deeper": [
-    "**Boost** is extra pressure above the atmosphere, usually 0.5–1.5 bar {typ} in road cars. At 1 bar boost the air is about twice as dense — less after heating, which is why intercoolers matter.",
-    "**Torque scales with air.** With fuel matched to air, the torque roughly follows the mass of air trapped each cycle. The curve here scales the natural torque with charge density after intercooling.",
-    "**Knock limit.** Boosted petrol engines lower the compression ratio or retard the spark to avoid knock."
+    "**Давление наддува** — это избыточное давление сверх атмосферного, у дорожных машин обычно 0,5–1,5 бар {typ}. При наддуве 1 бар воздух примерно вдвое плотнее — меньше после нагрева, поэтому интеркулер так важен.",
+    "**Момент следует за воздухом.** Если топливо подаётся под воздух, крутящий момент примерно пропорционален массе воздуха в цилиндре за цикл. Кривая здесь масштабирует атмосферный момент по плотности заряда после интеркулера.",
+    "**Предел детонации.** Чтобы избежать детонации, у бензиновых двигателей с наддувом снижают степень сжатия или делают зажигание позже."
    ]
   },
   "gearbox": {
-   "title": "From engine to wheels",
-   "takeaway": "An engine only works well within a narrow range of speeds, so a gearbox matches it to the wheels.",
-   "lede": "A car crawls at walking pace and cruises on the motorway. The engine cannot spin from zero to 50,000 rpm, so gears do the translating.",
-   "see": "A simple gearbox demo: the engine speed needle, the selected gear and the road speed. Lines on the chart show each gear.",
-   "try": "Pick 1st gear and press “Accelerate”. Change up near the amber zone and watch the engine speed drop.",
-   "why": "Low gears give a strong push for starting and climbing. High gears let the engine turn slowly and save fuel at speed.",
+   "title": "От мотора к колёсам",
+   "takeaway": "Двигатель хорошо работает лишь в узком диапазоне оборотов, поэтому коробка передач согласует его с колёсами.",
+   "lede": "Машина то ползёт со скоростью пешехода, то мчится по трассе. Двигатель не может крутиться от нуля до 50 000 об/мин, поэтому «переводят» передачи.",
+   "see": "Простая модель коробки передач: стрелка оборотов, включённая передача и скорость машины. Линии на графике — это передачи.",
+   "try": "Включите первую передачу и нажмите «Разгон». Переключайтесь вверх возле янтарной зоны и смотрите, как падают обороты.",
+   "why": "Низкие передачи дают сильный толчок для старта и подъёма. Высокие позволяют двигателю крутиться медленно и экономить топливо на скорости.",
    "cards": [
     {
-     "h": "Why gears?",
-     "t": "A low gear is like a small front sprocket on a bike: easy to push, but you go slowly. High gears are the opposite."
+     "h": "Зачем передачи?",
+     "t": "Низкая передача — как маленькая передняя звёздочка у велосипеда: крутить легко, но едешь медленно. На высоких передачах — наоборот."
     },
     {
-     "h": "The clutch",
-     "t": "The [[clutch]] connects and disconnects the engine from the gearbox. It lets the engine keep running while the car stands still, and lets you change gear smoothly."
+     "h": "Сцепление",
+     "t": "[[clutch|Сцепление]] соединяет и разъединяет двигатель и коробку. Двигатель может работать, пока машина стоит, а передачи переключаются плавно."
     },
     {
-     "h": "Torque multiplication",
-     "t": "Gears trade speed for force. In 1st gear the wheels get several times more [[torque]] than the engine makes."
+     "h": "Умножение момента",
+     "t": "Передачи меняют скорость на силу. На первой передаче колёса получают в несколько раз больший [[torque|крутящий момент]], чем развивает двигатель."
     }
    ],
    "deeper": [
-    "**Road speed** v = (engine rpm / (gear ratio × final drive)) × wheel circumference × 60 / 1000 km/h.",
-    "**Ratios {typ}** in this demo: 1st 3.6, 2nd 2.1, 3rd 1.4, 4th 1.0, 5th 0.8, 6th 0.65 with a 3.9 final drive and 2.0 m wheel circumference.",
-    "Automatic gearboxes and CVTs do the same job, choosing the ratio for you."
+    "**Скорость машины** v = (обороты / (передаточное число × главная пара)) × длина окружности колеса × 60 / 1000 км/ч.",
+    "**Передаточные числа {typ}** в этой модели: 1-я 3,6, 2-я 2,1, 3-я 1,4, 4-я 1,0, 5-я 0,8, 6-я 0,65; главная пара 3,9; окружность колеса 2,0 м.",
+    "Автоматические коробки и вариаторы делают то же самое, но выбирают передаточное число сами."
    ]
   },
   "efficiency": {
-   "title": "Efficiency and hybrids",
-   "takeaway": "Most of the fuel’s energy leaves as heat; good engines turn about a third into motion, the best diesels even more.",
-   "lede": "Follow the energy from the tank. The width of each band shows its share at a good operating point {typ}.",
-   "see": "An energy flow diagram. Fuel enters on the left and splits into useful work, heat carried by the coolant, heat in the exhaust, and friction.",
-   "try": "Switch between petrol and diesel and compare how wide the useful-work band is.",
-   "why": "Every bit of saved heat means less fuel burned and less carbon dioxide made.",
+   "title": "КПД и гибриды",
+   "takeaway": "Большая часть энергии топлива уходит в тепло; хорошие двигатели превращают в движение около трети, лучшие дизели — больше.",
+   "lede": "Проследите путь энергии от бака. Ширина каждой полосы — её доля в хорошем режиме работы {typ}.",
+   "see": "Диаграмма потоков энергии. Слева входит энергия топлива; она делится на полезную работу, тепло в охлаждающей жидкости, тепло с выхлопом и трение.",
+   "try": "Переключайте бензин и дизель и сравнивайте ширину полосы полезной работы.",
+   "why": "Каждая сбережённая частица тепла — это меньше сожжённого топлива и меньше углекислого газа.",
    "sankey": {
-    "fuel": "Fuel energy",
-    "work": "Useful work",
-    "cooling": "Cooling",
-    "exhaust": "Exhaust heat",
-    "friction": "Friction & pumping",
-    "note": "Typical shares at a good operating point. In everyday driving the useful share is lower."
+    "fuel": "Энергия топлива",
+    "work": "Полезная работа",
+    "cooling": "Охлаждение",
+    "exhaust": "Тепло выхлопа",
+    "friction": "Трение и насосные потери",
+    "note": "Типичные доли в хорошем режиме. В обычной езде доля полезной работы меньше."
    },
    "cards": [
     {
-     "h": "Atkinson and Miller cycles",
-     "t": "Keep the intake valve open a bit longer, and some mixture is pushed back out. The squeeze becomes shorter than the push, so more energy is captured — at the cost of some power."
+     "h": "Циклы Аткинсона и Миллера",
+     "t": "Если подержать впускной клапан открытым чуть дольше, часть смеси вытолкнется обратно. Сжатие станет короче расширения, и двигатель заберёт больше энергии — ценой части мощности."
     },
     {
-     "h": "Hybrids",
-     "t": "A [[hybrid]] adds an electric motor and a battery. The motor helps when pulling away, and braking charges the battery instead of making heat."
+     "h": "Гибриды",
+     "t": "[[hybrid|Гибрид]] добавляет электромотор и батарею. Мотор помогает трогаться, а при торможении заряжает батарею вместо того, чтобы греть тормоза."
     }
    ],
    "hybrid": {
-    "title": "How a hybrid shares the work",
+    "title": "Как гибрид делит работу",
     "modes": {
-     "stopped": "Standing still: the engine can switch off completely.",
-     "accelerate": "Pulling away: the motor and the engine push together.",
-     "cruise": "Cruising: the engine runs in its efficient zone and may top up the battery.",
-     "brake": "Braking: the motor works as a generator and charges the battery."
+     "stopped": "Стоянка: двигатель может полностью выключиться.",
+     "accelerate": "Разгон: электромотор и двигатель толкают машину вместе.",
+     "cruise": "Равномерное движение: двигатель работает в экономичном режиме и может подзаряжать батарею.",
+     "brake": "Торможение: мотор работает как генератор и заряжает батарею."
     }
    },
    "deeper": [
-    "**Ideal limits.** Otto cycle: η = 1 − 1/r^(γ−1). With r = 10 and γ = 1.4 that is 60 %. Real engines reach about 35–41 % {typ} for petrol because of heat loss, friction, pumping and incomplete burning.",
-    "**Atkinson/Miller.** A late-closing intake valve gives an effective compression ratio smaller than the expansion ratio. The ideal Atkinson cycle beats the Otto cycle at the same compression ratio.",
-    "**Largest engines.** Big two-stroke marine diesels exceed 50 % {typ}, helped by slow speed, huge size and turbocharging."
+    "**Идеальный предел.** Цикл Отто: η = 1 − 1/r^(γ−1). При r = 10 и γ = 1,4 это 60 %. Реальные бензиновые двигатели достигают примерно 35–41 % {typ} из-за потерь тепла, трения, насосных потерь и неполного сгорания.",
+    "**Аткинсон и Миллер.** Позднее закрытие впускного клапана делает действительную степень сжатия меньше степени расширения. Идеальный цикл Аткинсона экономичнее цикла Отто при той же степени сжатия.",
+    "**Самые большие двигатели.** Большие двухтактные судовые дизели превышают 50 % {typ} благодаря низким оборотам, огромным размерам и турбонаддуву."
    ]
   },
   "history": {
-   "title": "History",
-   "takeaway": "In about forty years, engines went from a curiosity to the heart of the motor car.",
-   "lede": "Scroll sideways through the milestones.",
+   "title": "История",
+   "takeaway": "Примерно за сорок лет двигатель прошёл путь от диковинки до сердца автомобиля.",
+   "lede": "Листайте вбок по главным вехам.",
    "items": [
     {
-     "year": "c. 1860",
-     "h": "Lenoir’s gas engine",
-     "t": "Étienne Lenoir builds one of the first practical internal combustion engines. It burns coal gas without compressing it first, so it is weak and thirsty."
+     "year": "ок. 1860",
+     "h": "Газовый двигатель Ленуара",
+     "t": "Этьен Ленуар строит один из первых практичных двигателей внутреннего сгорания. Он сжигает светильный газ без предварительного сжатия, поэтому слаб и прожорлив."
     },
     {
      "year": "1876",
-     "h": "Otto’s four-stroke",
-     "t": "Nikolaus Otto’s company builds a four-stroke engine that compresses the charge before lighting it. It works far better, and the cycle still carries his name."
+     "h": "Четырёхтактный двигатель Отто",
+     "t": "Фирма Николауса Отто строит четырёхтактный двигатель, который сжимает смесь перед поджигом. Он работает намного лучше, и цикл до сих пор носит имя Отто."
     },
     {
      "year": "1886",
      "h": "Benz Patent-Motorwagen",
-     "t": "Carl Benz patents a three-wheeled car powered by a single-cylinder four-stroke petrol engine — often called the first true automobile."
+     "t": "Карл Бенц патентует трёхколёсный автомобиль с одноцилиндровым четырёхтактным бензиновым двигателем — его часто называют первым настоящим автомобилем."
     },
     {
      "year": "1892 / 1897",
-     "h": "Diesel’s engine",
-     "t": "Rudolf Diesel patents an engine that lights fuel with the heat of compressed air (1892). His first working engine runs in 1897."
+     "h": "Двигатель Дизеля",
+     "t": "Рудольф Дизель патентует двигатель, который поджигает топливо теплом сжатого воздуха (1892). Первый рабочий двигатель заработал в 1897 году."
     },
     {
      "year": "1957",
-     "h": "Wankel’s rotary",
-     "t": "Felix Wankel’s first running rotary engine replaces pistons with a spinning rotor."
+     "h": "Роторный двигатель Ванкеля",
+     "t": "Первый работающий роторный двигатель Феликса Ванкеля заменяет поршни вращающимся ротором."
     }
    ]
   },
   "future": {
-   "title": "The future",
-   "takeaway": "Combustion engines are still everywhere, but electric drives are taking a growing share — what happens next is still being decided.",
-   "lede": "Here are the main directions people are working on today. None of them is a sure thing.",
+   "title": "Будущее",
+   "takeaway": "Двигатели внутреннего сгорания по-прежнему повсюду, но электрические приводы занимают всё большую долю — что будет дальше, ещё решается.",
+   "lede": "Вот главные направления, над которыми работают сегодня. Ни одно из них не гарантировано.",
    "cards": [
     {
-     "h": "More efficient engines",
-     "t": "Better burning, less friction and smarter control keep raising efficiency. Pairing engines with electric motors in hybrids saves the most."
+     "h": "Более экономичные двигатели",
+     "t": "Лучшее сгорание, меньшее трение и умное управление продолжают повышать КПД. Больше всего экономит сочетание двигателя с электромотором в гибриде."
     },
     {
-     "h": "Synthetic fuels",
-     "t": "Fuels can be made from hydrogen and carbon dioxide captured from the air, using renewable electricity. Today they are expensive and made only in small amounts."
+     "h": "Синтетическое топливо",
+     "t": "Топливо можно получать из водорода и углекислого газа, уловленного из воздуха, с помощью возобновляемой электроэнергии. Пока оно дорогое и производится в малых количествах."
     },
     {
-     "h": "Hydrogen engines",
-     "t": "An engine can burn hydrogen instead of petrol. It makes no carbon dioxide at the tailpipe, but very hot burning still creates nitrogen oxides that must be cleaned."
+     "h": "Водородные двигатели",
+     "t": "Двигатель может сжигать водород вместо бензина. Углекислого газа из трубы нет, но очень жаркое горение всё равно даёт оксиды азота, и их нужно очищать."
     },
     {
-     "h": "Electric competition",
-     "t": "Battery-electric cars have no combustion at all. They are growing fast in many countries, while ships, planes and heavy machines will likely rely on combustion for longer."
+     "h": "Конкуренция с электричеством",
+     "t": "У электромобилей на батареях сгорания нет вовсе. Во многих странах их доля быстро растёт, а суда, самолёты и тяжёлая техника, вероятно, дольше будут полагаться на сгорание."
     }
    ]
   },
   "lab": {
-   "title": "Tools lab",
-   "takeaway": "Change the numbers and see what an engineer sees.",
-   "lede": "Every tool here uses the same physics as the 3D models. The P–V chart and valve wheel follow the four-stroke engine above.",
+   "title": "Лаборатория",
+   "takeaway": "Меняйте числа и смотрите на двигатель глазами инженера.",
+   "lede": "Все инструменты используют ту же физику, что и 3D-модели. P–V-диаграмма и диск фаз следуют за четырёхтактным двигателем выше.",
    "tools": {
     "pv": {
-     "h": "P–V diagram",
-     "t": "The engine’s heartbeat chart. Pressure goes up, volume goes sideways. The area inside the loop is the work of one cycle."
+     "h": "P–V-диаграмма",
+     "t": "Кардиограмма двигателя. Давление — вверх, объём — вбок. Площадь внутри петли равна работе за цикл."
     },
     "valve": {
-     "h": "Valve timing wheel",
-     "t": "One full cycle is 720°. The arcs show when each valve is open. Drag them to shift the camshafts and watch the loop change."
+     "h": "Диск фаз газораспределения",
+     "t": "Полный цикл — 720°. Дуги показывают, когда открыт каждый клапан. Тяните их, чтобы сдвинуть распредвалы, и смотрите, как меняется петля."
     },
     "disp": {
-     "h": "Displacement calculator",
-     "t": "How much air all the pistons sweep in one turn of the cycle."
+     "h": "Калькулятор рабочего объёма",
+     "t": "Сколько воздуха вытесняют все поршни за один ход."
     },
     "cr": {
-     "h": "Compression ratio explorer",
-     "t": "How much the engine squeezes, and the ideal efficiency that brings."
+     "h": "Степень сжатия",
+     "t": "Насколько двигатель сжимает смесь и какой идеальный КПД это даёт."
     },
     "curve": {
-     "h": "Torque and power curves",
-     "t": "Build an engine and read its torque and power at any speed."
+     "h": "Кривые момента и мощности",
+     "t": "Соберите двигатель и узнайте его момент и мощность на любых оборотах."
     }
    },
-   "crNote": "Petrol engines usually stay below about 14:1 {typ}: above that the mixture tends to knock — it explodes on its own instead of burning smoothly.",
-   "dispFormula": "V = π/4 × bore² × stroke × cylinders",
+   "crNote": "У бензиновых двигателей степень сжатия обычно не выше 14:1 {typ}: дальше смесь склонна к детонации — она взрывается сама, а не сгорает плавно.",
+   "dispFormula": "V = π/4 × диаметр² × ход × число цилиндров",
    "presets": {
-    "scooter": "Scooter single",
-    "hatch": "Small hatchback",
-    "sport": "Sports six",
-    "truck": "Truck diesel"
+    "scooter": "Скутер, 1 цилиндр",
+    "hatch": "Малолитражка",
+    "sport": "Спортивная шестёрка",
+    "truck": "Дизель грузовика"
    },
-   "powerNote": "Power is calculated from torque: P [kW] = T [N·m] × rpm / 9549."
+   "powerNote": "Мощность считается из момента: P [кВт] = M [Н·м] × об/мин / 9549."
   },
   "compare": {
-   "title": "Compare engines",
-   "takeaway": "Put any two engines side by side and run them in sync.",
-   "lede": "Pick two engines. They share one clock, so you can compare how often each one makes power.",
-   "see": "Two engines running side by side on the same clock.",
+   "title": "Сравнение двигателей",
+   "takeaway": "Поставьте любые два двигателя рядом и запустите их синхронно.",
+   "lede": "Выберите два двигателя. Они идут по общим часам, поэтому видно, как часто каждый из них совершает рабочий ход.",
+   "see": "Два двигателя рядом, на общих часах.",
    "rows": {
-    "strokes": "Power strokes per crank turn",
-    "parts": "Main moving parts",
-    "eff": "Typical peak efficiency",
-    "emissions": "Emissions",
-    "density": "Power for its weight",
-    "complexity": "Complexity",
-    "uses": "Typical uses"
+    "strokes": "Рабочих ходов на оборот вала",
+    "parts": "Основных движущихся деталей",
+    "eff": "Типичный максимальный КПД",
+    "emissions": "Выбросы",
+    "density": "Мощность на килограмм",
+    "complexity": "Сложность",
+    "uses": "Где применяется"
    },
    "engines": {
     "petrol": {
-     "name": "Four-stroke petrol",
-     "strokes": "½ per cylinder",
-     "parts": "Many (valves, cams)",
+     "name": "Четырёхтактный бензиновый",
+     "strokes": "½ на цилиндр",
+     "parts": "Много (клапаны, распредвалы)",
      "eff": "35–41 %",
-     "emissions": "Low with a catalyst",
-     "density": "Good",
-     "complexity": "Medium",
-     "uses": "Cars, motorbikes"
+     "emissions": "Низкие с нейтрализатором",
+     "density": "Хорошая",
+     "complexity": "Средняя",
+     "uses": "Легковые машины, мотоциклы"
     },
     "diesel": {
-     "name": "Diesel",
-     "strokes": "½ per cylinder",
-     "parts": "Many (valves, cams)",
-     "eff": "40–45 % (cars), 50 %+ (ships)",
-     "emissions": "Needs soot filter and NOx clean-up",
-     "density": "Lower (heavy)",
-     "complexity": "High",
-     "uses": "Trucks, ships, trains, tractors"
+     "name": "Дизель",
+     "strokes": "½ на цилиндр",
+     "parts": "Много (клапаны, распредвалы)",
+     "eff": "40–45 % (легковые), свыше 50 % (суда)",
+     "emissions": "Нужны сажевый фильтр и очистка от NOx",
+     "density": "Ниже (тяжёлый)",
+     "complexity": "Высокая",
+     "uses": "Грузовики, суда, поезда, тракторы"
     },
     "two": {
-     "name": "Two-stroke",
-     "strokes": "1 per cylinder",
-     "parts": "Few (no valves)",
-     "eff": "Lower in small engines",
-     "emissions": "High (oil and unburned fuel)",
-     "density": "Very high",
-     "complexity": "Low",
-     "uses": "Chainsaws, mopeds, outboards"
+     "name": "Двухтактный",
+     "strokes": "1 на цилиндр",
+     "parts": "Мало (без клапанов)",
+     "eff": "Ниже у маленьких моторов",
+     "emissions": "Высокие (масло и несгоревшее топливо)",
+     "density": "Очень высокая",
+     "complexity": "Низкая",
+     "uses": "Бензопилы, мопеды, лодочные моторы"
     },
     "wankel": {
-     "name": "Wankel rotary",
-     "strokes": "1 per shaft turn (per rotor)",
-     "parts": "Very few",
-     "eff": "Lower",
-     "emissions": "Higher (fuel and oil)",
-     "density": "Very high",
-     "complexity": "Low parts count, tricky seals",
-     "uses": "Sports cars, range extenders"
+     "name": "Роторный Ванкеля",
+     "strokes": "1 на оборот вала (на ротор)",
+     "parts": "Очень мало",
+     "eff": "Ниже",
+     "emissions": "Выше (топливо и масло)",
+     "density": "Очень высокая",
+     "complexity": "Мало деталей, но сложные уплотнения",
+     "uses": "Спорткары, генераторы-удлинители хода"
     }
    }
   },
   "games": {
-   "title": "Mini-games",
-   "takeaway": "Test what you have learned.",
-   "lede": "Three quick games. No sign-up, no scores sent anywhere.",
+   "title": "Мини-игры",
+   "takeaway": "Проверьте, что запомнили.",
+   "lede": "Три короткие игры. Без регистрации, результаты никуда не отправляются.",
    "order": {
-    "h": "Put the strokes in order",
-    "t": "Drag the cards — or use the arrow buttons — into the right order, starting with intake.",
-    "done": "Perfect — suck, squeeze, bang, blow!",
-    "notYet": "Not yet. Hint: the piston squeezes before the spark."
+    "h": "Расставь такты по порядку",
+    "t": "Перетащите карточки — или используйте стрелки — в правильном порядке, начиная с впуска.",
+    "done": "Идеально — вдох, сжатие, вспышка, выдох!",
+    "notYet": "Пока нет. Подсказка: поршень сжимает смесь до искры."
    },
    "find": {
-    "h": "Find the part",
-    "t": "A part name appears. Tap it on the 3D engine in the anatomy section.",
-    "go": "Play on the 3D engine"
+    "h": "Найди деталь",
+    "t": "Появляется название детали. Нажмите на неё на 3D-двигателе в разделе об устройстве.",
+    "go": "Играть на 3D-двигателе"
    },
    "guess": {
-    "h": "Guess the engine",
-    "t": "Listen to the firing rhythm and watch the pulse dial. Which engine is it?",
-    "soundHint": "Turn on engine sound in the header to hear it.",
-    "right": "Yes! That rhythm is the {name}.",
-    "wrongAns": "Not quite — it was the {name}."
+    "h": "Угадай двигатель",
+    "t": "Слушайте ритм вспышек и смотрите на пульсирующий диск. Что это за двигатель?",
+    "soundHint": "Включите звук двигателя в шапке страницы, чтобы его услышать.",
+    "right": "Да! Такой ритм у двигателя «{name}».",
+    "wrongAns": "Не совсем — это был двигатель «{name}»."
    }
   },
   "glossary": {
-   "title": "Glossary",
-   "takeaway": "Every word on this page, explained in plain language.",
-   "lede": "Type to filter. Tap a dotted word anywhere on the page to see its meaning."
+   "title": "Словарь",
+   "takeaway": "Все слова с этой страницы — простым языком.",
+   "lede": "Начните печатать, чтобы отфильтровать. Нажмите на любое подчёркнутое пунктиром слово на странице — и увидите его значение."
   },
   "quiz": {
-   "title": "Quiz",
-   "takeaway": "Twelve questions. Pick Easy or Expert.",
-   "lede": "Questions come in a random order. Each answer is explained and links back to the right section.",
+   "title": "Викторина",
+   "takeaway": "Двенадцать вопросов. Выберите «Легко» или «Эксперт».",
+   "lede": "Вопросы идут в случайном порядке. Каждый ответ объяснён, а ссылка ведёт к нужному разделу.",
    "resultLines": {
-    "top": "Engine master!",
-    "mid": "Strong run — a few more laps and you will have it all.",
-    "low": "Good start. Scroll back through the sections and try again."
+    "top": "Мастер двигателей!",
+    "mid": "Отличный результат — ещё пара кругов, и вы знаете всё.",
+    "low": "Хорошее начало. Пролистайте разделы ещё раз и попробуйте снова."
    },
-   "shareText": "I scored {score}/{total} ({mode}) on the Inside Combustion engine quiz."
+   "shareText": "Мой результат в викторине «Внутри двигателя»: {score} из {total} ({mode})."
   }
  },
  "labels": {
-  "see": "See it",
-  "try": "Try it",
-  "why": "Why it matters",
-  "deeper": "Go deeper",
-  "safety": "Safety"
+  "see": "Смотрите",
+  "try": "Попробуйте",
+  "why": "Зачем это нужно",
+  "deeper": "Подробнее",
+  "safety": "Безопасность"
  },
  "footer": {
-  "accuracy": "Accuracy note: the models are simplified for clarity. Figures marked “typical” are typical ranges, not values for a specific engine. Firing orders are common examples.",
-  "source": "Source code",
-  "language": "Language"
+  "accuracy": "О точности: модели упрощены для наглядности. Значения с пометкой «типично» — типичные диапазоны, а не данные конкретного двигателя. Порядок работы цилиндров — частые примеры.",
+  "source": "Исходный код",
+  "language": "Язык"
  },
  "glossary": [
   {
    "key": "engine",
-   "term": "Engine",
-   "def": "A machine that turns energy into motion."
+   "term": "Двигатель",
+   "def": "Машина, которая превращает энергию в движение."
   },
   {
    "key": "internal-combustion",
-   "term": "Internal combustion engine",
-   "def": "An engine that burns its fuel inside itself, so the hot gas pushes the parts directly."
+   "term": "Двигатель внутреннего сгорания",
+   "def": "Двигатель, в котором топливо горит внутри него самого, и горячий газ напрямую толкает детали."
   },
   {
    "key": "cylinder",
-   "term": "Cylinder",
-   "def": "The round tube inside the engine where the piston slides up and down."
+   "term": "Цилиндр",
+   "def": "Круглая труба внутри двигателя, в которой ходит поршень."
   },
   {
    "key": "piston",
-   "term": "Piston",
-   "def": "A metal plug that slides in the cylinder. Gas pushes it, or it squeezes gas."
+   "term": "Поршень",
+   "def": "Металлическая «пробка», которая скользит в цилиндре. Газ толкает её, или она сжимает газ."
   },
   {
    "key": "crankshaft",
-   "term": "Crankshaft",
-   "def": "The shaft that turns the pistons’ up-and-down motion into spinning, like bicycle pedals."
+   "term": "Коленчатый вал (коленвал)",
+   "def": "Вал, который превращает движение поршней вверх-вниз во вращение, как педали велосипеда."
   },
   {
    "key": "connecting-rod",
-   "term": "Connecting rod",
-   "def": "The bar that links the piston to the crankshaft."
+   "term": "Шатун",
+   "def": "Стержень, соединяющий поршень с коленчатым валом."
   },
   {
    "key": "camshaft",
-   "term": "Camshaft",
-   "def": "A spinning shaft with egg-shaped bumps (cams) that push the valves open."
+   "term": "Распределительный вал (распредвал)",
+   "def": "Вращающийся вал с выступами-кулачками, которые открывают клапаны."
   },
   {
    "key": "valve",
-   "term": "Valve",
-   "def": "A little door in the cylinder head that opens to let gas in or out."
+   "term": "Клапан",
+   "def": "Маленькая дверца в головке блока: открывается, чтобы впустить или выпустить газ."
   },
   {
    "key": "valve-overlap",
-   "term": "Valve overlap",
-   "def": "A short moment near the top of the stroke when both the intake and exhaust valves are slightly open."
+   "term": "Перекрытие клапанов",
+   "def": "Короткий момент у верхней мёртвой точки, когда впускной и выпускной клапаны оба приоткрыты."
   },
   {
    "key": "spark-plug",
-   "term": "Spark plug",
-   "def": "A part that makes a small electric spark to light the fuel and air."
+   "term": "Свеча зажигания",
+   "def": "Деталь, которая даёт маленькую электрическую искру и поджигает смесь."
   },
   {
    "key": "ignition-coil",
-   "term": "Ignition coil",
-   "def": "A part that raises the battery’s voltage high enough to make a spark."
+   "term": "Катушка зажигания",
+   "def": "Деталь, которая повышает напряжение аккумулятора так, чтобы получилась искра."
   },
   {
    "key": "combustion",
-   "term": "Combustion",
-   "def": "Burning: fuel joins with oxygen and gives off heat."
+   "term": "Сгорание",
+   "def": "Горение: топливо соединяется с кислородом и выделяет тепло."
   },
   {
    "key": "compression",
-   "term": "Compression",
-   "def": "Squeezing a gas into a smaller space. It raises its pressure and temperature."
+   "term": "Сжатие",
+   "def": "Уменьшение объёма газа. При этом растут его давление и температура."
   },
   {
    "key": "compression-ratio",
-   "term": "Compression ratio",
-   "def": "How many times smaller the gas space gets when the piston rises. 10:1 means ten times smaller."
+   "term": "Степень сжатия",
+   "def": "Во сколько раз уменьшается объём над поршнем, когда он поднимается. 10:1 — в десять раз."
   },
   {
    "key": "stroke",
-   "term": "Stroke",
-   "def": "One movement of the piston from top to bottom or back. Also the distance it travels."
+   "term": "Ход поршня, такт",
+   "def": "Одно движение поршня сверху вниз или обратно. Так же называют расстояние, которое он проходит."
   },
   {
    "key": "four-stroke",
-   "term": "Four-stroke",
-   "def": "An engine cycle with four piston strokes: intake, compression, power, exhaust."
+   "term": "Четырёхтактный",
+   "def": "Цикл из четырёх ходов поршня: впуск, сжатие, рабочий ход, выпуск."
   },
   {
    "key": "two-stroke",
-   "term": "Two-stroke",
-   "def": "An engine cycle that does the whole job in two strokes, so it fires every turn."
+   "term": "Двухтактный",
+   "def": "Цикл, в котором вся работа делается за два хода поршня, поэтому вспышка — на каждом обороте."
   },
   {
    "key": "tdc",
-   "term": "Top dead centre (TDC)",
-   "def": "The highest point of the piston, where it stops for an instant before coming back down."
+   "term": "Верхняя мёртвая точка (ВМТ)",
+   "def": "Самое верхнее положение поршня, где он на миг останавливается перед движением вниз."
   },
   {
    "key": "bdc",
-   "term": "Bottom dead centre (BDC)",
-   "def": "The lowest point of the piston."
+   "term": "Нижняя мёртвая точка (НМТ)",
+   "def": "Самое нижнее положение поршня."
   },
   {
    "key": "rpm",
-   "term": "rpm",
-   "def": "Revolutions per minute: how many full turns the crankshaft makes in one minute."
+   "term": "Об/мин",
+   "def": "Обороты в минуту: сколько полных оборотов коленвал делает за минуту."
   },
   {
    "key": "torque",
-   "term": "Torque",
-   "def": "Turning force. More torque means a stronger twist on the wheels."
+   "term": "Крутящий момент",
+   "def": "Сила, которая закручивает. Чем больше момент, тем сильнее крутятся колёса."
   },
   {
    "key": "power",
-   "term": "Power",
-   "def": "How fast work is done. Power = torque × speed. Measured in kilowatts (kW) or horsepower (hp)."
+   "term": "Мощность",
+   "def": "Скорость выполнения работы. Мощность = момент × обороты. Измеряется в киловаттах (кВт) или лошадиных силах (л. с.)."
   },
   {
    "key": "displacement",
-   "term": "Displacement",
-   "def": "The total space all the pistons sweep through. A bigger number usually means a stronger engine."
+   "term": "Рабочий объём",
+   "def": "Суммарный объём, который проходят все поршни. Чем он больше, тем обычно сильнее двигатель."
   },
   {
    "key": "bore",
-   "term": "Bore",
-   "def": "The width (diameter) of the cylinder."
+   "term": "Диаметр цилиндра",
+   "def": "Ширина цилиндра."
   },
   {
    "key": "fuel-injector",
-   "term": "Fuel injector",
-   "def": "An electric nozzle that sprays a precise amount of fuel."
+   "term": "Форсунка",
+   "def": "Электрический распылитель, который точно дозирует топливо."
   },
   {
    "key": "glow-plug",
-   "term": "Glow plug",
-   "def": "A small electric heater that helps a cold diesel start."
+   "term": "Свеча накаливания",
+   "def": "Маленький электрический нагреватель, который помогает запустить холодный дизель."
   },
   {
    "key": "diesel",
-   "term": "Diesel engine",
-   "def": "An engine where very hot, squeezed air lights the fuel without a spark."
+   "term": "Дизельный двигатель",
+   "def": "Двигатель, в котором сильно сжатый горячий воздух поджигает топливо без искры."
   },
   {
    "key": "knock",
-   "term": "Knock",
-   "def": "When part of the mixture explodes on its own before the flame reaches it. It makes a pinging noise and can damage the engine."
+   "term": "Детонация",
+   "def": "Часть смеси взрывается сама, раньше, чем до неё дойдёт пламя. Слышен звон, двигатель может пострадать."
   },
   {
    "key": "turbocharger",
-   "term": "Turbocharger",
-   "def": "A fan driven by exhaust gas that pushes extra air into the engine."
+   "term": "Турбокомпрессор",
+   "def": "Крыльчатка, которую крутят выхлопные газы; она нагнетает в двигатель больше воздуха."
   },
   {
    "key": "supercharger",
-   "term": "Supercharger",
-   "def": "A compressor driven by the engine itself that pushes extra air in."
+   "term": "Приводной нагнетатель",
+   "def": "Компрессор с приводом от самого двигателя, который нагнетает воздух."
   },
   {
    "key": "boost",
-   "term": "Boost",
-   "def": "Extra air pressure made by a turbocharger or supercharger."
+   "term": "Наддув",
+   "def": "Дополнительное давление воздуха от турбокомпрессора или нагнетателя."
   },
   {
    "key": "intercooler",
-   "term": "Intercooler",
-   "def": "A radiator that cools squeezed air before it enters the engine, so more air fits."
+   "term": "Интеркулер",
+   "def": "Радиатор, который охлаждает сжатый воздух перед двигателем, чтобы его поместилось больше."
   },
   {
    "key": "wastegate",
-   "term": "Wastegate",
-   "def": "A valve that lets some exhaust bypass a turbo’s turbine to limit boost."
+   "term": "Перепускной клапан",
+   "def": "Клапан, который пускает часть выхлопа мимо турбины, чтобы ограничить наддув."
   },
   {
    "key": "turbo-lag",
-   "term": "Turbo lag",
-   "def": "The short delay before a turbo spins up and gives full boost."
+   "term": "Турбояма",
+   "def": "Короткая задержка, пока турбина раскручивается и даёт полный наддув."
   },
   {
    "key": "efficiency",
-   "term": "Efficiency",
-   "def": "The share of the fuel’s energy that becomes useful work."
+   "term": "КПД",
+   "def": "Коэффициент полезного действия: доля энергии топлива, которая становится полезной работой."
   },
   {
    "key": "catalytic-converter",
-   "term": "Catalytic converter",
-   "def": "A part in the exhaust that turns harmful gases into less harmful ones."
+   "term": "Каталитический нейтрализатор",
+   "def": "Деталь в выпуске, которая превращает вредные газы в менее вредные."
   },
   {
    "key": "particulate-filter",
-   "term": "Particulate filter",
-   "def": "A filter in a diesel’s exhaust that traps soot."
+   "term": "Сажевый фильтр",
+   "def": "Фильтр в выпуске дизеля, который задерживает сажу."
   },
   {
    "key": "scr",
    "term": "SCR",
-   "def": "Selective catalytic reduction: a system that removes nitrogen oxides from diesel exhaust using a liquid called AdBlue."
+   "def": "Избирательное каталитическое восстановление: система, которая убирает оксиды азота из выхлопа дизеля с помощью жидкости AdBlue."
   },
   {
    "key": "nox",
    "term": "NOx",
-   "def": "Nitrogen oxides: polluting gases made when burning is very hot."
+   "def": "Оксиды азота: загрязняющие газы, которые образуются при очень жарком горении."
   },
   {
    "key": "lubrication",
-   "term": "Lubrication",
-   "def": "Keeping a thin film of oil between moving parts so they do not rub and wear."
+   "term": "Смазка",
+   "def": "Тонкая плёнка масла между движущимися деталями, чтобы они не тёрлись и не изнашивались."
   },
   {
    "key": "radiator",
-   "term": "Radiator",
-   "def": "A heat exchanger at the front of the car where air cools the hot coolant."
+   "term": "Радиатор",
+   "def": "Теплообменник впереди машины, где воздух охлаждает горячую жидкость."
   },
   {
    "key": "thermostat",
-   "term": "Thermostat",
-   "def": "A valve that keeps the coolant shut in until the engine is warm."
+   "term": "Термостат",
+   "def": "Клапан, который не пускает жидкость в радиатор, пока двигатель не прогреется."
   },
   {
    "key": "gearbox",
-   "term": "Gearbox",
-   "def": "A set of gears that matches engine speed to wheel speed."
+   "term": "Коробка передач",
+   "def": "Набор шестерён, который согласует обороты двигателя со скоростью колёс."
   },
   {
    "key": "clutch",
-   "term": "Clutch",
-   "def": "A coupling that connects or disconnects the engine and gearbox."
+   "term": "Сцепление",
+   "def": "Муфта, которая соединяет и разъединяет двигатель и коробку передач."
   },
   {
    "key": "firing-order",
-   "term": "Firing order",
-   "def": "The sequence in which the cylinders fire."
+   "term": "Порядок работы цилиндров",
+   "def": "Очерёдность, в которой в цилиндрах происходят вспышки."
   },
   {
    "key": "crankcase",
-   "term": "Crankcase",
-   "def": "The housing around the crankshaft."
+   "term": "Картер",
+   "def": "Корпус вокруг коленчатого вала."
   },
   {
    "key": "ports",
-   "term": "Ports",
-   "def": "Holes or channels that let gas in or out of the cylinder."
+   "term": "Окна",
+   "def": "Отверстия или каналы, через которые газ входит в цилиндр и выходит из него."
   },
   {
    "key": "scavenging",
-   "term": "Scavenging",
-   "def": "Pushing burned gas out of the cylinder with fresh air or mixture."
+   "term": "Продувка",
+   "def": "Вытеснение отработавших газов из цилиндра свежим воздухом или смесью."
   },
   {
    "key": "uniflow",
-   "term": "Uniflow scavenging",
-   "def": "Gas flows one way through the cylinder: in through ports at the bottom, out through a valve at the top."
+   "term": "Прямоточная продувка",
+   "def": "Газ идёт через цилиндр в одну сторону: входит через окна внизу, выходит через клапан наверху."
   },
   {
    "key": "crosshead",
-   "term": "Crosshead",
-   "def": "An extra sliding joint in very large engines that keeps sideways force off the piston."
+   "term": "Крейцкопф",
+   "def": "Дополнительный ползун в очень больших двигателях, который снимает с поршня боковую нагрузку."
   },
   {
    "key": "wankel",
-   "term": "Wankel engine",
-   "def": "A rotary engine where a rounded triangle spins in an oval-ish housing."
+   "term": "Двигатель Ванкеля",
+   "def": "Роторный двигатель: скруглённый треугольник вращается в корпусе почти овальной формы."
   },
   {
    "key": "epitrochoid",
-   "term": "Epitrochoid",
-   "def": "The curve traced by a point on a circle rolling around another circle. It shapes a Wankel housing."
+   "term": "Эпитрохоида",
+   "def": "Кривая, которую описывает точка на окружности, катящейся вокруг другой окружности. По ней сделан корпус двигателя Ванкеля."
   },
   {
    "key": "hybrid",
-   "term": "Hybrid",
-   "def": "A car that combines a combustion engine with an electric motor and battery."
+   "term": "Гибрид",
+   "def": "Машина, в которой двигатель внутреннего сгорания работает вместе с электромотором и батареей."
   },
   {
    "key": "atkinson",
-   "term": "Atkinson cycle",
-   "def": "An engine cycle where the expansion is longer than the compression, to capture more energy."
+   "term": "Цикл Аткинсона",
+   "def": "Цикл, в котором расширение длиннее сжатия, чтобы забрать больше энергии."
   },
   {
    "key": "pv-diagram",
-   "term": "P–V diagram",
-   "def": "A chart of pressure against volume in the cylinder. The loop area equals the work done."
+   "term": "P–V-диаграмма",
+   "def": "График давления в цилиндре в зависимости от объёма. Площадь петли равна совершённой работе."
   },
   {
    "key": "bar",
-   "term": "bar",
-   "def": "A unit of pressure. Air around us is about 1 bar."
+   "term": "Бар",
+   "def": "Единица давления. Давление окружающего воздуха — около 1 бара."
   },
   {
    "key": "kilowatt",
-   "term": "kilowatt (kW)",
-   "def": "A unit of power. 1 kW = 1.341 horsepower."
+   "term": "Киловатт (кВт)",
+   "def": "Единица мощности. 1 кВт = 1,341 л. с."
   },
   {
    "key": "emissions",
-   "term": "Emissions",
-   "def": "The gases and particles an engine releases."
+   "term": "Выбросы",
+   "def": "Газы и частицы, которые выбрасывает двигатель."
   },
   {
    "key": "synthetic-fuel",
-   "term": "Synthetic fuel",
-   "def": "Fuel made from hydrogen and carbon dioxide using electricity, instead of from crude oil."
+   "term": "Синтетическое топливо",
+   "def": "Топливо, которое получают из водорода и углекислого газа с помощью электричества, а не из нефти."
   },
   {
    "key": "balance",
-   "term": "Engine balance",
-   "def": "How well the forces from moving parts cancel each other out, so the engine does not shake."
+   "term": "Уравновешенность двигателя",
+   "def": "Насколько силы от движущихся деталей гасят друг друга, чтобы двигатель не трясся."
   },
   {
    "key": "timing-belt",
-   "term": "Timing belt",
-   "def": "A toothed belt that keeps the camshafts turning in step with the crankshaft."
+   "term": "Ремень ГРМ",
+   "def": "Зубчатый ремень газораспределительного механизма: он крутит распредвалы в такт с коленвалом."
   },
   {
    "key": "throttle",
-   "term": "Throttle",
-   "def": "A flap that controls how much air the engine can take in."
+   "term": "Дроссельная заслонка",
+   "def": "Заслонка, которая регулирует, сколько воздуха может войти в двигатель."
   }
  ],
  "quiz": [
   {
    "lvl": "easy",
    "sec": "four-stroke",
-   "q": "In a four-stroke engine, which stroke makes the power?",
+   "q": "Какой такт четырёхтактного двигателя даёт силу?",
    "a": [
-    "Intake",
-    "Compression",
-    "Power",
-    "Exhaust"
+    "Впуск",
+    "Сжатие",
+    "Рабочий ход",
+    "Выпуск"
    ],
    "c": 2,
-   "why": "Only the power stroke is pushed by burning gas. The other three use some of the energy stored in the spinning crankshaft."
+   "why": "Только рабочий ход толкает горящий газ. Остальные три такта тратят часть энергии, запасённой во вращающемся коленвале."
   },
   {
    "lvl": "easy",
    "sec": "four-stroke",
-   "q": "How many times does the crankshaft turn in one four-stroke cycle?",
+   "q": "Сколько оборотов делает коленвал за один четырёхтактный цикл?",
    "a": [
-    "Once",
-    "Twice",
-    "Four times",
-    "Half a turn"
+    "Один",
+    "Два",
+    "Четыре",
+    "Пол-оборота"
    ],
    "c": 1,
-   "why": "Each stroke is half a turn, so four strokes take two full turns (720°)."
+   "why": "Каждый такт — это пол-оборота, значит четыре такта — два полных оборота (720°)."
   },
   {
    "lvl": "easy",
    "sec": "diesel",
-   "q": "What lights the fuel in a diesel engine?",
+   "q": "Что поджигает топливо в дизеле?",
    "a": [
-    "A spark plug",
-    "Very hot squeezed air",
-    "A glow plug, every cycle",
-    "Friction of the piston"
+    "Свеча зажигания",
+    "Очень горячий сжатый воздух",
+    "Свеча накаливания, в каждом цикле",
+    "Трение поршня"
    ],
    "c": 1,
-   "why": "A diesel squeezes air so much that it becomes hot enough to light the fuel when it is sprayed in. The glow plug only helps cold starts."
+   "why": "Дизель так сильно сжимает воздух, что тот нагревается и поджигает впрыснутое топливо. Свеча накаливания помогает только при холодном пуске."
   },
   {
    "lvl": "easy",
    "sec": "anatomy",
-   "q": "Which part turns the up-and-down motion into spinning?",
+   "q": "Какая деталь превращает движение вверх-вниз во вращение?",
    "a": [
-    "Camshaft",
-    "Valve",
-    "Crankshaft",
-    "Spark plug"
+    "Распредвал",
+    "Клапан",
+    "Коленчатый вал",
+    "Свеча зажигания"
    ],
    "c": 2,
-   "why": "The crankshaft works like bicycle pedals: pushes on the crank turn the shaft."
+   "why": "Коленвал работает как педали велосипеда: толчки на «колено» вращают вал."
   },
   {
    "lvl": "easy",
    "sec": "two-stroke",
-   "q": "How often does a two-stroke engine fire?",
+   "q": "Как часто вспыхивает смесь в двухтактном двигателе?",
    "a": [
-    "Every turn",
-    "Every second turn",
-    "Every fourth turn",
-    "Only at full throttle"
+    "Каждый оборот",
+    "Каждый второй оборот",
+    "Каждый четвёртый оборот",
+    "Только на полном газу"
    ],
    "c": 0,
-   "why": "A two-stroke completes its cycle in one turn, so it fires every turn."
+   "why": "Двухтактник завершает цикл за один оборот, поэтому вспышка — на каждом обороте."
   },
   {
    "lvl": "easy",
    "sec": "boost",
-   "q": "What spins a turbocharger?",
+   "q": "Что раскручивает турбокомпрессор?",
    "a": [
-    "A belt from the crankshaft",
-    "Exhaust gas",
-    "An electric battery",
-    "The wheels"
+    "Ремень от коленвала",
+    "Выхлопные газы",
+    "Электрическая батарея",
+    "Колёса"
    ],
    "c": 1,
-   "why": "Exhaust gas spins the turbine. A supercharger is the one driven by a belt."
+   "why": "Турбину крутят выхлопные газы. Ремнём приводится приводной нагнетатель."
   },
   {
    "lvl": "easy",
    "sec": "gearbox",
-   "q": "Why does a car need a gearbox?",
+   "q": "Зачем машине коробка передач?",
    "a": [
-    "To cool the engine",
-    "Because the engine works well only in a narrow speed range",
-    "To make sparks",
-    "To clean the exhaust"
+    "Чтобы охлаждать двигатель",
+    "Потому что двигатель хорошо работает лишь в узком диапазоне оборотов",
+    "Чтобы делать искры",
+    "Чтобы чистить выхлоп"
    ],
    "c": 1,
-   "why": "Gears let the engine stay in its useful speed range while the car goes from walking pace to motorway speed."
+   "why": "Передачи держат двигатель в рабочих оборотах, пока машина разгоняется от шага пешехода до скорости на трассе."
   },
   {
    "lvl": "easy",
    "sec": "wankel",
-   "q": "What replaces the pistons in a Wankel engine?",
+   "q": "Что работает вместо поршней в двигателе Ванкеля?",
    "a": [
-    "A spinning rounded-triangle rotor",
-    "Two crankshafts",
-    "A propeller",
-    "A turbine"
+    "Вращающийся ротор-треугольник",
+    "Два коленвала",
+    "Пропеллер",
+    "Турбина"
    ],
    "c": 0,
-   "why": "The rotor spins inside the housing and forms three chambers at once."
+   "why": "Ротор вращается в корпусе и образует сразу три камеры."
   },
   {
    "lvl": "easy",
    "sec": "systems",
-   "q": "What does a catalytic converter do?",
+   "q": "Что делает каталитический нейтрализатор?",
    "a": [
-    "Makes the engine louder",
-    "Turns harmful exhaust gases into less harmful ones",
-    "Adds fuel",
-    "Starts the engine"
+    "Делает двигатель громче",
+    "Превращает вредные газы выхлопа в менее вредные",
+    "Добавляет топливо",
+    "Запускает двигатель"
    ],
    "c": 1,
-   "why": "Inside, precious metals help convert carbon monoxide, unburned fuel and nitrogen oxides."
+   "why": "Драгоценные металлы внутри помогают превратить угарный газ, несгоревшее топливо и оксиды азота."
   },
   {
    "lvl": "easy",
    "sec": "layouts",
-   "q": "Which layout is naturally the smoothest of these?",
+   "q": "Какая из этих компоновок от природы самая плавная?",
    "a": [
-    "Inline-4",
-    "Inline-6",
-    "Single cylinder",
-    "Two-stroke single"
+    "Рядная четвёрка",
+    "Рядная шестёрка",
+    "Одноцилиндровый",
+    "Двухтактный одноцилиндровый"
    ],
    "c": 1,
-   "why": "In an inline-6 the shaking forces of the pistons cancel each other out."
+   "why": "В рядной шестёрке силы от поршней гасят друг друга."
   },
   {
    "lvl": "easy",
    "sec": "efficiency",
-   "q": "Where does most of the fuel’s energy go in a typical car engine?",
+   "q": "Куда уходит большая часть энергии топлива в обычном автомобильном двигателе?",
    "a": [
-    "Into moving the car",
-    "Out as heat in the exhaust and coolant",
-    "Into the battery",
-    "Into noise"
+    "На движение машины",
+    "В тепло с выхлопом и охлаждающей жидкостью",
+    "В батарею",
+    "В шум"
    ],
    "c": 1,
-   "why": "Roughly two thirds leaves as heat. Only about a third or less becomes useful work."
+   "why": "Примерно две трети уходят в тепло. Полезной работой становится около трети или меньше."
   },
   {
    "lvl": "easy",
    "sec": "history",
-   "q": "Who is the four-stroke cycle named after?",
+   "q": "В честь кого назван четырёхтактный цикл?",
    "a": [
-    "Karl Benz",
-    "Rudolf Diesel",
-    "Nikolaus Otto",
-    "Felix Wankel"
+    "Карл Бенц",
+    "Рудольф Дизель",
+    "Николаус Отто",
+    "Феликс Ванкель"
    ],
    "c": 2,
-   "why": "Otto’s company built the successful four-stroke engine in 1876, and it is often called the Otto cycle."
+   "why": "Фирма Отто построила удачный четырёхтактный двигатель в 1876 году, и цикл часто называют циклом Отто."
   },
   {
    "lvl": "expert",
    "sec": "four-stroke",
-   "q": "Why does the intake valve close about 45° after bottom dead centre?",
+   "q": "Почему впускной клапан закрывается примерно через 45° после НМТ?",
    "a": [
-    "To reduce valve wear",
-    "Because the moving air keeps flowing in after the piston stops",
-    "To start compression earlier",
-    "To cool the exhaust valve"
+    "Чтобы клапан меньше изнашивался",
+    "Потому что движущийся воздух продолжает поступать и после остановки поршня",
+    "Чтобы начать сжатие раньше",
+    "Чтобы охладить выпускной клапан"
    ],
    "c": 1,
-   "why": "The air column has momentum. Closing late lets it keep filling the cylinder, which improves breathing at speed."
+   "why": "У потока воздуха есть инерция. Позднее закрытие позволяет ему дозаполнить цилиндр, и на высоких оборотах двигатель лучше «дышит»."
   },
   {
    "lvl": "expert",
    "sec": "four-stroke",
-   "q": "What is the ideal Otto efficiency at a compression ratio of 10 with γ = 1.4?",
+   "q": "Каков идеальный КПД цикла Отто при степени сжатия 10 и γ = 1,4?",
    "a": [
-    "About 40 %",
-    "About 50 %",
-    "About 60 %",
-    "About 75 %"
+    "Около 40 %",
+    "Около 50 %",
+    "Около 60 %",
+    "Около 75 %"
    ],
    "c": 2,
-   "why": "η = 1 − 1/10^0.4 ≈ 0.60. Real engines get far less because of heat loss, friction and pumping."
+   "why": "η = 1 − 1/10^0,4 ≈ 0,60. Реальные двигатели получают намного меньше из-за потерь тепла, трения и насосных потерь."
   },
   {
    "lvl": "expert",
    "sec": "diesel",
-   "q": "How does a diesel control its power?",
+   "q": "Как дизель регулирует мощность?",
    "a": [
-    "With a throttle flap",
-    "By changing the amount of fuel injected",
-    "By changing the spark timing",
-    "By closing valves early"
+    "Дроссельной заслонкой",
+    "Количеством впрыснутого топлива",
+    "Моментом зажигания",
+    "Ранним закрытием клапанов"
    ],
    "c": 1,
-   "why": "Diesels run unthrottled and vary fuel quantity, which avoids throttling losses at part load."
+   "why": "Дизель работает без дросселирования и меняет цикловую подачу топлива, поэтому нет насосных потерь на частичной нагрузке."
   },
   {
    "lvl": "expert",
    "sec": "two-stroke",
-   "q": "In a piston-ported two-stroke, why does the exhaust port open before the transfer ports?",
+   "q": "Почему в двухтактнике с окнами выпускное окно открывается раньше продувочных?",
    "a": [
-    "To make the engine louder",
-    "So cylinder pressure drops before fresh charge enters",
-    "To reduce piston wear",
-    "To heat the crankcase"
+    "Чтобы мотор был громче",
+    "Чтобы давление в цилиндре упало до поступления свежего заряда",
+    "Чтобы поршень меньше изнашивался",
+    "Чтобы прогреть картер"
    ],
    "c": 1,
-   "why": "If the transfer ports opened first, high-pressure burned gas would flow back into the crankcase."
+   "why": "Если бы продувочные окна открылись первыми, горячие газы под высоким давлением пошли бы обратно в картер."
   },
   {
    "lvl": "expert",
    "sec": "wankel",
-   "q": "How many times does a Wankel’s output shaft turn per rotor revolution?",
+   "q": "Сколько оборотов делает выходной вал двигателя Ванкеля за один оборот ротора?",
    "a": [
-    "Once",
-    "Twice",
-    "Three times",
-    "Four times"
+    "Один",
+    "Два",
+    "Три",
+    "Четыре"
    ],
    "c": 2,
-   "why": "The rotor centre rides on an eccentric of the shaft, and internal gears fix a 3:1 ratio."
+   "why": "Центр ротора движется по эксцентрику вала, а внутренние шестерни задают соотношение 3:1."
   },
   {
    "lvl": "expert",
    "sec": "layouts",
-   "q": "Which statement about balance is correct?",
+   "q": "Какое утверждение об уравновешенности верно?",
    "a": [
-    "A cross-plane V8 has no second-order forces",
-    "An inline-4 is perfectly balanced",
-    "A flat-plane V8 is smoother than an inline-6",
-    "An inline-6 has large second-order forces"
+    "У V8 с крестообразным валом нет сил 2-го порядка",
+    "Рядная четвёрка идеально уравновешена",
+    "V8 с плоским валом плавнее рядной шестёрки",
+    "У рядной шестёрки большие силы 2-го порядка"
    ],
    "c": 0,
-   "why": "The cross-plane crank cancels second-order forces; an inline-4 has a second-order shake at twice engine speed."
+   "why": "Крестообразный коленвал гасит силы 2-го порядка, а рядная четвёрка вибрирует с удвоенной частотой оборотов."
   },
   {
    "lvl": "expert",
    "sec": "lab",
-   "q": "An engine makes 300 N·m at 5,000 rpm. Roughly how much power is that?",
+   "q": "Двигатель развивает 300 Н·м при 5 000 об/мин. Какова примерно его мощность?",
    "a": [
-    "57 kW",
-    "157 kW",
-    "300 kW",
-    "1,500 kW"
+    "57 кВт",
+    "157 кВт",
+    "300 кВт",
+    "1 500 кВт"
    ],
    "c": 1,
-   "why": "P = T × rpm / 9549 = 300 × 5000 / 9549 ≈ 157 kW (about 211 hp)."
+   "why": "P = M × об/мин / 9549 = 300 × 5000 / 9549 ≈ 157 кВт (около 211 л. с.)."
   },
   {
    "lvl": "expert",
    "sec": "boost",
-   "q": "What does an intercooler do?",
+   "q": "Что делает интеркулер?",
    "a": [
-    "Cools the exhaust to protect the turbo",
-    "Cools the compressed intake air so it is denser",
-    "Cools the oil",
-    "Cools the fuel"
+    "Охлаждает выхлоп, чтобы защитить турбину",
+    "Охлаждает сжатый воздух, чтобы он был плотнее",
+    "Охлаждает масло",
+    "Охлаждает топливо"
    ],
    "c": 1,
-   "why": "Compression heats the air; cooling it back down packs more air mass into each cylinder."
+   "why": "При сжатии воздух нагревается; если его охладить, в каждый цилиндр поместится больше воздуха."
   },
   {
    "lvl": "expert",
    "sec": "efficiency",
-   "q": "In an Atkinson-cycle engine…",
+   "q": "В двигателе с циклом Аткинсона…",
    "a": [
-    "the compression is longer than the expansion",
-    "the expansion is longer than the effective compression",
-    "there is no compression",
-    "the spark comes after top dead centre"
+    "сжатие длиннее расширения",
+    "расширение длиннее действительного сжатия",
+    "сжатия нет",
+    "искра проскакивает после ВМТ"
    ],
    "c": 1,
-   "why": "Late intake valve closing shortens the effective compression, while the full expansion stroke extracts more work."
+   "why": "Позднее закрытие впускного клапана укорачивает действительное сжатие, а полный ход расширения забирает больше работы."
   },
   {
    "lvl": "expert",
    "sec": "four-stroke",
-   "q": "What is knock?",
+   "q": "Что такое детонация?",
    "a": [
-    "A loose part",
-    "Mixture self-igniting before the flame arrives",
-    "The sound of the valves",
-    "A turbo surge"
+    "Разболтавшаяся деталь",
+    "Самовоспламенение смеси до прихода пламени",
+    "Стук клапанов",
+    "Помпаж турбины"
    ],
    "c": 1,
-   "why": "End-gas auto-ignition creates sharp pressure waves. It limits the compression ratio of petrol engines."
+   "why": "Самовоспламенение несгоревшего остатка смеси даёт резкие волны давления. Именно оно ограничивает степень сжатия бензиновых двигателей."
   },
   {
    "lvl": "expert",
    "sec": "efficiency",
-   "q": "Which engines exceed 50 % efficiency?",
+   "q": "Какие двигатели превышают КПД 50 %?",
    "a": [
-    "Small two-stroke scooters",
-    "Large two-stroke marine diesels",
-    "Wankel engines",
-    "Turbo petrol engines"
+    "Маленькие двухтактные скутеры",
+    "Большие двухтактные судовые дизели",
+    "Двигатели Ванкеля",
+    "Бензиновые турбомоторы"
    ],
    "c": 1,
-   "why": "Huge, slow marine diesels with turbocharging and long expansion are the most efficient combustion engines."
+   "why": "Огромные тихоходные судовые дизели с турбонаддувом и длинным расширением — самые экономичные двигатели внутреннего сгорания."
   },
   {
    "lvl": "expert",
    "sec": "gearbox",
-   "q": "In 1st gear (3.6 × 3.9 final drive), the wheel torque is about how many times the engine torque (ignoring losses)?",
+   "q": "На первой передаче (3,6 × главная пара 3,9) момент на колёсах больше момента двигателя примерно во сколько раз (без учёта потерь)?",
    "a": [
-    "3.9",
-    "7.5",
+    "3,9",
+    "7,5",
     "14",
     "36"
    ],
    "c": 2,
-   "why": "Overall ratio = 3.6 × 3.9 ≈ 14, so torque is multiplied by about 14 (and speed divided by 14)."
+   "why": "Общее передаточное число 3,6 × 3,9 ≈ 14, значит момент умножается примерно в 14 раз (а скорость во столько же раз делится)."
   }
  ]
 }

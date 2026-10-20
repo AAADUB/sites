@@ -51,7 +51,11 @@ export function initChrome() {
   const settingsBtn = $<HTMLButtonElement>('[data-act="settings"]')!;
 
   // header style at the top of the page
-  const onScroll = () => header.classList.toggle('is-top', scrollY < 40);
+  const hero = document.getElementById('top');
+  const onScroll = () => {
+    header.classList.toggle('is-top', scrollY < 40);
+    hero?.classList.toggle('is-scrolled', scrollY > 80);
+  };
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 

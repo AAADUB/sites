@@ -86,9 +86,9 @@ export class WankelEngine {
       else innerPath.lineTo(x, y);
     }
     outer.holes.push(innerPath);
-    const hm = makeMaterial('aluminium', { color: '#8c939c' });
+    const hm = makeMaterial('aluminium', { color: '#8c939c', repeat: 5 });
     const housing = new THREE.Group();
-    const ring = new THREE.Mesh(extrude(outer, 0.5, 0.02, 2), hm.mat);
+    const ring = new THREE.Mesh(extrude(outer, 0.5, 0.02, 4), hm.mat);
     housing.add(ring);
     // back side plate
     const plateShape = new THREE.Shape();
@@ -100,13 +100,13 @@ export class WankelEngine {
       if (i === 0) plateShape.moveTo(Math.cos(ang) * r, Math.sin(ang) * r);
       else plateShape.lineTo(Math.cos(ang) * r, Math.sin(ang) * r);
     }
-    const pm = makeMaterial('iron', { color: '#2d3136' });
+    const pm = makeMaterial('iron', { color: '#2d3136', repeat: 6 });
     const plate = new THREE.Mesh(extrude(plateShape, 0.08, 0.01, 2), pm.mat);
     plate.position.z = -0.29;
     housing.add(plate);
     // stationary gear on the side plate
     const gearM = makeMaterial('darksteel');
-    const fixedGear = new THREE.Mesh(extrude(sprocketShape(0.48, 24, 0.035, 0.2), 0.08, 0.004, 2), gearM.mat);
+    const fixedGear = new THREE.Mesh(extrude(sprocketShape(0.48, 24, 0.035, 0.2), 0.08, 0.004, 48), gearM.mat);
     fixedGear.position.z = -0.21;
     housing.add(fixedGear);
     this.inner.add(housing);
@@ -126,10 +126,10 @@ export class WankelEngine {
     const hole = new THREE.Path();
     hole.absarc(0, 0, 0.72, 0, Math.PI * 2, true);
     rs.holes.push(hole);
-    const rm = makeMaterial('steel', { color: '#aeb3ba' });
-    const rotorMesh = new THREE.Mesh(extrude(rs, 0.42, 0.012, 2), rm.mat);
+    const rm = makeMaterial('steel', { color: '#aeb3ba', repeat: 5 });
+    const rotorMesh = new THREE.Mesh(extrude(rs, 0.42, 0.012, 64), rm.mat);
     this.rotor.add(rotorMesh);
-    const ringGear = new THREE.Mesh(extrude(sprocketShape(0.74, 36, 0.035, 0.6), 0.1, 0.004, 2), gearM.mat);
+    const ringGear = new THREE.Mesh(extrude(sprocketShape(0.74, 36, 0.035, 0.6), 0.1, 0.004, 64), gearM.mat);
     ringGear.position.z = -0.15;
     this.rotor.add(ringGear);
     const sealM = makeMaterial('darksteel', { color: '#3a3d42' });

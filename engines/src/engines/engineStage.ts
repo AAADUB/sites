@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh';
+import './bvh';
 import type { Stage, StageScene } from '../core/renderer';
 import { tierSpec } from '../core/quality';
 import { createBase, type BaseScene, type CameraPreset } from './common';
@@ -8,10 +8,6 @@ import { Annotator } from './annotate';
 import { EngineSim } from './sim';
 import { reducedMotion, onSettings } from '../core/settings';
 
-// accelerated raycasting for picking and label occlusion
-THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
-THREE.BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree;
-THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
 
 export const ENGINE_PRESETS: Record<string, CameraPreset> = {

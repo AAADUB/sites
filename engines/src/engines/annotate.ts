@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import './bvh';
 import { t } from '../ui/i18n';
 
 export interface Annotatable<K extends string> {
@@ -202,7 +203,6 @@ export class Annotator<K extends string> {
     const pick = this.target.pickables();
     const c = this.centre.clone().project(this.camera);
     const cx = (c.x * 0.5 + 0.5) * W;
-    const cy = (-c.y * 0.5 + 0.5) * H;
     const visible: Label[] = [];
     for (const l of this.labels) {
       if (l.el.style.display === 'none') continue;
@@ -236,33 +236,45 @@ export class Annotator<K extends string> {
         l.w = l.el.offsetWidth;
         l.h = l.el.offsetHeight;
       }
-      // push the label outward from the model centre
-      let dx = l.ax - cx;
-      let dy = l.ay - cy;
-      const len = Math.hypot(dx, dy) || 1;
-      dx /= len;
-      dy /= len;
-      const off = Math.min(90, Math.max(40, W * 0.06));
-      l.x = l.ax + dx * off + (dx > 0 ? l.w / 2 : -l.w / 2);
-      l.y = l.ay + dy * off * 0.6;
       visible.push(l);
     }
-    // relax overlaps (vertical separation within the same side)
-    visible.sort((a, b) => a.y - b.y);
-    for (let iter = 0; iter < 6; iter++) {
-      for (let i = 1; i < visible.length; i++) {
-        const a = visible[i - 1];
-        const b = visible[i];
-        if (Math.abs(a.x - b.x) < (a.w + b.w) / 2 + 6 && b.y - a.y < (a.h + b.h) / 2 + 4) {
-          const push = ((a.h + b.h) / 2 + 4 - (b.y - a.y)) / 2;
-          a.y -= push;
-          b.y += push;
+    // Callout layout: labels go to the left or right of the model (by anchor side),
+    // sorted by height and spread so they never overlap, with leader lines to the anchors.
+    const gap = 6;
+    const off = Math.min(110, Math.max(36, W * 0.07));
+    for (const side of [-1, 1]) {
+      const col = visible.filter((l) => (l.ax < cx ? -1 : 1) === side).sort((p, q) => p.ay - q.ay);
+      for (const l of col) {
+        l.x = l.ax + side * (off + l.w / 2);
+        l.y = l.ay;
+      }
+      // forward pass: push down to avoid overlaps
+      for (let i = 1; i < col.length; i++) {
+        const prev = col[i - 1];
+        const cur = col[i];
+        const min = prev.y + (prev.h + cur.h) / 2 + gap;
+        if (cur.y < min) cur.y = min;
+      }
+      // keep inside the stage: if the last one overflows, shift the column up
+      const last = col[col.length - 1];
+      if (last) {
+        const over = last.y + last.h / 2 + 8 - H;
+        if (over > 0) for (const l of col) l.y -= over;
+      }
+      // backward pass for the top edge
+      for (let i = col.length - 1; i >= 0; i--) {
+        const cur = col[i];
+        const top = cur.h / 2 + 8;
+        if (cur.y < top) cur.y = top;
+        if (i < col.length - 1) {
+          const next = col[i + 1];
+          const max = next.y - (next.h + cur.h) / 2 - gap;
+          if (cur.y > max) cur.y = max;
         }
       }
     }
     for (const l of visible) {
       l.x = Math.min(W - l.w / 2 - 8, Math.max(l.w / 2 + 8, l.x));
-      l.y = Math.min(H - l.h / 2 - 8, Math.max(l.h / 2 + 8, l.y));
       l.el.style.transform = `translate(${Math.round(l.x - l.w / 2)}px, ${Math.round(l.y - l.h / 2)}px)`;
       if (!l.on) {
         l.on = true;

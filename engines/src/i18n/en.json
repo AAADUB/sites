@@ -210,7 +210,59 @@
   "hybridWheels": "Wheels",
   "ofMax": "of max",
   "soundOn": "Sound on",
-  "soundOff": "Sound off"
+  "soundOff": "Sound off",
+  "diag": {
+   "tank": "Fuel tank",
+   "pump": "Fuel pump",
+   "rail": "Fuel line",
+   "injector": "Injector",
+   "intakeAir": "Air",
+   "spray": "Fine mist",
+   "battery": "Battery",
+   "coil": "Ignition coil",
+   "plug": "Spark plug",
+   "lowV": "12 V",
+   "highV": "20,000+ V",
+   "spark": "Spark",
+   "oilPan": "Oil pan",
+   "oilPump": "Oil pump",
+   "filter": "Oil filter",
+   "bearings": "Bearings",
+   "oilFilm": "Oil film",
+   "radiator": "Radiator",
+   "thermostat": "Thermostat",
+   "waterPump": "Water pump",
+   "jacket": "Water jacket",
+   "fan": "Fan",
+   "hot": "Hot",
+   "cool": "Cooled",
+   "manifold": "Exhaust",
+   "catalyst": "Catalytic converter",
+   "muffler": "Silencer",
+   "tailpipe": "Tailpipe",
+   "dirtyGas": "CO, HC, NOx",
+   "cleanGas": "CO₂, H₂O, N₂",
+   "turbine": "Turbine",
+   "compressor": "Compressor",
+   "intercooler": "Intercooler",
+   "wastegate": "Wastegate",
+   "belt": "Belt drive",
+   "engine": "Engine",
+   "air": "Fresh air",
+   "exhaustGas": "Exhaust gas",
+   "shaft": "Shared shaft",
+   "rpm": "Engine speed",
+   "speed": "Speed"
+  },
+  "blueprint": {
+   "title": "Bore and stroke",
+   "bore": "Bore",
+   "stroke": "Stroke",
+   "tdc": "TDC",
+   "bdc": "BDC",
+   "mm": "mm",
+   "caption": "The piston travels one stroke between top and bottom dead centre. This model: 86 mm bore × 86 mm stroke, 500 cm³."
+  }
  },
  "parts": {
   "block": {
@@ -458,6 +510,28 @@
     "**Spark timing.** The flame needs time to spread, so the spark comes 10–30° before the top. The faster the engine turns, the earlier the spark.",
     "**Pressure model.** Compression and expansion follow p·Vⁿ = constant with n ≈ 1.3. Burning is modelled with a Wiebe function, x_b(θ) = 1 − exp(−a·((θ − θ₀)/Δθ)^(m+1)), with a ≈ 5 and m ≈ 2. Peak pressure here is about 50–65 bar at full throttle.",
     "**Compression ratio {typ}.** Petrol engines use about 9–14:1. Higher would be more efficient, but the mixture would start to [[knock]]."
+   ],
+   "figures": [
+    {
+     "n": 720,
+     "u": "°",
+     "l": "of crank rotation in one cycle"
+    },
+    {
+     "n": 2,
+     "u": "",
+     "l": "crankshaft turns per cycle"
+    },
+    {
+     "n": 10,
+     "u": ":1",
+     "l": "compression ratio {typ}"
+    },
+    {
+     "n": 60,
+     "u": " bar",
+     "l": "peak pressure at full throttle in this model"
+    }
    ]
   },
   "diesel": {
@@ -492,6 +566,23 @@
     "**Combustion.** After injection starts there is a short ignition delay. The fuel that mixed during the delay burns all at once (the sharp first peak), then the rest burns as fast as it can mix with air. The model uses a double Wiebe function for this.",
     "**Load control.** A petrol engine controls power by throttling the air. A diesel lets the air in freely and changes the amount of fuel. That avoids pumping losses at part load, one reason for its high efficiency.",
     "**Efficiency {typ}:** a modern car diesel reaches about 40–45 % at its best point, against roughly 35–41 % for a modern petrol engine."
+   ],
+   "figures": [
+    {
+     "n": 17,
+     "u": ":1",
+     "l": "compression ratio {typ}"
+    },
+    {
+     "n": 45,
+     "u": " %",
+     "l": "best efficiency of a car diesel {typ}"
+    },
+    {
+     "n": 2000,
+     "u": " bar",
+     "l": "common-rail injection pressure {typ}"
+    }
    ]
   },
   "two-stroke": {

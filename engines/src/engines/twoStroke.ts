@@ -45,7 +45,7 @@ export class TwoStrokeEngine {
   private crank = new THREE.Group();
   private rodG = new THREE.Group();
   private pistonG = new THREE.Group();
-  private housings: Array<{ key: TwoKey; full: THREE.Mesh; back: THREE.Mesh | null; front: THREE.Mesh | null; pm: PartMaterial; pmF: PartMaterial; build: () => Brush }> = [];
+  private housings: Array<{ key: TwoKey; full: THREE.Mesh; back: THREE.Mesh | null; front: THREE.Mesh | null; pmS: PartMaterial; pm: PartMaterial; pmF: PartMaterial; build: () => Brush }> = [];
   chamber!: ChamberParticles;
   transferFlow!: FlowParticles;
   exhaustFlow!: FlowParticles;
@@ -158,14 +158,16 @@ export class TwoStrokeEngine {
       { key: 'head', kind: 'aluminium', build: headBuild, anchor: [0.4, yH + 0.42, 0.2] },
     ];
     for (const d of defs) {
-      const pm = makeMaterial(d.kind, { hatch: true, color: d.key === 'block' ? '#9aa0a8' : undefined });
-      const pmF = makeMaterial(d.kind, { hatch: true });
-      const full = new THREE.Mesh(bake(d.build()), pm.mat);
+      const col = d.key === 'block' ? '#9aa0a8' : undefined;
+      const pmS = makeMaterial(d.kind, { color: col });
+      const pm = makeMaterial(d.kind, { hatch: true, color: col });
+      const pmF = makeMaterial(d.kind, { color: col });
+      const full = new THREE.Mesh(bake(d.build()), pmS.mat);
       const holder = new THREE.Group();
       holder.add(full);
       this.group.add(holder);
-      this.housings.push({ key: d.key, full, back: null, front: null, pm, pmF, build: d.build });
-      this.add(d.key, holder, [pm, pmF], d.anchor);
+      this.housings.push({ key: d.key, full, back: null, front: null, pmS, pm, pmF, build: d.build });
+      this.add(d.key, holder, [pmS, pm, pmF], d.anchor);
       await this.frame();
     }
 
@@ -360,6 +362,7 @@ export class TwoStrokeEngine {
         h.front.position.z = c * 1.6;
       }
       setXray(h.pm, this.xray.v);
+      setXray(h.pmS, this.xray.v);
       setXray(h.pmF, Math.max(this.xray.v, c));
     }
     const clip = c > 0.5 ? 0 : 10;

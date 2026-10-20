@@ -79,6 +79,9 @@ interface Housing {
   full: THREE.Mesh;
   back: THREE.Mesh | null;
   front: THREE.Mesh | null;
+  /** solid (uncut) material */
+  pmFull: PartMaterial;
+  /** back half: hatched cut face */
   pm: PartMaterial;
   pmFront: PartMaterial;
   build: () => Brush;
@@ -267,15 +270,17 @@ export class SingleCylinderEngine {
     ];
 
     for (const d of housingDefs) {
-      const pm = makeMaterial(d.kind, { hatch: true, color: d.key === 'camcover' ? '#24272c' : undefined });
-      const pmFront = makeMaterial(d.kind, { hatch: true, color: d.key === 'camcover' ? '#24272c' : undefined });
+      const col = d.key === 'camcover' ? '#24272c' : undefined;
+      const pmFull = makeMaterial(d.kind, { color: col });
+      const pm = makeMaterial(d.kind, { hatch: true, color: col });
+      const pmFront = makeMaterial(d.kind, { color: col });
       const solid = d.build();
-      const full = new THREE.Mesh(bake(solid), pm.mat);
+      const full = new THREE.Mesh(bake(solid), pmFull.mat);
       const holder = new THREE.Group();
       holder.add(full);
-      const hs: Housing = { key: d.key, full, back: null, front: null, pm, pmFront, build: d.build };
+      const hs: Housing = { key: d.key, full, back: null, front: null, pmFull, pm, pmFront, build: d.build };
       this.housings.push(hs);
-      this.addPart(d.key, holder, [pm, pmFront], d.anchor, d.explode, true);
+      this.addPart(d.key, holder, [pmFull, pm, pmFront], d.anchor, d.explode, true);
       this.group.add(holder);
       await this.yieldFrame();
     }
@@ -823,6 +828,7 @@ export class SingleCylinderEngine {
     // x-ray: housings translucent
     for (const h of this.housings) {
       setXray(h.pm, x);
+      setXray(h.pmFull, x);
       setXray(h.pmFront, Math.max(x, c));
       h.pmFront.mat.opacity = 1;
       if (h.front) {
